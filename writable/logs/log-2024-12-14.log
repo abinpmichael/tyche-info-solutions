@@ -1,0 +1,402 @@
+CRITICAL - 2024-12-14 20:38:04 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "template/header.php"
+[Method: GET, Route: test]
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 41.
+ 1 SYSTEMPATH\View\View.php(222): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('template/header.php')
+ 2 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('template/header', [], true)
+ 3 APPPATH\Controllers\Pages.php(13): view('template/header')
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Pages->Showme('test')
+ 5 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pages))
+ 6 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-12-14 20:38:17 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "template/header.php"
+[Method: GET, Route: home]
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 41.
+ 1 SYSTEMPATH\View\View.php(222): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('template/header.php')
+ 2 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('template/header', [], true)
+ 3 APPPATH\Controllers\Pages.php(13): view('template/header')
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Pages->Showme('home')
+ 5 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pages))
+ 6 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-12-14 20:38:18 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "template/header.php"
+[Method: GET, Route: home]
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 41.
+ 1 SYSTEMPATH\View\View.php(222): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('template/header.php')
+ 2 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('template/header', [], true)
+ 3 APPPATH\Controllers\Pages.php(13): view('template/header')
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Pages->Showme('home')
+ 5 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pages))
+ 6 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-12-14 20:41:51 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "templates/home.php"
+[Method: GET, Route: home]
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 41.
+ 1 SYSTEMPATH\View\View.php(222): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('templates/home.php')
+ 2 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('templates/home', [], true)
+ 3 APPPATH\Controllers\Pages.php(14): view('templates/home')
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Pages->Showme('home')
+ 5 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pages))
+ 6 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-12-14 20:41:52 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "templates/home.php"
+[Method: GET, Route: home]
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 41.
+ 1 SYSTEMPATH\View\View.php(222): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('templates/home.php')
+ 2 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('templates/home', [], true)
+ 3 APPPATH\Controllers\Pages.php(14): view('templates/home')
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Pages->Showme('home')
+ 5 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pages))
+ 6 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-12-14 20:41:54 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "templates/home.php"
+[Method: GET, Route: home]
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 41.
+ 1 SYSTEMPATH\View\View.php(222): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('templates/home.php')
+ 2 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('templates/home', [], true)
+ 3 APPPATH\Controllers\Pages.php(14): view('templates/home')
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Pages->Showme('home')
+ 5 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pages))
+ 6 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-12-14 20:41:54 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "templates/home.php"
+[Method: GET, Route: home]
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 41.
+ 1 SYSTEMPATH\View\View.php(222): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('templates/home.php')
+ 2 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('templates/home', [], true)
+ 3 APPPATH\Controllers\Pages.php(14): view('templates/home')
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Pages->Showme('home')
+ 5 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pages))
+ 6 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-12-14 20:41:55 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "templates/home.php"
+[Method: GET, Route: home]
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 41.
+ 1 SYSTEMPATH\View\View.php(222): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('templates/home.php')
+ 2 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('templates/home', [], true)
+ 3 APPPATH\Controllers\Pages.php(14): view('templates/home')
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Pages->Showme('home')
+ 5 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pages))
+ 6 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-12-14 20:41:56 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "templates/home.php"
+[Method: GET, Route: home]
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 41.
+ 1 SYSTEMPATH\View\View.php(222): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('templates/home.php')
+ 2 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('templates/home', [], true)
+ 3 APPPATH\Controllers\Pages.php(14): view('templates/home')
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Pages->Showme('home')
+ 5 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pages))
+ 6 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-12-14 20:43:01 --> ErrorException: include(header.php): Failed to open stream: No such file or directory
+[Method: GET, Route: home]
+in APPPATH\Views\pages\home.php on line 5.
+ 1 APPPATH\Views\pages\home.php(5): CodeIgniter\Debug\Exceptions->errorHandler(2, 'include(header.php): Failed to open stream: No such file or directory', 'C:\\xampp\\htdocs\\tyche-info-solutions\\app\\Views\\pages\\home.php', 5)
+ 2 APPPATH\Views\pages\home.php(5): include()
+ 3 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\tyche-info-solutions\\app\\Views\\pages\\home.php')
+ 4 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 5 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('Pages/home', [], true)
+ 6 APPPATH\Controllers\Pages.php(14): view('Pages/home')
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Pages->Showme('home')
+ 8 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pages))
+ 9 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-12-14 20:43:03 --> ErrorException: include(header.php): Failed to open stream: No such file or directory
+[Method: GET, Route: home]
+in APPPATH\Views\pages\home.php on line 5.
+ 1 APPPATH\Views\pages\home.php(5): CodeIgniter\Debug\Exceptions->errorHandler(2, 'include(header.php): Failed to open stream: No such file or directory', 'C:\\xampp\\htdocs\\tyche-info-solutions\\app\\Views\\pages\\home.php', 5)
+ 2 APPPATH\Views\pages\home.php(5): include()
+ 3 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\tyche-info-solutions\\app\\Views\\pages\\home.php')
+ 4 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 5 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('Pages/home', [], true)
+ 6 APPPATH\Controllers\Pages.php(14): view('Pages/home')
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Pages->Showme('home')
+ 8 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pages))
+ 9 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-12-14 20:46:10 --> ErrorException: include(templates/headermenu.php): Failed to open stream: No such file or directory
+[Method: GET, Route: home]
+in APPPATH\Views\pages\home.php on line 5.
+ 1 APPPATH\Views\pages\home.php(5): CodeIgniter\Debug\Exceptions->errorHandler(2, 'include(templates/headermenu.php): Failed to open stream: No such file or directory', 'C:\\xampp\\htdocs\\tyche-info-solutions\\app\\Views\\pages\\home.php', 5)
+ 2 APPPATH\Views\pages\home.php(5): include()
+ 3 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\tyche-info-solutions\\app\\Views\\pages\\home.php')
+ 4 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 5 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('Pages/home', [], true)
+ 6 APPPATH\Controllers\Pages.php(14): view('Pages/home')
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Pages->Showme('home')
+ 8 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pages))
+ 9 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-12-14 20:46:12 --> ErrorException: include(templates/headermenu.php): Failed to open stream: No such file or directory
+[Method: GET, Route: home]
+in APPPATH\Views\pages\home.php on line 5.
+ 1 APPPATH\Views\pages\home.php(5): CodeIgniter\Debug\Exceptions->errorHandler(2, 'include(templates/headermenu.php): Failed to open stream: No such file or directory', 'C:\\xampp\\htdocs\\tyche-info-solutions\\app\\Views\\pages\\home.php', 5)
+ 2 APPPATH\Views\pages\home.php(5): include()
+ 3 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\tyche-info-solutions\\app\\Views\\pages\\home.php')
+ 4 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 5 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('Pages/home', [], true)
+ 6 APPPATH\Controllers\Pages.php(14): view('Pages/home')
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Pages->Showme('home')
+ 8 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pages))
+ 9 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-12-14 20:47:59 --> ErrorException: require(templates/headermenu.php): Failed to open stream: No such file or directory
+[Method: GET, Route: home]
+in APPPATH\Views\pages\home.php on line 5.
+ 1 APPPATH\Views\pages\home.php(5): CodeIgniter\Debug\Exceptions->errorHandler(2, 'require(templates/headermenu.php): Failed to open stream: No such file or directory', 'C:\\xampp\\htdocs\\tyche-info-solutions\\app\\Views\\pages\\home.php', 5)
+ 2 APPPATH\Views\pages\home.php(5): require()
+ 3 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\tyche-info-solutions\\app\\Views\\pages\\home.php')
+ 4 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 5 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('Pages/home', [], true)
+ 6 APPPATH\Controllers\Pages.php(14): view('Pages/home')
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Pages->Showme('home')
+ 8 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pages))
+ 9 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-12-14 20:48:02 --> ErrorException: require(templates/headermenu.php): Failed to open stream: No such file or directory
+[Method: GET, Route: home]
+in APPPATH\Views\pages\home.php on line 5.
+ 1 APPPATH\Views\pages\home.php(5): CodeIgniter\Debug\Exceptions->errorHandler(2, 'require(templates/headermenu.php): Failed to open stream: No such file or directory', 'C:\\xampp\\htdocs\\tyche-info-solutions\\app\\Views\\pages\\home.php', 5)
+ 2 APPPATH\Views\pages\home.php(5): require()
+ 3 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\tyche-info-solutions\\app\\Views\\pages\\home.php')
+ 4 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 5 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('Pages/home', [], true)
+ 6 APPPATH\Controllers\Pages.php(14): view('Pages/home')
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Pages->Showme('home')
+ 8 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pages))
+ 9 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-12-14 20:48:03 --> ErrorException: require(templates/headermenu.php): Failed to open stream: No such file or directory
+[Method: GET, Route: home]
+in APPPATH\Views\pages\home.php on line 5.
+ 1 APPPATH\Views\pages\home.php(5): CodeIgniter\Debug\Exceptions->errorHandler(2, 'require(templates/headermenu.php): Failed to open stream: No such file or directory', 'C:\\xampp\\htdocs\\tyche-info-solutions\\app\\Views\\pages\\home.php', 5)
+ 2 APPPATH\Views\pages\home.php(5): require()
+ 3 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\tyche-info-solutions\\app\\Views\\pages\\home.php')
+ 4 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 5 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('Pages/home', [], true)
+ 6 APPPATH\Controllers\Pages.php(14): view('Pages/home')
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Pages->Showme('home')
+ 8 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pages))
+ 9 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-12-14 20:48:04 --> ErrorException: require(templates/headermenu.php): Failed to open stream: No such file or directory
+[Method: GET, Route: home]
+in APPPATH\Views\pages\home.php on line 5.
+ 1 APPPATH\Views\pages\home.php(5): CodeIgniter\Debug\Exceptions->errorHandler(2, 'require(templates/headermenu.php): Failed to open stream: No such file or directory', 'C:\\xampp\\htdocs\\tyche-info-solutions\\app\\Views\\pages\\home.php', 5)
+ 2 APPPATH\Views\pages\home.php(5): require()
+ 3 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\tyche-info-solutions\\app\\Views\\pages\\home.php')
+ 4 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 5 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('Pages/home', [], true)
+ 6 APPPATH\Controllers\Pages.php(14): view('Pages/home')
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Pages->Showme('home')
+ 8 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pages))
+ 9 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-12-14 20:50:10 --> ErrorException: require(templates/headermenu.php): Failed to open stream: No such file or directory
+[Method: GET, Route: home]
+in APPPATH\Views\pages\home.php on line 5.
+ 1 APPPATH\Views\pages\home.php(5): CodeIgniter\Debug\Exceptions->errorHandler(2, 'require(templates/headermenu.php): Failed to open stream: No such file or directory', 'C:\\xampp\\htdocs\\tyche-info-solutions\\app\\Views\\pages\\home.php', 5)
+ 2 APPPATH\Views\pages\home.php(5): require()
+ 3 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\tyche-info-solutions\\app\\Views\\pages\\home.php')
+ 4 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 5 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('Pages/home', [], true)
+ 6 APPPATH\Controllers\Pages.php(14): view('Pages/home')
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Pages->Showme('home')
+ 8 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pages))
+ 9 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-12-14 20:50:12 --> ErrorException: require(templates/headermenu.php): Failed to open stream: No such file or directory
+[Method: GET, Route: home]
+in APPPATH\Views\pages\home.php on line 5.
+ 1 APPPATH\Views\pages\home.php(5): CodeIgniter\Debug\Exceptions->errorHandler(2, 'require(templates/headermenu.php): Failed to open stream: No such file or directory', 'C:\\xampp\\htdocs\\tyche-info-solutions\\app\\Views\\pages\\home.php', 5)
+ 2 APPPATH\Views\pages\home.php(5): require()
+ 3 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\tyche-info-solutions\\app\\Views\\pages\\home.php')
+ 4 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 5 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('Pages/home', [], true)
+ 6 APPPATH\Controllers\Pages.php(14): view('Pages/home')
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Pages->Showme('home')
+ 8 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pages))
+ 9 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-12-14 20:50:13 --> ErrorException: require(templates/headermenu.php): Failed to open stream: No such file or directory
+[Method: GET, Route: home]
+in APPPATH\Views\pages\home.php on line 5.
+ 1 APPPATH\Views\pages\home.php(5): CodeIgniter\Debug\Exceptions->errorHandler(2, 'require(templates/headermenu.php): Failed to open stream: No such file or directory', 'C:\\xampp\\htdocs\\tyche-info-solutions\\app\\Views\\pages\\home.php', 5)
+ 2 APPPATH\Views\pages\home.php(5): require()
+ 3 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\tyche-info-solutions\\app\\Views\\pages\\home.php')
+ 4 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 5 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('Pages/home', [], true)
+ 6 APPPATH\Controllers\Pages.php(14): view('Pages/home')
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Pages->Showme('home')
+ 8 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pages))
+ 9 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-12-14 20:50:14 --> ErrorException: require(templates/headermenu.php): Failed to open stream: No such file or directory
+[Method: GET, Route: home]
+in APPPATH\Views\pages\home.php on line 5.
+ 1 APPPATH\Views\pages\home.php(5): CodeIgniter\Debug\Exceptions->errorHandler(2, 'require(templates/headermenu.php): Failed to open stream: No such file or directory', 'C:\\xampp\\htdocs\\tyche-info-solutions\\app\\Views\\pages\\home.php', 5)
+ 2 APPPATH\Views\pages\home.php(5): require()
+ 3 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\tyche-info-solutions\\app\\Views\\pages\\home.php')
+ 4 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 5 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('Pages/home', [], true)
+ 6 APPPATH\Controllers\Pages.php(14): view('Pages/home')
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Pages->Showme('home')
+ 8 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pages))
+ 9 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-12-14 20:52:28 --> ErrorException: require(templates/headermenu.php): Failed to open stream: No such file or directory
+[Method: GET, Route: home]
+in APPPATH\Views\pages\home.php on line 995.
+ 1 APPPATH\Views\pages\home.php(995): CodeIgniter\Debug\Exceptions->errorHandler(2, 'require(templates/headermenu.php): Failed to open stream: No such file or directory', 'C:\\xampp\\htdocs\\tyche-info-solutions\\app\\Views\\pages\\home.php', 995)
+ 2 APPPATH\Views\pages\home.php(995): require()
+ 3 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\tyche-info-solutions\\app\\Views\\pages\\home.php')
+ 4 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 5 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('Pages/home', [], true)
+ 6 APPPATH\Controllers\Pages.php(14): view('Pages/home')
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Pages->Showme('home')
+ 8 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pages))
+ 9 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-12-14 20:52:30 --> ErrorException: require(templates/headermenu.php): Failed to open stream: No such file or directory
+[Method: GET, Route: home]
+in APPPATH\Views\pages\home.php on line 995.
+ 1 APPPATH\Views\pages\home.php(995): CodeIgniter\Debug\Exceptions->errorHandler(2, 'require(templates/headermenu.php): Failed to open stream: No such file or directory', 'C:\\xampp\\htdocs\\tyche-info-solutions\\app\\Views\\pages\\home.php', 995)
+ 2 APPPATH\Views\pages\home.php(995): require()
+ 3 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\tyche-info-solutions\\app\\Views\\pages\\home.php')
+ 4 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 5 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('Pages/home', [], true)
+ 6 APPPATH\Controllers\Pages.php(14): view('Pages/home')
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Pages->Showme('home')
+ 8 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pages))
+ 9 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-12-14 20:53:12 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "Pages/assets.php"
+[Method: GET, Route: assets/svg/preloaders/circle-preloader.svg]
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 41.
+ 1 SYSTEMPATH\View\View.php(222): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('Pages/assets.php')
+ 2 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('Pages/assets', [], true)
+ 3 APPPATH\Controllers\Pages.php(14): view('Pages/assets')
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Pages->Showme('assets', 'svg', 'preloaders', 'circle-preloader.svg')
+ 5 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pages))
+ 6 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-12-14 20:53:12 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "Pages/assets.php"
+[Method: GET, Route: assets/css/assets/img/home/promo-bar-bg.png]
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 41.
+ 1 SYSTEMPATH\View\View.php(222): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('Pages/assets.php')
+ 2 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('Pages/assets', [], true)
+ 3 APPPATH\Controllers\Pages.php(14): view('Pages/assets')
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Pages->Showme('assets', 'css', 'assets', 'img', 'home', 'promo-bar-bg.png')
+ 5 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pages))
+ 6 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-12-14 20:53:26 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "Pages/assets.php"
+[Method: GET, Route: assets/css/assets/img/home/promo-bar-bg.png]
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 41.
+ 1 SYSTEMPATH\View\View.php(222): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('Pages/assets.php')
+ 2 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('Pages/assets', [], true)
+ 3 APPPATH\Controllers\Pages.php(14): view('Pages/assets')
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Pages->Showme('assets', 'css', 'assets', 'img', 'home', 'promo-bar-bg.png')
+ 5 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pages))
+ 6 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-12-14 20:53:26 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "Pages/assets.php"
+[Method: GET, Route: assets/svg/preloaders/circle-preloader.svg]
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 41.
+ 1 SYSTEMPATH\View\View.php(222): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('Pages/assets.php')
+ 2 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('Pages/assets', [], true)
+ 3 APPPATH\Controllers\Pages.php(14): view('Pages/assets')
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Pages->Showme('assets', 'svg', 'preloaders', 'circle-preloader.svg')
+ 5 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pages))
+ 6 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-12-14 20:56:12 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "Pages/about-us.php"
+[Method: GET, Route: about-us.php]
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 41.
+ 1 SYSTEMPATH\View\View.php(222): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('Pages/about-us.php')
+ 2 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('Pages/about-us.php', [], true)
+ 3 APPPATH\Controllers\Pages.php(14): view('Pages/about-us.php')
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Pages->Showme('about-us.php')
+ 5 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pages))
+ 6 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-12-14 20:56:16 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "Pages/assets.php"
+[Method: GET, Route: assets/svg/preloaders/circle-preloader.svg]
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 41.
+ 1 SYSTEMPATH\View\View.php(222): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('Pages/assets.php')
+ 2 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('Pages/assets', [], true)
+ 3 APPPATH\Controllers\Pages.php(14): view('Pages/assets')
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Pages->Showme('assets', 'svg', 'preloaders', 'circle-preloader.svg')
+ 5 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pages))
+ 6 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-12-14 20:56:16 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "Pages/assets.php"
+[Method: GET, Route: assets/css/assets/img/home/promo-bar-bg.png]
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 41.
+ 1 SYSTEMPATH\View\View.php(222): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('Pages/assets.php')
+ 2 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('Pages/assets', [], true)
+ 3 APPPATH\Controllers\Pages.php(14): view('Pages/assets')
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Pages->Showme('assets', 'css', 'assets', 'img', 'home', 'promo-bar-bg.png')
+ 5 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pages))
+ 6 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))

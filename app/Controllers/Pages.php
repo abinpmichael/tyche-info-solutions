@@ -9,7 +9,11 @@ class Pages extends BaseController
       echo "new controller";
     }
    public function Showme($page= 'home'){
-   	echo 'this page is :'.$page;
+   //	echo 'this page is :'.$page;
+   	echo view('templates/header');
+   	echo view('Pages/'.$page);
+   	echo view('templates/footer');
+
     }
 }
 

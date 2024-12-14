@@ -1,0 +1,8 @@
+# Enable mod_rewrite
+RewriteEngine On
+
+# If the requested URL is not pointing to an existing file or directory,
+# redirect to the public folder (ensure that you don't show the public folder in the URL)
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ /public/$1 [L]

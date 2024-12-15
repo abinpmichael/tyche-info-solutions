@@ -12,9 +12,7 @@
 <body>
   
 
-    <?php if (session()->getFlashdata('error')): ?>
-        <p style="color:red;"><?php echo session()->getFlashdata('error'); ?></p>
-    <?php endif; ?>
+   
 
     <div class="page-wrapper" id="main-wrapper" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full"
     data-sidebar-position="fixed" data-header-position="fixed">
@@ -30,11 +28,13 @@
                 </a>
               
                 <img src="assets/img/logo.png" width="100%">
-                <form action="<?= site_url('public/auth/dologin') ?>" method="POST">
+                <form action="<?= site_url('auth/dologin') ?>" method="POST">
                   <div class="mb-3">
+                    <?= csrf_field(); ?>
                     <label for="exampleInputEmail1" class="form-label">Username</label>
                     <input type="text" name="username" id="username" required class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
                   </div>
+                 
                   <div class="mb-4">
                     <label for="exampleInputPassword1" class="form-label">Password</label>
                     <input type="password" name="password" id="password" required class="form-control" id="exampleInputPassword1">
@@ -42,7 +42,9 @@
                   <div class="d-flex align-items-center justify-content-between ">
                   
                     <button type="submit" class="btn btn-outline-primary m-1">Login</button>
-                   
+                     <?php if (session()->getFlashdata('error')): ?>
+        <p style="color:red;"><?php echo session()->getFlashdata('error'); ?></p>
+    <?php endif; ?>
                     
                   </div>
                   

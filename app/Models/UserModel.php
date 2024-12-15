@@ -1,26 +1,27 @@
 <?php
 // app/Models/UserModel.php
+
+
 namespace App\Models;
 
 use CodeIgniter\Model;
 
 class UserModel extends Model
 {
-    protected $table = 'users';
-    protected $primaryKey = 'id';
-    protected $allowedFields = ['username', 'email', 'password'];
-    protected $useTimestamps = true;
+    protected $table      = 'users'; // Name of your users table
+    protected $primaryKey = 'id'; // Primary key column
+    protected $allowedFields = ['username', 'password']; // Fields that can be updated
 
-    // Method to check user credentials (login)
+    // Hash password for storing securely
     public function getUserByUsername($username)
     {
-        return $this->where('username', $username)->first();
+        return $this->where('username', $username)->first();  // Query the database for the username
     }
 
-    // Method to check email during registration
-    public function getUserByEmail($email)
+    public function validatePassword($inputPassword, $storedPassword)
     {
-        return $this->where('email', $email)->first();
+        return password_verify($inputPassword, $storedPassword); // Verify password
     }
 }
+
 ?>

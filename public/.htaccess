@@ -1,13 +1,16 @@
-# Enable rewrite engine
-RewriteEngine On
+<IfModule mod_rewrite.c>
+    RewriteEngine On
 
-# Remove index.php from the URL
-RewriteCond %{REQUEST_URI} ^/index.php
-RewriteRule ^index.php/(.*)$ /$1 [R=301,L]
+    # Redirect Trailing Slashes...
+    RewriteCond %{REQUEST_URI} /$
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule ^(.*)/$ /$1 [L,R=301]
 
-# If the requested resource exists, do not redirect
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_FILENAME} !-d
+    # Handle Front Controller...
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteRule ^(.*)$ index.php/$1 [L]
 
-# Rewrite all other requests to index.php
-RewriteRule ^(.*)$ index.php/$1 [L]
+    # Disable Directory Listings
+    Options -Indexes
+</IfModule>

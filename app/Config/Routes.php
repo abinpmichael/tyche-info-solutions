@@ -5,9 +5,13 @@ use CodeIgniter\Router\RouteCollection;
 /**
  * @var RouteCollection $routes
  */
-$routes->get('/', 'Pages::showme');  // This should be the main route
+$routes->setDefaultController('Pages');
+
+$routes->get('/', 'Pages::index');
+
+  // This should be the main route
 // OR 
-$routes->get('/', 'Home::index');  // Depending on what you want to load as the homepage
+//$routes->get('/', 'Home::index');  // Depending on what you want to load as the homepage
 //$routes->get('(:any)', 'Pages::showme/$1');
 
 // app/Config/Routes.php
@@ -18,6 +22,7 @@ $routes->group('admin', ['filter' => 'auth'], function($routes) {
     $routes->get('settings', 'Admin\Settings::index');
 });
 
+$routes->post('auth/dologin', 'AuthController::doLogin');
 
 $routes->get('/login', 'AuthController::login');
 $routes->post('/login', 'AuthController::loginPost');

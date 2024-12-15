@@ -1,81 +1,48 @@
 <?php
-// app/Controllers/AuthController.php
+
+
 namespace App\Controllers;
 
 use App\Models\UserModel;
-use CodeIgniter\Controller;
-use CodeIgniter\I18n\Time;
 
-class AuthController extends Controller
+class AuthController extends BaseController
 {
     public function login()
     {
-        // If the user is already logged in, redirect to dashboard
-        if (session()->has('user_id')) {
-            return redirect()->to('/dashboard');
-        }
-
-        return view('auth/login');
+        return view('auth/login'); // Show login form
     }
 
-    public function loginPost()
+    public function doLogin()
     {
         $username = $this->request->getPost('username');
         $password = $this->request->getPost('password');
 
+        // Load the UserModel
         $userModel = new UserModel();
+
+        // Check if the user exists
         $user = $userModel->getUserByUsername($username);
 
-        // Check if user exists and password matches
-        if ($user && password_verify($password, $user['password'])) {
-            // Set session data
-            session()->set('user_id', $user['id']);
-            session()->set('username', $user['username']);
-            return redirect()->to('/dashboard');
+        if ($user && $userModel->validatePassword($password, $user['password'])) {
+            // Password is correct, log the user in
+            session()->set('isLoggedIn', true);
+            session()->set('username', $username);
+
+            return redirect()->to('/admin'); // Redirect to the admin dashboard
         } else {
-            session()->setFlashdata('error', 'Invalid username or password');
-            return redirect()->to('/login');
+            // Invalid credentials
+            return redirect()->to('/login')->with('error', 'Invalid username or password');
         }
     }
 
     public function register()
     {
-        return view('auth/register');
+        return view('auth/register'); // Show register form
     }
 
     public function registerPost()
     {
-        $username = $this->request->getPost('username');
-        $email = $this->request->getPost('email');
-        $password = $this->request->getPost('password');
-        $confirmPassword = $this->request->getPost('confirm_password');
-
-        // Basic validation
-        if ($password !== $confirmPassword) {
-            session()->setFlashdata('error', 'Passwords do not match');
-            return redirect()->to('/register');
-        }
-
-        $userModel = new UserModel();
-
-        // Check if email or username already exists
-        if ($userModel->getUserByUsername($username) || $userModel->getUserByEmail($email)) {
-            session()->setFlashdata('error', 'Username or email already taken');
-            return redirect()->to('/register');
-        }
-
-        // Hash the password
-        $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
-
-        // Create new user
-        $userModel->insert([
-            'username' => $username,
-            'email' => $email,
-            'password' => $hashedPassword
-        ]);
-
-        session()->setFlashdata('success', 'Registration successful, you can log in now');
-        return redirect()->to('/login');
+        // Handle registration logic here
     }
 
     public function logout()

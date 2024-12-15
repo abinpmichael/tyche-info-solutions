@@ -5,12 +5,26 @@ use CodeIgniter\Router\RouteCollection;
 /**
  * @var RouteCollection $routes
  */
-$routes->get('/', 'Home::index');
-$routes->get('/', 'Pages::showme');  // This will redirect to 'Pages::showme' method
-$routes->get('(:any)', 'Pages::showme/$1');  // This will map other pages to the showme method
+$routes->get('/', 'Pages::showme');  // This should be the main route
+// OR 
+$routes->get('/', 'Home::index');  // Depending on what you want to load as the homepage
+//$routes->get('(:any)', 'Pages::showme/$1');
+
+// app/Config/Routes.php
+
+$routes->group('admin', ['filter' => 'auth'], function($routes) {
+    $routes->get('/', 'Admin\Dashboard::index');
+    $routes->get('users', 'Admin\Users::index');
+    $routes->get('settings', 'Admin\Settings::index');
+});
 
 
-$routes->setAutoRoute(true);
+$routes->get('/login', 'AuthController::login');
+$routes->post('/login', 'AuthController::loginPost');
+$routes->get('/register', 'AuthController::register');
+$routes->post('/register', 'AuthController::registerPost');
+$routes->get('/logout', 'AuthController::logout');
+
 
 
 

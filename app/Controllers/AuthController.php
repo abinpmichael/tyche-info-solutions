@@ -14,7 +14,7 @@ class AuthController extends BaseController
 
     public function doLogin()
     {
-        $username = $this->request->getPost('username');
+       $username = $this->request->getPost('username');
         $password = $this->request->getPost('password');
 
         // Load the UserModel
@@ -22,13 +22,18 @@ class AuthController extends BaseController
 
         // Check if the user exists
         $user = $userModel->getUserByUsername($username);
+       // print_r($user);
+       // print_r($userModel->validatePassword($password, $user['password']));
+        // Debugging: print the hashed password
+//echo $user['password'];  // Check if this is a hashed value
+
 
         if ($user && $userModel->validatePassword($password, $user['password'])) {
             // Password is correct, log the user in
             session()->set('isLoggedIn', true);
             session()->set('username', $username);
 
-            return redirect()->to('/admin'); // Redirect to the admin dashboard
+            return redirect()->to('/Admin/dashboard'); // Redirect to the admin dashboard
         } else {
             // Invalid credentials
             return redirect()->to('/login')->with('error', 'Invalid username or password');

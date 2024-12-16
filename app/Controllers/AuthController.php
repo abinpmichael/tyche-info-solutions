@@ -33,7 +33,7 @@ class AuthController extends BaseController
             session()->set('isLoggedIn', true);
             session()->set('username', $username);
 
-            return redirect()->to('/Admin/dashboard'); // Redirect to the admin dashboard
+            return redirect()->to('/dashboard'); // Redirect to the admin dashboard
         } else {
             // Invalid credentials
             return redirect()->to('/login')->with('error', 'Invalid username or password');

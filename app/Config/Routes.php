@@ -21,9 +21,10 @@ $routes->group('admin', ['filter' => 'auth'], function($routes) {
     $routes->get('users', 'Admin\Users::index');
     $routes->get('settings', 'Admin\Settings::index');
 });
+$routes->get('dashboard', 'Admin\Dashboard::index');
+
 
 $routes->post('auth/dologin', 'AuthController::doLogin');
-
 $routes->get('/login', 'AuthController::login');
 $routes->post('/login', 'AuthController::loginPost');
 $routes->get('/register', 'AuthController::register');

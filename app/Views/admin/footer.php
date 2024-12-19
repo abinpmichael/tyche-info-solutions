@@ -1,6 +1,6 @@
-<div class="py-6 px-6 text-center">
+<!-- <div class="py-6 px-6 text-center">
           <p class="mb-0 fs-4"> Developed by <a href="#" target="_blank" class="pe-1 text-primary text-decoration-underline"><img href='assets/admin/images/logos/favicon.ico'>Magiccodz</a></p>
-        </div>
+        </div> -->
       </div>
     </div>
   </div>

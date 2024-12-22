@@ -20,6 +20,7 @@ $routes->group('admin', ['filter' => 'auth'], function($routes) {
     $routes->get('/', 'Admin\Dashboard::index');
     $routes->get('users', 'Admin\Users::index');
     $routes->get('settings', 'Admin\Settings::index');
+
 });
 $routes->get('dashboard', 'Admin\Dashboard::index');
 
@@ -30,6 +31,15 @@ $routes->post('/login', 'AuthController::loginPost');
 $routes->get('/register', 'AuthController::register');
 $routes->post('/register', 'AuthController::registerPost');
 $routes->get('/logout', 'AuthController::logout');
+
+
+    $routes->get('brands', 'Admin\BrandsController::index');       // List all brands
+    $routes->get('brands/create', 'Admin\BrandsController::create'); // Add new brand form
+    $routes->post('brands/store', 'Admin\BrandsController::store');  // Save new brand
+    $routes->get('brands/edit/(:num)', 'Admin\BrandsController::edit/$1'); // Edit brand form
+    $routes->post('brands/update/(:num)', 'Admin\BrandsController::update/$1'); // Update brand
+    $routes->get('brands/delete/(:num)', 'Admin\BrandsController::delete/$1');  // Delete brand
+
 
 
 

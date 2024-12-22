@@ -55,6 +55,6 @@ class BrandsController extends BaseController
     {
         $brandModel = new BrandModel();
         $brandModel->delete($id);
-        return redirect()->to('/admin/brands')->with('success', 'Brand deleted successfully');
+        return redirect()->to('/brands')->with('success', 'Brand deleted successfully');
     }
 }

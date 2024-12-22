@@ -1,6 +1,15 @@
 <div class="container-fluid">
-       
-
+    <!-- Check if the success message exists in the session -->
+    <?php if (isset($_SESSION['success'])): ?>
+        <div class="alert alert-success">
+            <?php
+            // Display the success message
+            echo $_SESSION['success'];
+            // Unset the session message so it doesn't show again
+            unset($_SESSION['success']);
+            ?>
+        </div>
+    <?php endif; ?>
 <h1>Brands</h1>
 <p align="right"><a href="brands/create"><button type="button" class="btn btn-info m-1">Add New Brand</button></a></p>
 <div class="table-responsive">
@@ -8,7 +17,7 @@
 
   <table class="table table-vcenter">
     <thead>
-         <?php foreach ($brands as $brand): ?>
+         
       <tr>
         <th>ID</th>
         <th>Name</th>
@@ -19,6 +28,7 @@
       </tr>
     </thead>
     <tbody>
+      <?php foreach ($brands as $brand): ?>
       <tr>
         <td><?= $brand['b_id'] ?></td>
         <td >

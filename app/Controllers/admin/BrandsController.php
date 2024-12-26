@@ -6,10 +6,19 @@ use App\Controllers\BaseController;
 use App\Models\BrandModel;
 
 class BrandsController extends BaseController
-{
+{    
+      public function __construct()
+    {
+        // Ensure the user is logged in
+        if (!session()->has('username')) {
+            return redirect()->to('/login');
+        }
+    }
     public function index()
     {
-
+         if (!session()->has('username')) {
+            return redirect()->to('/login');
+        }
         $brandModel = new BrandModel();
         $data['brands'] = $brandModel->findAll();
           return view('admin/header') . view('admin/brands/index', $data) . view('admin/footer');

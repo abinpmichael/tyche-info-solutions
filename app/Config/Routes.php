@@ -40,6 +40,12 @@ $routes->get('/logout', 'AuthController::logout');
     $routes->post('brands/update/(:num)', 'Admin\BrandsController::update/$1'); // Update brand
     $routes->get('brands/delete/(:num)', 'Admin\BrandsController::delete/$1');  // Delete brand
 
+$routes->get('product', 'Admin\ProductController::index');       // List all brands
+    $routes->get('product/create', 'Admin\ProductController::create'); // Add new brand form
+    $routes->post('product/store', 'Admin\ProductController::store');  // Save new brand
+    $routes->get('product/edit/(:num)', 'Admin\ProductController::edit/$1'); // Edit brand form
+    $routes->post('product/update/(:num)', 'Admin\ProductController::update/$1'); // Update brand
+    $routes->get('product/delete/(:num)', 'Admin\ProductController::delete/$1');  // Delete brand
 
 
 

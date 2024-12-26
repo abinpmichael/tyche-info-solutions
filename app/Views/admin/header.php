@@ -50,13 +50,15 @@
             <li class="sidebar-item">
               <a
                 class="sidebar-link sidebar-link warning-hover-bg"
-                href="./ui-buttons.html"
+                href="brands"
                 aria-expanded="false"
               >
                 <span class="aside-icon p-2 bg-light-warning rounded-3">
-                  <i class="ti ti-article fs-7 text-warning"></i>
+                  <i class="ti ti-brand-meta fs-7 text-warning"></i>
                 </span>
-                <span class="hide-menu ms-2 ps-1">Buttons</span>
+
+
+                <span class="hide-menu ms-2 ps-1">Brands</span>
               </a>
             </li>
             <li class="sidebar-item">
@@ -67,14 +69,14 @@
               >
                 <span class="aside-icon p-2 bg-light-danger rounded-3">
                   <i class="ti ti-alert-circle fs-7 text-danger"></i>
-                </span>
-                <span class="hide-menu ms-2 ps-1">Alerts</span>
+                </span><!-- <i class=" "></i> -->
+                <span class="hide-menu ms-2 ps-1">Products Category</span>
               </a>
             </li>
             <li class="sidebar-item">
               <a
                 class="sidebar-link sidebar-link success-hover-bg"
-                href="./ui-card.html"
+                href="product"
                 aria-expanded="false"
               >
                 <span class="aside-icon p-2 bg-light-success rounded-3">
@@ -114,7 +116,7 @@
             <li class="sidebar-item">
               <a
                 class="sidebar-link sidebar-link warning-hover-bg"
-                href="./authentication-login.html"
+                href="<?= base_url('logout');?>"
                 aria-expanded="false"
               >
                 <span class="aside-icon p-2 bg-light-warning rounded-3">
@@ -167,11 +169,15 @@
                   <div class="message-body">
                     <a href="javascript:void(0)" class="d-flex align-items-center gap-2 dropdown-item">
                       <i class="ti ti-user fs-6"></i>
-                      <p class="mb-0 fs-3">My Profile</p>
+                      <p class="mb-0 fs-3"> <?php if (session()->has('username')): ?>
+        <p>Hello, <?php echo session()->get('username'); ?>!</p>
+    <?php else: ?>
+        <p>Please log in to see your username.</p>
+    <?php endif; ?></p>
                     </a>
                   
                     
-                    <a href="./authentication-login.html" class="btn btn-outline-primary mx-3 mt-2 d-block shadow-none">Logout</a>
+                    <a href="<?= base_url('logout');?>" class="btn btn-outline-primary mx-3 mt-2 d-block shadow-none">Logout</a>
                   </div>
                 </div>
               </li>

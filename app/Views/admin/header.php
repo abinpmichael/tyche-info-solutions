@@ -64,7 +64,7 @@
             <li class="sidebar-item">
               <a
                 class="sidebar-link sidebar-link danger-hover-bg"
-                href="./ui-alerts.html"
+                href="./product"
                 aria-expanded="false"
               >
                 <span class="aside-icon p-2 bg-light-danger rounded-3">
@@ -76,13 +76,13 @@
             <li class="sidebar-item">
               <a
                 class="sidebar-link sidebar-link success-hover-bg"
-                href="product"
+                href="models"
                 aria-expanded="false"
               >
                 <span class="aside-icon p-2 bg-light-success rounded-3">
                   <i class="ti ti-cards fs-7 text-success"></i>
                 </span>
-                <span class="hide-menu ms-2 ps-1">Card</span>
+                <span class="hide-menu ms-2 ps-1">Models</span>
               </a>
             </li>
             <li class="sidebar-item">

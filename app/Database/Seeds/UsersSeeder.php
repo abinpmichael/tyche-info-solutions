@@ -8,6 +8,11 @@ class UsersSeeder extends Seeder
 {
     public function run()
     {
-        //
+      $data = [
+            [
+                'username' => 'admin',
+                'password' => password_hash('admin123', PASSWORD_DEFAULT),
+            ],
+        ];
     }
 }

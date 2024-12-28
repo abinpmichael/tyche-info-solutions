@@ -15,7 +15,9 @@ class UserModel extends Model
     // Hash password for storing securely
     public function getUserByUsername($username)
     {
-        return $this->where('username', $username)->first();  // Query the database for the username
+        $user= $this->where('username', $username)->first();  // Query the database for the username
+           log_message('debug', $this->db->getLastQuery()->getQuery()); 
+           return $user; // Return the user data
     }
 
     public function validatePassword($inputPassword, $storedPassword)

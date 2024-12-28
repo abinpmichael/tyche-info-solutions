@@ -47,6 +47,14 @@ $routes->get('product', 'Admin\ProductController::index');       // List all bra
     $routes->post('product/update/(:num)', 'Admin\ProductController::update/$1'); // Update brand
     $routes->get('product/delete/(:num)', 'Admin\ProductController::delete/$1');  // Delete brand
 
+    $routes->get('model', 'Admin\ModelController::index');
+    $routes->get('model/view/(:num)', 'Admin\ModelController::view/$1');
+    $routes->get('model/edit/(:num)', 'Admin\ModelController::edit/$1');
+    $routes->post('model/update/(:num)', 'Admin\ModelController::update/$1');
+    $routes->get('model/delete/(:num)', 'Admin\ModelController::delete/$1');
+    $routes->get('model/delete-gallery-image/(:num)', 'Admin\ModelController::deleteGalleryImage/$1');
+
+
 
 
 

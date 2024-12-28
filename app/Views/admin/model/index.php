@@ -35,13 +35,14 @@
         <td >
          <?= $model['name'] ?>
         </td>
-        <td ><img src='<?= $model['thumbnail'] ?>'></td>
+        <td ><img src="<?= base_url('writable/uploads/thumbnails/' . $model['thumbnail']) ?>" width='100px;' alt="Thumbnail">
+</td>
         <td >
           <?= $model['status'] ? 'Active' : 'Inactive' ?>
         </td>
-        <td><a href="model/view/<?= $model['id'] ?>"><i class="ti ti-eye" style="font-size: 24px;"></i></a> |
-          <a href="model/edit/<?= $model['id'] ?>"><i style="font-size: 24px;" class="ti ti-edit"></i></a>|
-           <aa href="model/delete/<?= $model['id'] ?>" onclick="return confirm('Are you sure?')"><i style="font-size: 24px;" class="ti ti-trash-x"></i></a>
+        <td><a href="<?= base_url('model/view/'.$model['id']) ?>"><i class="ti ti-eye" style="font-size: 24px;"></i></a> |
+          <a href="<?= base_url('model/edit/'.$model['id']) ?>"><i style="font-size: 24px;" class="ti ti-edit"></i></a>|
+           <a href="<?= base_url('model/delete/'.$model['id']) ?>" onclick="return confirm('Are you sure?')"><i style="font-size: 24px;" class="ti ti-trash-x"></i></a>
         
         </td>
 

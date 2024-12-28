@@ -39,8 +39,8 @@
           <?= $products['p_status'] ? 'Active' : 'Inactive' ?>
         </td>
         <td>
-          <a href="product/edit/<?= $products['p_id'] ?>"><i style="font-size: 24px;" class="ti ti-edit"></i></a>|
-           <a href="product/delete/<?= $products['p_id'] ?>"><i style="font-size: 24px;" class="ti ti-trash-x"></i></a>
+          <a href="<?= base_url('product/edit/' . $products['p_id']) ?>"><i style="font-size: 24px;" class="ti ti-edit"></i></a>|
+           <a href="<?= base_url('product/delete/'.$products['p_id']) ?>"><i style="font-size: 24px;" class="ti ti-trash-x"></i></a>
         
         </td>
 

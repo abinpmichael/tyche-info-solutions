@@ -1,5 +1,14 @@
- <!-- Include TinyMCE CDN -->
+ <style type="text/css">
 
+#preview img {
+    display: inline-block;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+</style>
 
  <div class="container-fluid">
         <div class="container-fluid">
@@ -10,21 +19,21 @@
                 <div class="card-body">
 
 
-    <form action="<?= base_url("model/update/" . $model['id']); ?>" method="post" enctype="multipart/form-data">
+    <form action="<?= base_url("model/store") ?>" method="post" enctype="multipart/form-data">
         <?= csrf_field() ?>
 
         <div class="row">
             <div class="col-md-6">
                 <div class="form-group">
                     <label for="name">Name:</label>
-                    <input type="text" name="name" id="name" value="<?= $model['name'] ?>" class="form-control" required><br>
+                    <input type="text" name="name" id="name"  class="form-control" required><br>
                 </div>
             </div>
 
             <div class="col-md-6">
                 <div class="form-group">
                     <label for="s_desc">Small Description:</label>
-                    <input type="text" name="s_desc" id="s_desc" value="<?= $model['s_desc'] ?>" class="form-control" required><br>
+                    <input type="text" name="s_desc" id="s_desc"  class="form-control" required><br>
                 </div>
             </div>
         </div>
@@ -37,7 +46,7 @@
                         <option value="">-- Select a Product --</option>
                         <?php foreach ($product as $products): ?>
                             <option value="<?= esc($products['p_id']) ?>" 
-                                <?= isset($model['type']) && $model['type'] == $products['p_id'] ? 'selected' : '' ?>>
+                                >
                                 <?= esc($products['p_name']) ?>
                             </option>
                         <?php endforeach; ?>
@@ -48,7 +57,7 @@
             <div class="col-md-6">
                 <div class="form-group">
                     <label for="processor">Processor:</label>
-                    <input type="text" name="processor" id="processor" value="<?= $model['processor'] ?>" class="form-control"><br>
+                    <input type="text" name="processor" id="processor"  class="form-control"><br>
                 </div>
             </div>
         </div>
@@ -57,14 +66,14 @@
             <div class="col-md-6">
                 <div class="form-group">
                     <label for="screen_size">Screen Size:</label>
-                    <input type="text" name="screen_size" id="screen_size" value="<?= $model['screen_size'] ?>" class="form-control"><br>
+                    <input type="text" name="screen_size" id="screen_size"  class="form-control"><br>
                 </div>
             </div>
 
             <div class="col-md-6">
                 <div class="form-group">
                     <label for="storage">Storage:</label>
-                    <input type="text" name="storage" id="storage" value="<?= $model['storage'] ?>" class="form-control"><br>
+                    <input type="text" name="storage" id="storage"  class="form-control"><br>
                 </div>
             </div>
         </div>
@@ -73,14 +82,14 @@
             <div class="col-md-6">
                 <div class="form-group">
                     <label for="memory">Memory:</label>
-                    <input type="text" name="memory" id="memory" value="<?= $model['memory'] ?>" class="form-control"><br>
+                    <input type="text" name="memory" id="memory" class="form-control"><br>
                 </div>
             </div>
 
             <div class="col-md-6">
                 <div class="form-group">
                     <label for="warranty">Warranty:</label>
-                    <input type="text" name="warranty" id="warranty" value="<?= $model['warranty'] ?>" class="form-control"><br>
+                    <input type="text" name="warranty" id="warranty" class="form-control"><br>
                 </div>
             </div>
         </div>
@@ -89,43 +98,36 @@
             <div class="col-md-6">
                 <div class="form-group">
                     <label for="graphics">Graphics:</label>
-                    <input type="text" name="graphics" id="graphics" value="<?= $model['graphics'] ?>" class="form-control"><br>
+                    <input type="text" name="graphics" id="graphics"  class="form-control"><br>
                 </div>
             </div>
 
             <div class="col-md-6">
                 <div class="form-group">
                     <label>Thumbnail:</label>
-                    <?php if ($model['thumbnail']): ?>
-                        <div class="mb-2">
-                            <img src="<?= base_url("writable/uploads/thumbnails/" . $model['thumbnail']); ?>" width="100">
-                        </div>
-                    <?php endif; ?>
+                    
                     <input type="file" name="thumbnail" class="form-control mb-3">
                 </div>
             </div>
         </div>
 
         <div class="form-group">
-            <label>Gallery:</label>
+            <label>Gallery:(you can Select Multi images)</label>
             <div class="gallery-images">
-                <?php foreach ($gallery as $image): ?>
-                    <div class="gallery-item">
-                        <img src="<?= base_url("writable/uploads/gallery/" . $image['image']); ?>" width="100" class="mr-2">
-                        <a href="/model/delete-gallery-image/<?= $image['id'] ?>" onclick="return confirm('Are you sure?')" class="btn btn-danger btn-sm">Delete</a>
-                    </div>
-                <?php endforeach; ?>
+                
             </div>
-            <input type="file" name="gallery[]" multiple class="form-control mb-3">
+            <input type="file" name="gallery[]" multiple class="form-control mb-3" id="gallery">
         </div>
-
+<div id="preview" class="mt-3">
+    <!-- Thumbnails will be displayed here -->
+</div>
         <div class="row">
             <div class="col-md-6">
                 <div class="form-group">
                     <label for="status">Status:</label>
                     <select name="status" id="status" class="form-control">
-                        <option value="1" <?= $model['status'] ? 'selected' : '' ?>>Active</option>
-                        <option value="0" <?= !$model['status'] ? 'selected' : '' ?>>Inactive</option>
+                        <option value="1" >Active</option>
+                        <option value="0">Inactive</option>
                     </select><br>
                 </div>
             </div>
@@ -134,7 +136,7 @@
             <div class="col-md-12">
                 <div class="form-group">
                     <label for="status">About:</label>
-                    <textarea id="editor" name="about" class="form-control"><?= $model['about'] ?></textarea>
+                    <textarea id="editor" name="about" class="form-control"></textarea>
                     <br>
                 </div>
             </div>
@@ -143,14 +145,14 @@
             <div class="col-md-6">
                 <div class="form-group">
                     <label for="status">Graphics Details:</label>
-                    <textarea name="graphics_d" class="form-control"><?= $model['graphics_d'] ?></textarea>
+                    <textarea name="graphics_d" class="form-control"></textarea>
                     <br>
                 </div>
             </div>
              <div class="col-md-6">
                 <div class="form-group">
                     <label for="status">Display Details:</label>
-                    <textarea name="display_d" class="form-control"><?= $model['display_d'] ?></textarea>
+                    <textarea name="display_d" class="form-control"></textarea>
                     <br>
                 </div>
             </div>
@@ -160,14 +162,14 @@
             <div class="col-md-6">
                 <div class="form-group">
                     <label for="status">Audio Details:</label>
-                    <textarea name="audio_d" class="form-control"><?= $model['audio_d'] ?></textarea>
+                    <textarea name="audio_d" class="form-control"></textarea>
                     <br>
                 </div>
             </div>
              <div class="col-md-6">
                 <div class="form-group">
                     <label for="status">Dimensions Details:</label>
-                    <textarea name="dimensions_d" class="form-control"><?= $model['dimensions_d'] ?></textarea>
+                    <textarea name="dimensions_d" class="form-control"></textarea>
                     <br>
                 </div>
             </div>
@@ -176,11 +178,27 @@
             <div class="col-md-6">
                 <div class="form-group">
                     <label for="status">Port Datails:</label>
-                    <textarea name="ports_d" class="form-control"><?= $model['ports_d'] ?></textarea>
+                    <textarea name="ports_d" class="form-control"></textarea>
+                    <br>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="status">Meta Title:</label>
+                    <textarea name="meta_title" class="form-control"></textarea>
                     <br>
                 </div>
             </div>
              
+        </div>
+         <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="status">Mete Description:</label>
+                    <textarea name="Meta_description" class="form-control"></textarea>
+                    <br>
+                </div>
+            </div>
         </div>
         <button type="submit" class="btn btn-primary btn-block">Update</button>
     </form>
@@ -232,3 +250,31 @@
  }); 
  
  </script>
+ <script>
+    document.getElementById('gallery').addEventListener('change', function(event) {
+        const preview = document.getElementById('preview');
+        preview.innerHTML = ''; // Clear previous previews
+
+        const files = event.target.files;
+
+        if (files) {
+            Array.from(files).forEach(file => {
+                if (file.type.startsWith('image/')) {
+                    const reader = new FileReader();
+                    reader.onload = function(e) {
+                        const img = document.createElement('img');
+                        img.src = e.target.result;
+                        img.alt = 'Selected Image';
+                        img.style.width = '100px'; // Set a fixed width for thumbnails
+                        img.style.marginRight = '10px'; // Add spacing between images
+                        img.style.marginBottom = '10px'; // Add spacing between rows
+                        img.style.border = '1px solid #ddd'; // Optional: Add border to images
+                        img.style.borderRadius = '5px'; // Optional: Rounded corners
+                        preview.appendChild(img);
+                    };
+                    reader.readAsDataURL(file); // Read the file as a data URL
+                }
+            });
+        }
+    });
+</script>

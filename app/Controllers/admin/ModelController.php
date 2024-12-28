@@ -2,6 +2,8 @@
 namespace App\Controllers\Admin;
 
 use CodeIgniter\Controller;
+use App\Models\ProductModel;
+
 
 
 class ModelController extends Controller
@@ -27,8 +29,110 @@ class ModelController extends Controller
             return redirect()->to('/model')->with('error', 'Model not found.');
         }
 
-        return view('admin/model/view', ['model' => $model, 'gallery' => $gallery]);
+        return view('admin/header').view('admin/model/view', ['model' => $model, 'gallery' => $gallery]).view('admin/footer');
     }
+    public function create()
+{
+     $productModel = new \App\Models\ProductModel();
+      $product = $productModel->findAll();
+    return view('admin/header').view('admin/model/create', ['product' => $product]).view('admin/footer');
+}
+
+public function store(){
+ 
+    $validation = \Config\Services::validation();
+
+    // Validation rules for inputs
+    $rules = [
+        'name'        => 'required|string|max_length[255]',
+        'type'        => 'required|string|max_length[100]',
+        'processor'   => 'string|max_length[255]',
+        'screen_size' => 'string|max_length[50]',
+        'storage'     => 'string|max_length[100]',
+        'memory'      => 'string|max_length[100]',
+        'warranty'    => 'string|max_length[100]',
+        'graphics'    => 'string|max_length[255]',
+        'status'      => 'string|max_length[50]',
+        'graphics_d'  => 'string',
+        'display_d'   => 'string',
+        'audio_d'     => 'string',
+        'dimensions_d'=> 'string',
+        'ports_d'     => 'string',
+        'about'       => 'string',
+        'meta_title'  => 'string',
+        'meta_desc'  => 'string',
+        /* Uncomment if validating images
+        'thumbnail'   => 'is_image[thumbnail]|max_size[thumbnail,2048]',
+        'gallery'     => 'is_image[gallery.*]|max_size[gallery.*,2048]', */
+    ];
+
+    if (!$this->validate($rules)) {
+        return redirect()->back()->withInput()->with('errors', $validation->getErrors());
+    }
+
+    // Load models
+    $modelModel = new \App\Models\ModelModel();
+    $galleryModel = new \App\Models\ModelGalleryModel();
+
+    // Get input data
+    $files = $this->request->getFiles();
+    $data = $this->request->getPost();
+
+    // Insert model details
+    $modelId = $modelModel->insert([
+        'name'        => $data['name'],
+        's_desc'      => $data['s_desc'],
+        'type'        => $data['type'],
+        'processor'   => $data['processor'],
+        'screen_size' => $data['screen_size'],
+        'storage'     => $data['storage'],
+        'memory'      => $data['memory'],
+        'warranty'    => $data['warranty'],
+        'graphics'    => $data['graphics'],
+        'status'      => $data['status'],
+        'graphics_d'  => $data['graphics_d'],
+        'display_d'   => $data['display_d'],
+        'audio_d'     => $data['audio_d'],
+        'dimensions_d'=> $data['dimensions_d'],
+        'ports_d'     => $data['ports_d'],
+        'about'       => $data['about'],
+        'meta_title'  => $data['meta_title'],
+        'meta_desc'   => $data['meta_desc'],
+    ]);
+
+    if (!$modelId) {
+        return redirect()->back()->withInput()->with('errors', 'Failed to create the model.');
+    }
+
+    // Handle thumbnail upload
+    if ($thumbnail = $files['thumbnail']) {
+        if ($thumbnail->isValid() && !$thumbnail->hasMoved()) {
+            $thumbnailName = $thumbnail->getRandomName();
+            $thumbnail->move(WRITEPATH . 'uploads/thumbnails', $thumbnailName);
+
+            // Update model with thumbnail path
+            $modelModel->update($modelId, ['thumbnail' => $thumbnailName]);
+        }
+    }
+
+    // Handle gallery uploads
+    if (isset($files['gallery']) && is_array($files['gallery'])) {
+        foreach ($files['gallery'] as $file) {
+            if ($file->isValid() && !$file->hasMoved()) {
+                $galleryName = $file->getRandomName();
+                $file->move(WRITEPATH . 'uploads/gallery', $galleryName);
+
+                $galleryModel->insert([
+                    'model_id' => $modelId,
+                    'image'    => $galleryName,
+                ]);
+            }
+        }
+    }
+
+    return redirect()->to('model/view/' . $modelId)->with('message', 'Model created successfully!');
+}
+
 
     public function edit($id)
     {
@@ -86,6 +190,12 @@ class ModelController extends Controller
             'warranty'    => $data['warranty'],
             'graphics'    => $data['graphics'],
             'status'    => $data['status'],
+            'graphics_d' => $data['graphics_d'],
+            'display_d'     => $data['display_d'],
+            'audio_d'      => $data['audio_d'],
+            'dimensions_d'    => $data['dimensions_d'],
+            'ports_d'    => $data['ports_d'],
+            'about'    => $data['about'],
         ]);
 
         // Replace Thumbnail if uploaded
@@ -122,7 +232,7 @@ class ModelController extends Controller
         $modelModel = new \App\Models\ModelModel();
         $modelModel->delete($id);
 
-        return redirect()->to('admin/model')->with('message', 'Model deleted successfully!');
+        return redirect()->to('model')->with('success', 'Model deleted successfully!');
     }
 
     public function deleteGalleryImage($imageId)

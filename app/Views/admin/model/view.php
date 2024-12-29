@@ -7,7 +7,7 @@
                     <div class="card">
                         <div class="card-body">
                             <!-- Model Information -->
-                            <h1 class="display-4"><?= $model['name'] ?> <small class="text-muted"><?= $model['s_desc'] ?></small></h1>
+                            <h1 class="display-4"><?= $model['name'] ?> <small class="text-muted"><?= $model['s_desc'] ?>)</small></h1>
                             <p><strong>Processor:</strong> <?= $model['processor'] ?></p>
                             <p><strong>Screen Size:</strong> <?= $model['screen_size'] ?></p>
                             <p><strong>Storage:</strong> <?= $model['storage'] ?></p>
@@ -32,8 +32,7 @@
                             </div>
 
                             <!-- Additional Information -->
-                            <h4>Small Description</h4>
-                            <p><?= $model['s_desc'] ?></p>
+                          
 
                             <h4>Graphics Details</h4>
                             <p><?= $model['graphics_d'] ?></p>
@@ -54,8 +53,12 @@
                             <p><?= $model['about'] ?></p>
 
                             <!-- Status -->
+                                <div class="my-4">
                             <h4>Status</h4>
-                            <p><?= $model['status'] ? 'Active' : 'Inactive' ?></p>
+                            <p class="status-badge <?= $model['status'] ? 'bg-success' : 'bg-danger' ?>">
+                                <?= $model['status'] ? 'Active' : 'Inactive' ?>
+                            </p>
+                        </div>
 
                             <a href="<?= base_url('model') ?>" class="btn btn-primary mt-3">Back to Models</a>
                         </div>

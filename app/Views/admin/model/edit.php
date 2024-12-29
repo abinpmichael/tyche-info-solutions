@@ -1,6 +1,96 @@
  <!-- Include TinyMCE CDN -->
 
+<style type="text/css">
+   /* Alert Container Styles */
+.alert {
+    padding: 20px;
+    margin: 10px 0;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: 500;
+    position: relative;
+    max-width: 100%;
+    transition: all 0.3s ease-in-out;
+}
 
+/* Alert Types */
+.alert-success {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+.alert-info {
+    background-color: #d1ecf1;
+    color: #0c5460;
+    border: 1px solid #bee5eb;
+}
+
+.alert-warning {
+    background-color: #fff3cd;
+    color: #856404;
+    border: 1px solid #ffeeba;
+}
+
+.alert-danger {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
+/* Alert Icon Styling */
+.alert .alert-icon {
+    font-size: 24px;
+    margin-right: 10px;
+    vertical-align: middle;
+}
+
+/* Close Button Styles */
+.alert .close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 20px;
+    color: inherit;
+    cursor: pointer;
+}
+
+.alert .close:hover {
+    color: #000;
+}
+
+/* Animation for Appearing Alerts */
+@keyframes slideIn {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.alert {
+    animation: slideIn 0.5s ease-out;
+}
+
+/* Fade Out Animation on Dismiss */
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+.alert.fade-out {
+    animation: fadeOut 0.3s forwards;
+}
+ 
+    
+</style>
  <div class="container-fluid">
         <div class="container-fluid">
           <div class="card">
@@ -105,14 +195,23 @@
                 </div>
             </div>
         </div>
-
+<?php if (session()->has('message')): ?>
+    <div class="alert alert-danger ">
+        <?php  
+            // Display the error message
+            echo session()->get('message');
+        ?>
+    </div>
         <div class="form-group">
             <label>Gallery:</label>
             <div class="gallery-images">
+                <!-- Check if the 'errors' session flashdata exists -->
+
+<?php endif; ?>
                 <?php foreach ($gallery as $image): ?>
                     <div class="gallery-item">
                         <img src="<?= base_url("writable/uploads/gallery/" . $image['image']); ?>" width="100" class="mr-2">
-                        <a href="/model/delete-gallery-image/<?= $image['id'] ?>" onclick="return confirm('Are you sure?')" class="btn btn-danger btn-sm">Delete</a>
+                        <a href="<?= base_url("model/delete-gallery-image/". $image['id'])?>" onclick="return confirm('Are you sure?')" class="btn btn-danger btn-sm">Delete</a>
                     </div>
                 <?php endforeach; ?>
             </div>
@@ -180,7 +279,22 @@
                     <br>
                 </div>
             </div>
-             
+             <div class="col-md-6">
+                <div class="form-group">
+                    <label for="status">Meta title:</label>
+                    <textarea name="meta_title" class="form-control"><?= $model['meta_title'] ?></textarea>
+                    <br>
+                </div>
+            </div>
+        </div>
+            <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="status">Mete Description:</label>
+                    <textarea name="meta_desc" class="form-control"><?= $model['meta_desc'] ?></textarea>
+                    <br>
+                </div>
+            </div>
         </div>
         <button type="submit" class="btn btn-primary btn-block">Update</button>
     </form>

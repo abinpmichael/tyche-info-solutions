@@ -8,6 +8,7 @@
     border-radius: 5px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
+
 </style>
 
  <div class="container-fluid">
@@ -17,6 +18,15 @@
               <h5 class="card-title fw-semibold mb-4">Edit edit</h5>
               <div class="card">
                 <div class="card-body">
+ <!-- Check if the 'errors' session flashdata exists -->
+<?php if (session()->has('errors')): ?>
+    <div class="alert alert-errors">
+        <?php 
+            // Display the error message
+            echo session()->get('errors');
+        ?>
+    </div>
+<?php endif; ?>
 
 
     <form action="<?= base_url("model/store") ?>" method="post" enctype="multipart/form-data">
@@ -195,7 +205,7 @@
             <div class="col-md-6">
                 <div class="form-group">
                     <label for="status">Mete Description:</label>
-                    <textarea name="Meta_description" class="form-control"></textarea>
+                    <textarea name="meta_desc" class="form-control"></textarea>
                     <br>
                 </div>
             </div>

@@ -59,8 +59,8 @@ public function store(){
         'dimensions_d'=> 'string',
         'ports_d'     => 'string',
         'about'       => 'string',
-        'meta_title'  => 'string',
-        'meta_desc'  => 'string',
+        /*'meta_title'  => 'string',
+        'meta_desc'  => 'string',*/
         /* Uncomment if validating images
         'thumbnail'   => 'is_image[thumbnail]|max_size[thumbnail,2048]',
         'gallery'     => 'is_image[gallery.*]|max_size[gallery.*,2048]', */
@@ -196,6 +196,8 @@ public function store(){
             'dimensions_d'    => $data['dimensions_d'],
             'ports_d'    => $data['ports_d'],
             'about'    => $data['about'],
+            'meta_title'  => $data['meta_title'],
+        'meta_desc'   => $data['meta_desc'],
         ]);
 
         // Replace Thumbnail if uploaded

@@ -56,6 +56,12 @@ $routes->get('product', 'Admin\ProductController::index');       // List all bra
     $routes->get('model/delete/(:num)', 'Admin\ModelController::delete/$1');
     $routes->get('model/delete-gallery-image/(:num)', 'Admin\ModelController::deleteGalleryImage/$1');
 
+$routes->get('slider', 'Admin\SliderController::index');
+$routes->get('slider/create', 'Admin\SliderController::create');
+$routes->post('slider/store', 'Admin\SliderController::store');
+$routes->get('slider/edit/(:num)', 'Admin\SliderController::edit/$1');
+$routes->post('slider/update/(:num)', 'Admin\SliderController::update/$1');
+$routes->post('slider/delete/(:num)', 'Admin\SliderController::delete/$1');
 
 
 

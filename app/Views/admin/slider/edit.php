@@ -26,6 +26,7 @@
      <form action="<?= base_url('slider/update/'.$record['id']) ?>" method="post" enctype="multipart/form-data">
          <label>Big Heading</label>
          <input type="text" name="b_heading" value="<?= $record['b_heading'] ?>" class="form-control" required> <br/>
+            <?= csrf_field(); ?>
          <label>Small Heading</label>
          <input type="text" name="s_heading" value="<?= esc($record['s_heading']); ?>" class="form-control" required> <br/>
          <label>Button Name</label>

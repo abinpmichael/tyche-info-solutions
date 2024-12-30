@@ -3,6 +3,7 @@ namespace App\Controllers\Admin;
 
 use CodeIgniter\Controller;
 use App\Models\ProductModel;
+use App\Models\BrandModel;
 
 
 
@@ -12,9 +13,18 @@ class ModelController extends Controller
     {
        
         $modelModel = new \App\Models\ModelModel();
-        $models = $modelModel->findAll();
+        $brandModel = new \App\Models\BrandModel();
+        $models = $modelModel
+    ->select('models.*, brands.b_name')
+    ->join('brands', 'brands.b_id = models.b_id', 'left')
+    ->findAll();
 
-        return view('admin/header').view('admin/model/index', ['models' => $models]).view('admin/footer');
+// Pass the data to the view
+return view('admin/header')
+    . view('admin/model/index', ['models' => $models])
+    . view('admin/footer');
+
+        
     }
 
     public function view($id)
@@ -33,9 +43,22 @@ class ModelController extends Controller
     }
     public function create()
 {
-     $productModel = new \App\Models\ProductModel();
-      $product = $productModel->findAll();
-    return view('admin/header').view('admin/model/create', ['product' => $product]).view('admin/footer');
+$brandModel = new \App\Models\BrandModel();
+$productModel = new \App\Models\ProductModel();
+
+$product = $productModel->findAll();
+$brand = $brandModel->findAll();
+
+// Merge the data into a single array
+$data = [
+    'product' => $product,
+    'brand'   => $brand,
+];
+
+// Pass the merged data array to the view
+return view('admin/header')
+    . view('admin/model/create', $data)
+    . view('admin/footer');
 }
 
 public function store(){
@@ -59,6 +82,7 @@ public function store(){
         'dimensions_d'=> 'string',
         'ports_d'     => 'string',
         'about'       => 'string',
+        'b_id'       => 'b_id',
         /*'meta_title'  => 'string',
         'meta_desc'  => 'string',*/
         /* Uncomment if validating images
@@ -98,6 +122,7 @@ public function store(){
         'about'       => $data['about'],
         'meta_title'  => $data['meta_title'],
         'meta_desc'   => $data['meta_desc'],
+         'b_id'   => $data['b_id'],
     ]);
 
     if (!$modelId) {

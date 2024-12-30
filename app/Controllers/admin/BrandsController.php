@@ -32,11 +32,53 @@ class BrandsController extends BaseController
     public function store()
     {
         $brandModel = new BrandModel();
+         $validation = \Config\Services::validation();
+          // Set validation rules
+  $validation->setRules([
+    'b_name' => [
+        'label' => 'Brand Name',
+        'rules' => 'required',
+        'errors' => [
+            'required' => '{field} is required.',
+           
+        ],
+    ],
+    'b_desc' => [
+        'label' => 'Brand Description',
+        'rules' => 'required',
+        'errors' => [
+            'required' => '{field} is required.',
+            
+        ],
+    ],
+    'b_status' => [
+        'label' => 'Brand Status',
+        'rules' => 'required|in_list[1,0]',
+        'errors' => [
+            'required' => '{field} is required.',
+            
+        ],
+    ],
+]);
+
+    if (!$this->validate($validation->getRules())) {
+        return redirect()->back()->withInput()->with('msg', $this->validator->getErrors());
+    }
         $data = [
             'b_name' => $this->request->getPost('b_name'),
             'b_desc' => $this->request->getPost('b_desc'),
             'b_status' => $this->request->getPost('b_status'),
         ];
+         $img = $this->request->getFile('img');
+    if ($img && $img->isValid() && !$img->hasMoved()) {
+        $imgName = $img->getRandomName();
+        $img->move(WRITEPATH . 'uploads/brand', $imgName);
+
+        // Add the thumbnail name to the data array
+        $data['img'] = $imgName;
+    }
+
+
         $brandModel->insert($data);
         return redirect()->to('brands')->with('success', 'Brand added successfully');
     }
@@ -51,11 +93,51 @@ class BrandsController extends BaseController
     public function update($id)
     {
         $brandModel = new BrandModel();
+         $validation = \Config\Services::validation();
+          // Set validation rules
+  $validation->setRules([
+    'b_name' => [
+        'label' => 'Brand Name',
+        'rules' => 'required',
+        'errors' => [
+            'required' => '{field} is required.',
+           
+        ],
+    ],
+    'b_desc' => [
+        'label' => 'Brand Description',
+        'rules' => 'required',
+        'errors' => [
+            'required' => '{field} is required.',
+            
+        ],
+    ],
+    'b_status' => [
+        'label' => 'Brand Status',
+        'rules' => 'required|in_list[1,0]',
+        'errors' => [
+            'required' => '{field} is required.',
+            
+        ],
+    ],
+]);
+
+         if (!$this->validate($validation->getRules())) {
+        return redirect()->back()->withInput()->with('msg', $this->validator->getErrors());
+    }
         $data = [
             'b_name' => $this->request->getPost('b_name'),
             'b_desc' => $this->request->getPost('b_desc'),
             'b_status' => $this->request->getPost('b_status'),
         ];
+        $img = $this->request->getFile('img');
+    if ($img && $img->isValid() && !$img->hasMoved()) {
+        $imgName = $img->getRandomName();
+        $img->move(WRITEPATH . 'uploads/brand', $imgName);
+
+        // Add the thumbnail name to the data array
+        $data['img'] = $imgName;
+    }
         $brandModel->update($id, $data);
         return redirect()->to('/brands')->with('success', 'Brand updated successfully');
     }

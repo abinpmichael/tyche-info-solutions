@@ -74,22 +74,49 @@ class SliderController extends BaseController
 
     public function update($id)
     {
-        $model = new YourModelName();
-        $data = [
-            'b_heading'   => $this->request->getPost('b_heading'),
-            's_heading'   => $this->request->getPost('s_heading'),
-            'button_name' => $this->request->getPost('button_name'),
-            'b_link'      => $this->request->getPost('b_link'),
-            'img'         => $this->request->getPost('img')
-        ];
-        $model->update($id, $data);
-        return redirect()->to('/your_controller_name');
+        $model = new SliderModel();
+
+// Fetch existing data
+$slider = $model->find($id);
+
+if (!$slider) {
+    return redirect()->back()->with('msg', 'Slider not found.');
+}
+
+// Prepare updated data
+$data = [
+    'b_heading'   => $this->request->getPost('b_heading'),
+    's_heading'   => $this->request->getPost('s_heading'),
+    'button_name' => $this->request->getPost('button_name'),
+    'b_link'      => $this->request->getPost('b_link'),
+];
+
+// Handle image upload
+     $img = $this->request->getFile('img');
+    if ($img && $img->isValid() && !$img->hasMoved()) {
+    $imgName = $img->getRandomName();
+    $img->move(WRITEPATH . 'uploads/slider', $imgName);
+
+    // Add the new image name to the data array
+    $data['img'] = $imgName;
+
+    // Optionally delete the old image
+    if (!empty($slider['img']) && file_exists(WRITEPATH . 'uploads/slider/' . $slider['img'])) {
+        unlink(WRITEPATH . 'uploads/slider/' . $slider['img']);
+    }
+    }
+
+    // Update the slider
+    $model->update($id, $data);
+
+    return redirect()->to('/slider')->with('msg', 'Record updated successfully.');
+
     }
 
     public function delete($id)
     {
-        $model = new YourModelName();
+        $model = new SliderModel();
         $model->delete($id);
-        return redirect()->to('/your_controller_name');
+        return redirect()->to('/slider')->with('msg', 'Record Delete Successfully.');
     }
 }

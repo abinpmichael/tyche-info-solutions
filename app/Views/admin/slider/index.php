@@ -43,9 +43,9 @@
             <td><?= $record['created_at'] ?></td>
             <td>
                 <a href="<?= base_url('slider/edit/'.$record['id']); ?>" class="btn btn-primary btn-sm">Edit</a>
-                <form action="/your_controller_name/delete/<?= $record['id'] ?>" method="post" class="d-inline">
+                <a href="<?= base_url('slider/delete/'.$record['id']); ?>"class="d-inline">
                     <button type="submit" class="btn btn-danger btn-sm">Delete</button>
-                </form>
+                </a>
             </td>
         </tr>
         <?php endforeach; ?>

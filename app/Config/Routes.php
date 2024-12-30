@@ -61,7 +61,7 @@ $routes->get('slider/create', 'Admin\SliderController::create');
 $routes->post('slider/store', 'Admin\SliderController::store');
 $routes->get('slider/edit/(:num)', 'Admin\SliderController::edit/$1');
 $routes->post('slider/update/(:num)', 'Admin\SliderController::update/$1');
-$routes->post('slider/delete/(:num)', 'Admin\SliderController::delete/$1');
+$routes->get('slider/delete/(:num)', 'Admin\SliderController::delete/$1');
 
 
 

@@ -51,28 +51,36 @@
         <div class="row">
             <div class="col-md-6">
                 <div class="form-group">
-                    <label for="type">Type:</label>
-                    <select name="type" id="type" class="form-control" required>
-                        <option value="">-- Select a Product --</option>
-                        <?php foreach ($product as $products): ?>
-                            <option value="<?= esc($products['p_id']) ?>" 
-                                >
-                                <?= esc($products['p_name']) ?>
-                            </option>
-                        <?php endforeach; ?>
-                    </select><br>
-                </div>
+    <label for="product">Product:</label>
+    <select name="product_id" id="product" class="form-control" required>
+        <option value="">-- Select a Product --</option>
+        <?php foreach ($product as $products): ?>
+            <option value="<?= esc($products['p_id']) ?>"><?= esc($products['p_name']) ?></option>
+        <?php endforeach; ?>
+    </select>
+</div>
             </div>
+             <div class="col-md-6">
+               <div class="form-group">
+    <label for="type">Brand:</label>
+    <select name="b_id" id="type" class="form-control" required>
+        <option value="">-- Select a Brand --</option>
+        <?php foreach ($brand as $brands): ?>
+            <option value="<?= esc($brands['b_id']) ?>"><?= esc($brands['b_name']) ?></option>
+        <?php endforeach; ?>
+    </select>
+</div>
+            </div>
+            
+        </div>
 
+        <div class="row">
             <div class="col-md-6">
                 <div class="form-group">
                     <label for="processor">Processor:</label>
                     <input type="text" name="processor" id="processor"  class="form-control"><br>
                 </div>
             </div>
-        </div>
-
-        <div class="row">
             <div class="col-md-6">
                 <div class="form-group">
                     <label for="screen_size">Screen Size:</label>
@@ -80,15 +88,16 @@
                 </div>
             </div>
 
+            
+        </div>
+
+        <div class="row">
             <div class="col-md-6">
                 <div class="form-group">
                     <label for="storage">Storage:</label>
                     <input type="text" name="storage" id="storage"  class="form-control"><br>
                 </div>
             </div>
-        </div>
-
-        <div class="row">
             <div class="col-md-6">
                 <div class="form-group">
                     <label for="memory">Memory:</label>
@@ -96,22 +105,24 @@
                 </div>
             </div>
 
+            
+        </div>
+
+        <div class="row">
             <div class="col-md-6">
                 <div class="form-group">
                     <label for="warranty">Warranty:</label>
                     <input type="text" name="warranty" id="warranty" class="form-control"><br>
                 </div>
             </div>
-        </div>
-
-        <div class="row">
             <div class="col-md-6">
                 <div class="form-group">
                     <label for="graphics">Graphics:</label>
                     <input type="text" name="graphics" id="graphics"  class="form-control"><br>
                 </div>
             </div>
-
+</div>
+ <div class="row">
             <div class="col-md-6">
                 <div class="form-group">
                     <label>Thumbnail:</label>
@@ -119,17 +130,22 @@
                     <input type="file" name="thumbnail" class="form-control mb-3">
                 </div>
             </div>
-        </div>
-
+        
+<div class="col-md-6">
         <div class="form-group">
             <label>Gallery:(you can Select Multi images)</label>
-            <div class="gallery-images">
-                
-            </div>
+            
             <input type="file" name="gallery[]" multiple class="form-control mb-3" id="gallery">
         </div>
-<div id="preview" class="mt-3">
+
+</div>
+
+    <div class="gallery-images">
+                
+            </div>
+    <div id="preview" class="mt-3">
     <!-- Thumbnails will be displayed here -->
+</div>
 </div>
         <div class="row">
             <div class="col-md-6">

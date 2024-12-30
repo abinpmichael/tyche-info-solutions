@@ -21,6 +21,7 @@
       <tr>
         <th>ID</th>
         <th>Name</th>
+        <th>Brands</th>
         <th>image</th>
         <th>Status</th>
         
@@ -34,6 +35,9 @@
         <td><?= $model['id'] ?></td>
         <td >
          <?= $model['name'] ?>
+        </td>
+        <td >
+         <?= $model['b_name'] ?>
         </td>
         <td ><img src="<?= base_url('writable/uploads/thumbnails/' . $model['thumbnail']) ?>" width='100px;' alt="Thumbnail">
 </td>

@@ -34,7 +34,7 @@ class SliderController extends BaseController
         'b_heading' => 'required',
         's_heading' => 'required',
         'button_name' => 'required',
-        'b_link' => 'required|valid_url',
+        /*'b_link' => 'required|valid_url',*/
         /*'thumbnail' => 'uploaded[thumbnail]|is_image[thumbnail]|max_size[thumbnail,2048]'*/
     ]);
 
@@ -67,9 +67,9 @@ class SliderController extends BaseController
 
     public function edit($id)
     {
-        $model = new YourModelName();
+        $model = new SliderModel();
         $data['record'] = $model->find($id);
-        return view('your_view_edit', $data);
+        return view('admin/header').view('admin/slider/edit', $data).view('admin/footer');
     }
 
     public function update($id)

@@ -42,7 +42,7 @@
             <td><img src="<?= base_url('writable/uploads/slider/'. $record['img']) ?>" alt="Image" class="img-thumbnail" width="50"></td>
             <td><?= $record['created_at'] ?></td>
             <td>
-                <a href="/your_controller_name/edit/<?= $record['id'] ?>" class="btn btn-primary btn-sm">Edit</a>
+                <a href="<?= base_url('slider/edit/'.$record['id']); ?>" class="btn btn-primary btn-sm">Edit</a>
                 <form action="/your_controller_name/delete/<?= $record['id'] ?>" method="post" class="d-inline">
                     <button type="submit" class="btn btn-danger btn-sm">Delete</button>
                 </form>

@@ -88,19 +88,19 @@
             <li class="sidebar-item">
               <a
                 class="sidebar-link sidebar-link primary-hover-bg"
-                href="./ui-forms.html"
+                href="<?= base_url('slider')?>"
                 aria-expanded="false"
               >
                 <span class="aside-icon p-2 bg-light-primary rounded-3">
                   <i class="ti ti-file-description fs-7 text-primary"></i>
                 </span>
-                <span class="hide-menu ms-2 ps-1">Forms</span>
+                <span class="hide-menu ms-2 ps-1">Slider</span>
               </a>
             </li>
             <li class="sidebar-item">
               <a
                 class="sidebar-link sidebar-link indigo-hover-bg"
-                href="./ui-typography.html"
+                href="slider"
                 aria-expanded="false"
               >
                 <span class="aside-icon p-2 bg-light-indigo rounded-3">

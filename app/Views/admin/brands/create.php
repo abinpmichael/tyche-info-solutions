@@ -19,7 +19,7 @@
 
 <div class="table-responsive">
 
-<form action="store" method="post">
+<form action="store" method="post" enctype="multipart/form-data" >
     <label>Name:</label>
       <?= csrf_field(); ?>
     <input type="text" name="b_name" class="form-control" required><br>

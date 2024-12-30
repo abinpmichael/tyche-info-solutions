@@ -17,7 +17,7 @@
 
 <div class="table-responsive">
 
-<form action="<?= base_url('brands/update/' . $brand['b_id']) ?>" method="post">
+<form action="<?= base_url('brands/update/' . $brand['b_id']) ?>" method="post" enctype="multipart/form-data">
      <?= csrf_field(); ?>
     <label>Name:</label>
     <input type="text" name="b_name" value="<?= $brand['b_name'] ?>"  class="form-control" required><br>
@@ -25,7 +25,7 @@
     <textarea name="b_desc"  class="form-control"><?= $brand['b_desc'] ?></textarea><br>
     <label>Image:</label>
     <input type="file" name="img" class="form-control" >
-    <img src="<?= base_url('writable/uploads/slider/' . $brand['img']) ?>" width='100px;' alt="Thumbnail">
+    <img src="<?= base_url('writable/uploads/brand/' . $brand['img']) ?>" width='100px;' alt="Thumbnail">
     <br>
     <label>Status:</label>
     <select name="b_status"  class="form-control">

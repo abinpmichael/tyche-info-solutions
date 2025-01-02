@@ -164,6 +164,9 @@ public function store(){
         $modelModel = new \App\Models\ModelModel();
         $galleryModel = new \App\Models\ModelGalleryModel();
         $productModel = new \App\Models\ProductModel();
+        $brandModel = new \App\Models\BrandModel();
+
+        $brand = $brandModel->findAll();
 
 
         $model = $modelModel->find($id);
@@ -174,7 +177,7 @@ public function store(){
             return redirect()->to('/models')->with('error', 'Model not found.');
         }
 
-        return view('admin/header').view('admin/model/edit', ['model' => $model, 'gallery' => $gallery,'product' => $product]).view('admin/footer');
+        return view('admin/header').view('admin/model/edit', ['model' => $model, 'gallery' => $gallery,'product' => $product,'brand' => $brand,]).view('admin/footer');
     }
 
     public function update($id)
@@ -223,6 +226,7 @@ public function store(){
             'about'    => $data['about'],
             'meta_title'  => $data['meta_title'],
         'meta_desc'   => $data['meta_desc'],
+        'b_id'         => $data['b_id'],
         ]);
 
         // Replace Thumbnail if uploaded
@@ -251,7 +255,7 @@ public function store(){
             }
         }
 
-        return redirect()->to('model/view/' . $id)->with('message', 'Model updated successfully!');
+        return redirect()->to('model')->with('message', 'Model updated successfully!');
     }
 
     public function delete($id)

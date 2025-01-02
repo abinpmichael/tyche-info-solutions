@@ -63,6 +63,13 @@ $routes->get('slider/edit/(:num)', 'Admin\SliderController::edit/$1');
 $routes->post('slider/update/(:num)', 'Admin\SliderController::update/$1');
 $routes->get('slider/delete/(:num)', 'Admin\SliderController::delete/$1');
 
+$routes->get('home', 'Admin\HomeController::index');
+$routes->get('home/create', 'Admin\HomeController::create');
+$routes->post('home/store', 'Admin\HomeController::store');
+$routes->get('home/edit/(:num)', 'Admin\HomeController::edit/$1');
+$routes->post('home/update/(:num)', 'Admin\HomeController::update/$1');
+$routes->get('home/delete/(:num)', 'Admin\HomeController::delete/$1');
+
 
 
 

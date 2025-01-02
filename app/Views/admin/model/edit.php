@@ -134,16 +134,30 @@
                     </select><br>
                 </div>
             </div>
+                 <div class="col-md-6">
+               <div class="form-group">
+    <label for="type">Brand:</label>
+    <select name="b_id" id="type" class="form-control" required>
+        <option value="">-- Select a Brand --</option>
+        <?php foreach ($brand as $brands): ?>
+            <option value="<?= esc($brands['b_id']) ?>"  <?= isset($model['b_id']) && $model['b_id'] == $brands['b_id'] ? 'selected' : '' ?>  ><?= esc($brands['b_name']) ?></option>
+        <?php endforeach; ?>
+    </select>
+</div>
+            </div>
+            
+        </div>
+           
+        
 
-            <div class="col-md-6">
+        <div class="row">
+             <div class="col-md-6">
                 <div class="form-group">
                     <label for="processor">Processor:</label>
                     <input type="text" name="processor" id="processor" value="<?= $model['processor'] ?>" class="form-control"><br>
                 </div>
             </div>
-        </div>
 
-        <div class="row">
             <div class="col-md-6">
                 <div class="form-group">
                     <label for="screen_size">Screen Size:</label>
@@ -151,15 +165,16 @@
                 </div>
             </div>
 
+            
+        </div>
+
+        <div class="row">
             <div class="col-md-6">
                 <div class="form-group">
                     <label for="storage">Storage:</label>
                     <input type="text" name="storage" id="storage" value="<?= $model['storage'] ?>" class="form-control"><br>
                 </div>
             </div>
-        </div>
-
-        <div class="row">
             <div class="col-md-6">
                 <div class="form-group">
                     <label for="memory">Memory:</label>
@@ -167,22 +182,23 @@
                 </div>
             </div>
 
+            
+        </div>
+
+        <div class="row">
             <div class="col-md-6">
                 <div class="form-group">
                     <label for="warranty">Warranty:</label>
                     <input type="text" name="warranty" id="warranty" value="<?= $model['warranty'] ?>" class="form-control"><br>
                 </div>
             </div>
-        </div>
-
-        <div class="row">
             <div class="col-md-6">
                 <div class="form-group">
                     <label for="graphics">Graphics:</label>
                     <input type="text" name="graphics" id="graphics" value="<?= $model['graphics'] ?>" class="form-control"><br>
                 </div>
             </div>
-
+    <div class="row">
             <div class="col-md-6">
                 <div class="form-group">
                     <label>Thumbnail:</label>

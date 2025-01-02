@@ -100,14 +100,35 @@
             <li class="sidebar-item">
               <a
                 class="sidebar-link sidebar-link indigo-hover-bg"
-                href="slider"
+                href="#"
                 aria-expanded="false"
               >
                 <span class="aside-icon p-2 bg-light-indigo rounded-3">
                   <i class="ti ti-typography fs-7 text-indigo"></i>
                 </span>
-                <span class="hide-menu ms-2 ps-1">Typography</span>
+                <span class="hide-menu ms-2 ps-1">Pages</span>
               </a>
+                  <ul class="collapse list-unstyled ps-4 ms-3" id="typographySubLinks">
+    <li>
+      <a href="<?= base_url('home')?>" class="sidebar-link">
+        <i class="ti ti-circle fs-7 text-muted"></i>
+        <span class="ms-2">Home</span>
+      </a>
+    </li>
+    <li>
+      <a href="/typography/advanced" class="sidebar-link">
+        <i class="ti ti-circle fs-7 text-muted"></i>
+        <span class="ms-2">Advanced Typography</span>
+      </a>
+    </li>
+    <li>
+      <a href="/typography/examples" class="sidebar-link">
+        <i class="ti ti-circle fs-7 text-muted"></i>
+        <span class="ms-2">Examples</span>
+      </a>
+    </li>
+  </ul>
+
             </li>
             <li class="nav-small-cap">
               <i class="ti ti-dots nav-small-cap-icon fs-5"></i>

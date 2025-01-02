@@ -1,0 +1,57 @@
+<?php
+
+namespace App\Controllers\Admin;
+
+use App\Controllers\BaseController;
+use App\Models\AboutModel;
+
+class AboutController extends BaseController
+{
+    public function index()
+    {
+        $model = new AboutModel();
+        $record = $model->find(1);
+
+        if (!$record) {
+            return redirect()->to('/about')->with('error', 'Record not found');
+        }
+
+        return view('admin/about/index', ['record' => $record]);
+    }
+
+    public function update($id)
+    {
+        $model = new AboutModel();
+
+        $validation = \Config\Services::validation();
+        $validation->setRules([
+            'about' => 'required',
+            'our_mission' => 'required',
+            'our_vision' => 'required',
+            'our_values' => 'required',
+        ]);
+
+        if (!$validation->withRequest($this->request)->run()) {
+            return redirect()->back()->withInput()->with('errors', $validation->getErrors());
+        }
+
+        $data = [
+            'about' => $this->request->getPost('about'),
+            'our_mission' => $this->request->getPost('our_mission'),
+            'our_vision' => $this->request->getPost('our_vision'),
+            'our_values' => $this->request->getPost('our_values'),
+        ];
+
+        // Handle file upload
+        $img = $this->request->getFile('img');
+        if ($img && $img->isValid() && !$img->hasMoved()) {
+            $imgName = $img->getRandomName();
+            $img->move(WRITEPATH . 'uploads', $imgName);
+            $data['img'] = $imgName;
+        }
+
+        $model->update($id, $data);
+
+        return redirect()->to('/about')->with('success', 'Record updated successfully');
+    }
+}

@@ -116,9 +116,9 @@
       </a>
     </li>
     <li>
-      <a href="/typography/advanced" class="sidebar-link">
+      <a href="<?= base_url('aboutus')?>" class="sidebar-link">
         <i class="ti ti-circle fs-7 text-muted"></i>
-        <span class="ms-2">Advanced Typography</span>
+        <span class="ms-2">About us</span>
       </a>
     </li>
     <li>

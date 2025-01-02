@@ -70,6 +70,9 @@ $routes->get('home/edit/(:num)', 'Admin\HomeController::edit/$1');
 $routes->post('home/update/(:num)', 'Admin\HomeController::update/$1');
 $routes->get('home/delete/(:num)', 'Admin\HomeController::delete/$1');
 
+$routes->get('about', 'Admin\AboutController::index');
+$routes->post('about/update/(:num)', 'Admin\AboutController::update/$1');
+
 
 
 

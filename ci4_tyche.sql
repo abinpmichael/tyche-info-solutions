@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 01, 2025 at 09:59 PM
+-- Generation Time: Jan 02, 2025 at 06:34 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -20,6 +20,28 @@ SET time_zone = "+00:00";
 --
 -- Database: `ci4_tyche`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `about`
+--
+
+CREATE TABLE `about` (
+  `id` int(11) NOT NULL,
+  `about` text NOT NULL,
+  `img` varchar(1000) NOT NULL,
+  `our_mission` text NOT NULL,
+  `our_vision` text NOT NULL,
+  `our_values` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `about`
+--
+
+INSERT INTO `about` (`id`, `about`, `img`, `our_mission`, `our_vision`, `our_values`) VALUES
+(1, '', '', '', '', '');
 
 -- --------------------------------------------------------
 
@@ -46,7 +68,37 @@ INSERT INTO `brands` (`b_id`, `b_name`, `img`, `b_desc`, `b_status`, `created_at
 (3, 'Apple', '1735528136_2864b50d8c8c3085f379.png', 'Apple', 1, '2024-12-30 03:08:56'),
 (6, 'DELL', '1735528214_a21261d770ee324f2bfb.png', 'DELL', 1, '2024-12-30 03:10:14'),
 (7, 'acer', '1735528241_7454eb77325b08857efe.png', 'acer', 1, '2024-12-30 03:10:41'),
-(8, 'ASUS', '1735528271_d9d69bb777156b33f589.png', 'ASUS', 1, '2024-12-30 03:11:11');
+(8, 'ASUS', '1735528271_d9d69bb777156b33f589.png', 'ASUS', 1, '2024-12-30 03:11:11'),
+(9, 'Assembled Desktops', '', 'Assembled Desktops', 0, '2025-01-02 01:14:08');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `home`
+--
+
+CREATE TABLE `home` (
+  `id` int(100) NOT NULL,
+  `welcome_note` text NOT NULL,
+  `w_img` varchar(1000) NOT NULL,
+  `r_link` varchar(100) NOT NULL,
+  `why` text NOT NULL,
+  `why_tags` varchar(1000) NOT NULL,
+  `we_serve` text NOT NULL,
+  `we_tag` varchar(1000) NOT NULL,
+  `meta_tite` varchar(1000) NOT NULL,
+  `meta_desc` varchar(1000) NOT NULL,
+  `header_script` text NOT NULL,
+  `footer_script` text NOT NULL,
+  `last_edited` datetime DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `home`
+--
+
+INSERT INTO `home` (`id`, `welcome_note`, `w_img`, `r_link`, `why`, `why_tags`, `we_serve`, `we_tag`, `meta_tite`, `meta_desc`, `header_script`, `footer_script`, `last_edited`) VALUES
+(1, '<p>Tyche Info Solutions is a dynamic company specializing in refurbished and rental solutions. Established with a vision to make high-quality and affordable, Tyche Info Solutions began by offering refurbished laptops, desktops, and servers to meet the needs of businesses and individuals. Focusing on sustainability and cost efficiency.</p>\r\n<p>Tyche Info Solutions has built a reputation for delivering reliable products and excellent customer support. Tyche Info Solutions ensures its solutions align with clients\' technological and financial goals, whether for startups, educational institutions, or established enterprises.</p>\r\n<p>We provide the best computing solutions at the best rates all over Kochi. Tyche Info Solution is the one-stop solution to fulfill your business requirement for IT equipment in Kochi.</p>\r\n<p><a class=\"btn btn-primary transition-3d-hover rounded-lg font-weight-normal py-2 px-md-7 px-3 font-size-16 animated fadeInUp\" style=\"animation-delay: 400ms; opacity: 1;\" tabindex=\"0\" href=\"about-us.php\" data-scs-animation-in=\"fadeInUp\" data-scs-animation-delay=\"400\">Read More </a></p>', '1735785923_3de166322c8f9f909ebb.webp', '#', '<div class=\"card-body subhead-60  pb-6 px-0 continer-head\">\r\n<h4>Why Choose Us</h4>\r\n<div class=\"border-bottom\">\r\n<div class=\"list-group list-group-horizontal flex-wrap list-group-borderless align-items-center mx-n0dot5\">\r\n<h5>Tyche Info Solutions is Kerala\'s leading provider of rental solutions. We pride ourselves on delivering outstanding service and earning clients\' trust for all their rental needs.</h5>\r\n</div>\r\n</div>\r\n</div>\r\n<div class=\"row\">\r\n<div class=\"col-md-12 mb-5 mb-xl-0 col-xl text-center\">\r\n<div class=\"industre\"><a class=\"font-bold-on-hover\">Competitive Pricing</a> <a class=\"font-bold-on-hover\">Fast Delivery</a> <a class=\"font-bold-on-hover \"> Flexible Tenure</a> <a class=\"font-bold-on-hover\">Corporate and Bulk Deal</a> <a class=\"font-bold-on-hover\"> Post Rental Support</a> <a class=\"font-bold-on-hover\">Comprehensive Solutions</a></div>\r\n</div>\r\n</div>', '', '<div class=\"card-body subhead-60  pb-6 px-0 continer-head\">\r\n<h4>Industries We Serve</h4>\r\n<div class=\"border-bottom\">\r\n<div class=\"list-group list-group-horizontal flex-wrap list-group-borderless align-items-center mx-n0dot5\">\r\n<h5>Tyche Info Solution, the most trusted name in laptop rentals, provides customized solutions to meet the unique needs of every industry.</h5>\r\n</div>\r\n</div>\r\n</div>\r\n<div class=\"row\">\r\n<div class=\"col-md-12 mb-5 mb-xl-0 col-xl text-center\">\r\n<div class=\"industre\"><a class=\"font-bold-on-hover\"> IT and Technology Innovators</a> <a class=\"font-bold-on-hover\"> New Ventures or start-ups</a> <a class=\"font-bold-on-hover\">Hospital &amp; Clinics</a> <a class=\"font-bold-on-hover \"> Videos &amp; Gaming Industry</a> <a class=\"font-bold-on-hover\">Shops &amp; Supermarkets</a></div>\r\n</div>\r\n<div class=\"col-md-12 mb-5 mb-xl-0 col-xl text-center\">\r\n<div class=\" industre\"><a class=\"font-bold-on-hover\"> Work from home &amp; Freelancers</a> <a class=\"font-bold-on-hover\"> Event Management &amp; Coordinators</a> <a class=\"font-bold-on-hover\"> Government &amp; Private Sector</a> <a class=\"font-bold-on-hover\">Schools &amp; Colleges </a> <a class=\"font-bold-on-hover\"> Hotel &amp; Restaurants</a></div>\r\n</div>\r\n</div>', '', 'Tyche Info Solutions | Home', '#', '', '', '2025-01-01 19:45:23');
 
 -- --------------------------------------------------------
 
@@ -101,11 +153,11 @@ CREATE TABLE `models` (
 --
 
 INSERT INTO `models` (`id`, `name`, `b_id`, `s_desc`, `type`, `processor`, `screen_size`, `storage`, `memory`, `warranty`, `graphics`, `thumbnail`, `created_at`, `updated_at`, `status`, `graphics_d`, `display_d`, `audio_d`, `dimensions_d`, `ports_d`, `about`, `meta_title`, `meta_desc`) VALUES
-(1, 'Dell Latitude 3540', 1, '(16 GB / HMDI 2 Nos / USB 2 Nos / Lan / C Port)', '1', 'Core i5-1235U', '15.6', '512 SSD', '16 GB', '1 Year', 'Integrated', '1735275492_69e5a9ca43003815f042.jpg', '2024-12-26 20:58:00', '2024-12-29 19:02:01', 1, 'AMD Radeon Pro 5300M with 4GB of GDDR6 memory and automatic graphics switching Intel UHD Graphics 630', 'Retina display 16‑inch (diagonal) LED‑backlit display with IPS technology; 3072‑by‑1920 native resolution at 226 pixels per inch with support for millions of colors', 'High‑fidelity six‑speaker system with force‑cancelling woofers, Wide stereo sound, Support for Dolby Atmos playback, Studio‑quality three-mic array with high signal-to-noise ratio and directional beamforming, 3.5 mm headphone jack.', 'Height: 0.64 inch (1.62 cm), Width: 14.09 inches (35.79 cm), Depth: 9.68 inches (24.59 cm), Weight: 4.3 pounds (2.0 kg).', 'Four Thunderbolt 3 (USB-C) ports with support for: Charging, DisplayPort, Thunderbolt (up to 40Gb/s), USB 3.1 Gen 2 (up to 10Gb/s).', '<p>&nbsp;</p>\r\n<h3 class=\"font-size-18 font-weight-semi-bold text-gray-39 mb-3\">About Dell Latitude 3540</h3>\r\n<p>The Dell Latitude 3540 is a versatile and reliable laptop designed for professionals seeking productivity and durability. It seamlessly supports multitasking and secure data management, and it is equipped with a robust Intel processor, ample storage options, and enhanced security features.</p>\r\n<p>The sleek 15.6-inch Full HD display provides vibrant visuals, while its lightweight and durable build ensures ease of mobility. With advanced connectivity options, including USB-C and Wi-Fi 6, the Latitude 3540 is ideal for modern workflows. Backed by Dell\'s reputation for quality and support, this laptop is a perfect blend of performance, reliability, and innovation for business and personal use.</p>', '', ''),
-(2, 'Asus Rog', 1, '(16 GB / HMDI 2 Nos / USB 2 Nos / Lan / C Port)', '1', 'i7 9750H', '15.6\"', '1TB SSD', '16 GB', '1 Year', 'Nvidia GTX RTX 2060 6GB', '1735365115_b213c95b24cefc6de985.jpg', '2024-12-26 20:58:03', '2024-12-29 19:02:07', 1, 'AMD Radeon Pro 5300M with 4GB of GDDR6 memory and automatic graphics switching Intel UHD Graphics 630', 'Retina display 16‑inch (diagonal) LED‑backlit display with IPS technology; 3072‑by‑1920 native resolution at 226 pixels per inch with support for millions of colors', 'High‑fidelity six‑speaker system with force‑cancelling woofers, Wide stereo sound, Support for Dolby Atmos playback, Studio‑quality three-mic array with high signal-to-noise ratio and directional beamforming, 3.5 mm headphone jack.', 'Height: 0.64 inch (1.62 cm), Width: 14.09 inches (35.79 cm), Depth: 9.68 inches (24.59 cm), Weight: 4.3 pounds (2.0 kg).', 'Four Thunderbolt 3 (USB-C) ports with support for: Charging, DisplayPort, Thunderbolt (up to 40Gb/s), USB 3.1 Gen 2 (up to 10Gb/s).', '<p>&nbsp;</p>\r\n<h3 class=\"font-size-18 font-weight-semi-bold text-gray-39 mb-3\">About Asus Rog</h3>\r\n<p>The Asus ROG (Republic of Gamers) series is a powerhouse designed for serious gamers and performance enthusiasts. With cutting-edge Intel or AMD processors and high-performance graphics cards, these laptops deliver exceptional speed and power, handling the most demanding games and applications with ease.</p>\r\n<p>The ROG features a stunning high-refresh-rate display for smooth visuals and immersive gaming experiences. Built with premium materials, the sleek yet durable design ensures longevity and style. Equipped with advanced cooling systems, it stays cool during extended gaming sessions, preventing performance throttling. Additionally, ROG laptops offer customizable RGB lighting, superior audio, and a range of connectivity options, including USB-C and Wi-Fi 6, to ensure seamless multiplayer experiences. The Asus ROG is the ultimate choice for gamers and power users seeking top-tier performance, and reliability.</p>', '', ''),
-(3, 'Lenovo V15', 1, '(8 GB / HMDI 2 Nos / USB 2 Nos / Lan / C Port)', '1', 'Intel i3 12th Gen', '15.6\"', '512 SSD', '8 GB', '1 Year', 'Integrated', '1735367504_044d54e8f3446067b0ab.jpg', '2024-12-27 23:31:44', '2024-12-29 19:02:10', 1, 'AMD Radeon Pro 5300M with 4GB of GDDR6 memory and automatic graphics switching Intel UHD Graphics 630', 'Retina display 16‑inch (diagonal) LED‑backlit display with IPS technology; 3072‑by‑1920 native resolution at 226 pixels per inch with support for millions of colors', 'High‑fidelity six‑speaker system with force‑cancelling woofers, Wide stereo sound, Support for Dolby Atmos playback, Studio‑quality three-mic array with high signal-to-noise ratio and directional beamforming, 3.5 mm headphone jack.', 'Height: 0.64 inch (1.62 cm), Width: 14.09 inches (35.79 cm), Depth: 9.68 inches (24.59 cm), Weight: 4.3 pounds (2.0 kg).', 'Four Thunderbolt 3 (USB-C) ports with support for: Charging, DisplayPort, Thunderbolt (up to 40Gb/s), USB 3.1 Gen 2 (up to 10Gb/s).', '<p>&nbsp;</p>\r\n<h3 class=\"font-size-18 font-weight-semi-bold text-gray-39 mb-3\">About Lenovo V15</h3>\r\n<p>The Lenovo V15 is a reliable and efficient laptop designed for small businesses and professionals seeking a balance of performance and affordability. Powered by the latest Intel or AMD processors, it handles everyday tasks such as word processing, spreadsheets, and web browsing with ease.</p>\r\n<p>Its 15.6-inch display offers clear and bright visuals, making it ideal for both work and multimedia use. The sleek design and sturdy build ensure durability, while its lightweight structure makes it easy to carry on the go. With ample storage and memory options, the Lenovo V15 offers smooth multitasking, and its enhanced security features help protect sensitive data. Offering essential connectivity options like USB-C, HDMI, and Wi-Fi 5, it is well-suited for a variety of work environments. The Lenovo V15 is an affordable, no-compromise solution for professionals looking for a dependable laptop to meet their daily computing needs.</p>', '', ''),
+(1, 'Dell Latitude 3540', 6, '(16 GB / HMDI 2 Nos / USB 2 Nos / Lan / C Port)', '1', 'Core i5-1235U', '15.6', '512 SSD', '16 GB', '1 Year', 'Integrated', '1735275492_69e5a9ca43003815f042.jpg', '2024-12-26 20:58:00', '2025-01-01 14:16:07', 1, 'AMD Radeon Pro 5300M with 4GB of GDDR6 memory and automatic graphics switching Intel UHD Graphics 630', 'Retina display 16‑inch (diagonal) LED‑backlit display with IPS technology; 3072‑by‑1920 native resolution at 226 pixels per inch with support for millions of colors', 'High‑fidelity six‑speaker system with force‑cancelling woofers, Wide stereo sound, Support for Dolby Atmos playback, Studio‑quality three-mic array with high signal-to-noise ratio and directional beamforming, 3.5 mm headphone jack.', 'Height: 0.64 inch (1.62 cm), Width: 14.09 inches (35.79 cm), Depth: 9.68 inches (24.59 cm), Weight: 4.3 pounds (2.0 kg).', 'Four Thunderbolt 3 (USB-C) ports with support for: Charging, DisplayPort, Thunderbolt (up to 40Gb/s), USB 3.1 Gen 2 (up to 10Gb/s).', '<p>&nbsp;</p>\r\n<h3 class=\"font-size-18 font-weight-semi-bold text-gray-39 mb-3\">About Dell Latitude 3540</h3>\r\n<p>The Dell Latitude 3540 is a versatile and reliable laptop designed for professionals seeking productivity and durability. It seamlessly supports multitasking and secure data management, and it is equipped with a robust Intel processor, ample storage options, and enhanced security features.</p>\r\n<p>The sleek 15.6-inch Full HD display provides vibrant visuals, while its lightweight and durable build ensures ease of mobility. With advanced connectivity options, including USB-C and Wi-Fi 6, the Latitude 3540 is ideal for modern workflows. Backed by Dell\'s reputation for quality and support, this laptop is a perfect blend of performance, reliability, and innovation for business and personal use.</p>', '', ''),
+(2, 'Asus Rog', 8, '(16 GB / HMDI 2 Nos / USB 2 Nos / Lan / C Port)', '1', 'i7 9750H', '15.6', '1TB SSD', '16 GB', '1 Year', 'Nvidia GTX RTX 2060 6GB', '1735365115_b213c95b24cefc6de985.jpg', '2024-12-26 20:58:03', '2025-01-01 14:18:46', 1, 'AMD Radeon Pro 5300M with 4GB of GDDR6 memory and automatic graphics switching Intel UHD Graphics 630', 'Retina display 16‑inch (diagonal) LED‑backlit display with IPS technology; 3072‑by‑1920 native resolution at 226 pixels per inch with support for millions of colors', 'High‑fidelity six‑speaker system with force‑cancelling woofers, Wide stereo sound, Support for Dolby Atmos playback, Studio‑quality three-mic array with high signal-to-noise ratio and directional beamforming, 3.5 mm headphone jack.', 'Height: 0.64 inch (1.62 cm), Width: 14.09 inches (35.79 cm), Depth: 9.68 inches (24.59 cm), Weight: 4.3 pounds (2.0 kg).', 'Four Thunderbolt 3 (USB-C) ports with support for: Charging, DisplayPort, Thunderbolt (up to 40Gb/s), USB 3.1 Gen 2 (up to 10Gb/s).', '<p>&nbsp;</p>\r\n<h3 class=\"font-size-18 font-weight-semi-bold text-gray-39 mb-3\">About Asus Rog</h3>\r\n<p>The Asus ROG (Republic of Gamers) series is a powerhouse designed for serious gamers and performance enthusiasts. With cutting-edge Intel or AMD processors and high-performance graphics cards, these laptops deliver exceptional speed and power, handling the most demanding games and applications with ease.</p>\r\n<p>The ROG features a stunning high-refresh-rate display for smooth visuals and immersive gaming experiences. Built with premium materials, the sleek yet durable design ensures longevity and style. Equipped with advanced cooling systems, it stays cool during extended gaming sessions, preventing performance throttling. Additionally, ROG laptops offer customizable RGB lighting, superior audio, and a range of connectivity options, including USB-C and Wi-Fi 6, to ensure seamless multiplayer experiences. The Asus ROG is the ultimate choice for gamers and power users seeking top-tier performance, and reliability.</p>', '', ''),
+(3, 'Lenovo V15', 2, '(8 GB / HMDI 2 Nos / USB 2 Nos / Lan / C Port)', '1', 'Intel i3 12th Gen', '15.6', '512 SSD', '8 GB', '1 Year', 'Integrated', '1735367504_044d54e8f3446067b0ab.jpg', '2024-12-27 23:31:44', '2025-01-01 14:19:50', 1, 'AMD Radeon Pro 5300M with 4GB of GDDR6 memory and automatic graphics switching Intel UHD Graphics 630', 'Retina display 16‑inch (diagonal) LED‑backlit display with IPS technology; 3072‑by‑1920 native resolution at 226 pixels per inch with support for millions of colors', 'High‑fidelity six‑speaker system with force‑cancelling woofers, Wide stereo sound, Support for Dolby Atmos playback, Studio‑quality three-mic array with high signal-to-noise ratio and directional beamforming, 3.5 mm headphone jack.', 'Height: 0.64 inch (1.62 cm), Width: 14.09 inches (35.79 cm), Depth: 9.68 inches (24.59 cm), Weight: 4.3 pounds (2.0 kg).', 'Four Thunderbolt 3 (USB-C) ports with support for: Charging, DisplayPort, Thunderbolt (up to 40Gb/s), USB 3.1 Gen 2 (up to 10Gb/s).', '<p>&nbsp;</p>\r\n<h3 class=\"font-size-18 font-weight-semi-bold text-gray-39 mb-3\">About Lenovo V15</h3>\r\n<p>The Lenovo V15 is a reliable and efficient laptop designed for small businesses and professionals seeking a balance of performance and affordability. Powered by the latest Intel or AMD processors, it handles everyday tasks such as word processing, spreadsheets, and web browsing with ease.</p>\r\n<p>Its 15.6-inch display offers clear and bright visuals, making it ideal for both work and multimedia use. The sleek design and sturdy build ensure durability, while its lightweight structure makes it easy to carry on the go. With ample storage and memory options, the Lenovo V15 offers smooth multitasking, and its enhanced security features help protect sensitive data. Offering essential connectivity options like USB-C, HDMI, and Wi-Fi 5, it is well-suited for a variety of work environments. The Lenovo V15 is an affordable, no-compromise solution for professionals looking for a dependable laptop to meet their daily computing needs.</p>', '', ''),
 (6, 'HP Pro Tower 280 G9 PCI Desktop PC', 1, '(8 GB / 2 USB Type)', '2', 'Intel i3 12th Gen', '22', '512 SSD', '8 GB', '1 Year', 'Integrated', '1735418869_b3a59c255b19f2708096.jpg', '2024-12-28 13:47:49', '2024-12-29 19:02:16', 1, 'AMD Radeon Pro 5300M with 4GB of GDDR6 memory and automatic graphics switching Intel UHD Graphics 630', 'Retina display 16‑inch (diagonal) LED‑backlit display with IPS technology; 3072‑by‑1920 native resolution at 226 pixels per inch with support for millions of colors', 'High‑fidelity six‑speaker system with force‑cancelling woofers, Wide stereo sound, Support for Dolby Atmos playback, Studio‑quality three-mic array with high signal-to-noise ratio and directional beamforming, 3.5 mm headphone jack.', 'Height: 0.64 inch (1.62 cm), Width: 14.09 inches (35.79 cm), Depth: 9.68 inches (24.59 cm), Weight: 4.3 pounds (2.0 kg).', 'Four Thunderbolt 3 (USB-C) ports with support for: Charging, DisplayPort, Thunderbolt (up to 40Gb/s), USB 3.1 Gen 2 (up to 10Gb/s).', '<p>&nbsp;</p>\r\n<h3 class=\"font-size-18 font-weight-semi-bold text-gray-39 mb-3\">About HP Pro Tower 280 G9 PCI Desktop</h3>\r\n<p>The HP Pro Tower 280 G9 PCI Desktop is a versatile and high-performance desktop solution designed to meet the needs of small to medium-sized businesses. Powered by the latest Intel processors, it provides reliable performance for everyday tasks, multitasking, and even demanding applications. With ample storage options and support for PCIe expansion, this desktop allows for easy upgrades and customization, making it adaptable to your evolving business needs.</p>\r\n<p>The compact tower design offers a balance of space efficiency and expandability, while its robust build ensures durability for long-term use. Equipped with advanced security features, including HP Wolf Security, the Pro Tower 280 G9 ensures data protection and privacy. Its range of connectivity options, including USB-C, HDMI, and Ethernet, ensures seamless integration with existing workflows. Whether for office work, data management, or general computing, the HP Pro Tower 280 G9 PCI Desktop is a reliable and efficient choice for businesses looking for power, flexibility, and security.</p>', 'meta_title', '\r\nHP Pro Tower 280 G9 PCI Desktop PC'),
-(7, 'Intel i5 12th Gen', 1, 'Intel i5 12th Gen', '2', 'Intel i5 12th Gen', '24', '512 SSD', '16 GB', '2 Year', '4 GB RTX 3050', '1735420375_7e14fdbf193d8b5ce7f6.jpg', '2024-12-28 14:12:55', '2024-12-29 19:02:19', 1, 'AMD Radeon Pro 5300M with 4GB of GDDR6 memory and automatic graphics switching Intel UHD Graphics 630', 'Retina display 16‑inch (diagonal) LED‑backlit display with IPS technology; 3072‑by‑1920 native resolution at 226 pixels per inch with support for millions of colors', 'High‑fidelity six‑speaker system with force‑cancelling woofers, Wide stereo sound, Support for Dolby Atmos playback, Studio‑quality three-mic array with high signal-to-noise ratio and directional beamforming, 3.5 mm headphone jack.', 'Height: 0.64 inch (1.62 cm), Width: 14.09 inches (35.79 cm), Depth: 9.68 inches (24.59 cm), Weight: 4.3 pounds (2.0 kg).', 'Four Thunderbolt 3 (USB-C) ports with support for: Charging, DisplayPort, Thunderbolt (up to 40Gb/s), USB 3.1 Gen 2 (up to 10Gb/s).', '<p>&nbsp;</p>\r\n<h3 class=\"font-size-18 font-weight-semi-bold text-gray-39 mb-3\">About Intel i5 12th Gen</h3>\r\n<p>Offers a customizable and high-performance computing solution tailored to meet diverse user needs. Equipped with 16 GB of RAM, it provides fast and efficient multitasking, allowing you to run demanding applications, process large files, and switch between tasks effortlessly. The desktop features dual HDMI ports for easy connectivity to multiple monitors, enhancing productivity or providing a superior viewing experience for multimedia tasks.</p>\r\n<p>With two USB ports, you can connect essential peripherals such as keyboards, mice, or external drives. The integrated LAN port ensures reliable wired network connectivity, making it ideal for office setups or stable internet connections. Whether used for work, gaming, or entertainment, this assembled desktop offers flexibility, speed, and connectivity, making it a great choice for users who need a high-performance, customizable computing setup.</p>', 'Intel i5 12th Gen', 'Intel i5 12th Gen');
+(7, 'Intel i5 12th Gen', 9, 'Intel i5 12th Gen', '2', 'Intel i5 12th Gen', '24', '512 SSD', '16 GB', '2 Year', '4 GB RTX 3050', '1735420375_7e14fdbf193d8b5ce7f6.jpg', '2024-12-28 14:12:55', '2025-01-01 14:21:21', 1, 'AMD Radeon Pro 5300M with 4GB of GDDR6 memory and automatic graphics switching Intel UHD Graphics 630', 'Retina display 16‑inch (diagonal) LED‑backlit display with IPS technology; 3072‑by‑1920 native resolution at 226 pixels per inch with support for millions of colors', 'High‑fidelity six‑speaker system with force‑cancelling woofers, Wide stereo sound, Support for Dolby Atmos playback, Studio‑quality three-mic array with high signal-to-noise ratio and directional beamforming, 3.5 mm headphone jack.', 'Height: 0.64 inch (1.62 cm), Width: 14.09 inches (35.79 cm), Depth: 9.68 inches (24.59 cm), Weight: 4.3 pounds (2.0 kg).', 'Four Thunderbolt 3 (USB-C) ports with support for: Charging, DisplayPort, Thunderbolt (up to 40Gb/s), USB 3.1 Gen 2 (up to 10Gb/s).', '<p>&nbsp;</p>\r\n<h3 class=\"font-size-18 font-weight-semi-bold text-gray-39 mb-3\">About Intel i5 12th Gen</h3>\r\n<p>Offers a customizable and high-performance computing solution tailored to meet diverse user needs. Equipped with 16 GB of RAM, it provides fast and efficient multitasking, allowing you to run demanding applications, process large files, and switch between tasks effortlessly. The desktop features dual HDMI ports for easy connectivity to multiple monitors, enhancing productivity or providing a superior viewing experience for multimedia tasks.</p>\r\n<p>With two USB ports, you can connect essential peripherals such as keyboards, mice, or external drives. The integrated LAN port ensures reliable wired network connectivity, making it ideal for office setups or stable internet connections. Whether used for work, gaming, or entertainment, this assembled desktop offers flexibility, speed, and connectivity, making it a great choice for users who need a high-performance, customizable computing setup.</p>', 'Intel i5 12th Gen', 'Intel i5 12th Gen');
 
 -- --------------------------------------------------------
 
@@ -225,10 +277,22 @@ INSERT INTO `users` (`id`, `username`, `password`, `email`, `created_at`) VALUES
 --
 
 --
+-- Indexes for table `about`
+--
+ALTER TABLE `about`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `brands`
 --
 ALTER TABLE `brands`
   ADD PRIMARY KEY (`b_id`);
+
+--
+-- Indexes for table `home`
+--
+ALTER TABLE `home`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `migrations`
@@ -272,10 +336,22 @@ ALTER TABLE `users`
 --
 
 --
+-- AUTO_INCREMENT for table `about`
+--
+ALTER TABLE `about`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT for table `brands`
 --
 ALTER TABLE `brands`
-  MODIFY `b_id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `b_id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
+--
+-- AUTO_INCREMENT for table `home`
+--
+ALTER TABLE `home`
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `migrations`

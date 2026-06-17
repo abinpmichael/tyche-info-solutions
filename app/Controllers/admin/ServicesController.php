@@ -24,7 +24,7 @@ class ServicesController extends BaseController
         $serviceModel = new ServiceModel();
         $data['services'] = $serviceModel->findAll();
 
-        return view('admin/header') . view('admin/services/index', $data) . view('admin/footer');
+        return view('Admin/header') . view('Admin/services/index', $data) . view('Admin/footer');
     }
 
     public function create()
@@ -33,7 +33,7 @@ class ServicesController extends BaseController
             return redirect()->to('/login');
         }
 
-        return view('admin/header') . view('admin/services/create') . view('admin/footer');
+        return view('Admin/header') . view('Admin/services/create') . view('Admin/footer');
     }
 
     public function store()
@@ -86,7 +86,7 @@ class ServicesController extends BaseController
             return redirect()->to('/services-admin')->with('error', 'Service not found.');
         }
 
-        return view('admin/header') . view('admin/services/edit', ['service' => $service]) . view('admin/footer');
+        return view('Admin/header') . view('Admin/services/edit', ['service' => $service]) . view('Admin/footer');
     }
 
     public function update($id)

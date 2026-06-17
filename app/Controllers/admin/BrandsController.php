@@ -21,12 +21,12 @@ class BrandsController extends BaseController
         }
         $brandModel = new BrandModel();
         $data['brands'] = $brandModel->findAll();
-          return view('admin/header') . view('admin/brands/index', $data) . view('admin/footer');
+          return view('Admin/header') . view('Admin/brands/index', $data) . view('Admin/footer');
 }
     public function create()
     {
-       // return view('admin/brands/create');
-         return view('admin/header') . view('admin/brands/create') . view('admin/footer');
+       // return view('Admin/brands/create');
+         return view('Admin/header') . view('Admin/brands/create') . view('Admin/footer');
     }
 
     public function store()
@@ -87,7 +87,7 @@ class BrandsController extends BaseController
     {
         $brandModel = new BrandModel();
         $data['brand'] = $brandModel->find($id);
-        return view('admin/header') . view('admin/brands/edit', $data). view('admin/footer');
+        return view('Admin/header') . view('Admin/brands/edit', $data). view('Admin/footer');
     }
 
     public function update($id)

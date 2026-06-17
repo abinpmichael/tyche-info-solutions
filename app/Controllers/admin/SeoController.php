@@ -24,7 +24,7 @@ class SeoController extends BaseController
         $model = new SeoModel();
         $data['records'] = $model->findAll();
         
-        return view('admin/header') . view('admin/seo/index', $data) . view('admin/footer');
+        return view('Admin/header') . view('Admin/seo/index', $data) . view('Admin/footer');
     }
 
     public function edit($id)
@@ -40,7 +40,7 @@ class SeoController extends BaseController
             return redirect()->to('seo-admin')->with('error', 'Page record not found.');
         }
 
-        return view('admin/header') . view('admin/seo/edit', $data) . view('admin/footer');
+        return view('Admin/header') . view('Admin/seo/edit', $data) . view('Admin/footer');
     }
 
     public function update($id)
@@ -108,7 +108,7 @@ class SeoController extends BaseController
             return redirect()->to('/login');
         }
 
-        return view('admin/header') . view('admin/seo/create') . view('admin/footer');
+        return view('Admin/header') . view('Admin/seo/create') . view('Admin/footer');
     }
 
     public function store()

@@ -1,13 +1,26 @@
-# Enable rewrite engine
-RewriteEngine On
+<IfModule mod_rewrite.c>
+    RewriteEngine On
 
-# Remove index.php from the URL
-RewriteCond %{REQUEST_URI} ^/index.php
-RewriteRule ^index.php/(.*)$ /$1 [R=301,L]
+    # ---------------------------------------------------------------
+    # IMPORTANT: Set this to the subfolder path on the live server.
+    # If the app is at https://example.com/cms/ → RewriteBase /cms/
+    # If the app is at https://example.com/    → RewriteBase /
+    # ---------------------------------------------------------------
+    RewriteBase /cms/
 
-# If the requested resource exists, do not redirect
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_FILENAME} !-d
+    # Remove index.php from URL (redirect to clean URL)
+    RewriteCond %{THE_REQUEST} ^[A-Z]{3,}\s/+cms/index\.php(/[^\s]*)?\ HTTP/
+    RewriteRule ^index\.php(/(.*))?$ /cms/$2 [R=301,L]
 
-# Rewrite all other requests to index.php
-RewriteRule ^(.*)$ index.php/$1 [L]
+    # Allow actual files and directories to be served directly
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+
+    # Route everything else through index.php
+    RewriteRule ^(.*)$ index.php/$1 [L]
+</IfModule>
+
+<IfModule !mod_rewrite.c>
+    # If mod_rewrite is not available, set the index page
+    ErrorDocument 404 /cms/index.php
+</IfModule>

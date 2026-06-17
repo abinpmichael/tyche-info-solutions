@@ -21,12 +21,12 @@ class ProductController extends BaseController
         }
         $ProductModel = new ProductModel();
         $data['product'] = $ProductModel->findAll();
-          return view('admin/header') . view('admin/product/index', $data) . view('admin/footer');
+          return view('Admin/header') . view('Admin/product/index', $data) . view('Admin/footer');
 }
     public function create()
     {
-       // return view('admin/brands/create');
-         return view('admin/header') . view('admin/product/create') . view('admin/footer');
+       // return view('Admin/brands/create');
+         return view('Admin/header') . view('Admin/product/create') . view('Admin/footer');
     }
 
     public function store()
@@ -45,7 +45,7 @@ class ProductController extends BaseController
     {
         $ProductModel = new ProductModel();
         $data['product'] = $ProductModel->find($id);
-        return view('admin/header') . view('admin/product/edit', $data). view('admin/footer');
+        return view('Admin/header') . view('Admin/product/edit', $data). view('Admin/footer');
     }
 
     public function update($id)

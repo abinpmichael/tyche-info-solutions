@@ -23,7 +23,7 @@ class EmailSettingsController extends BaseController
         $model = new HomeModel();
         $data['record'] = $model->find(1);
 
-        return view('admin/header') . view('admin/email-settings/index', $data) . view('admin/footer');
+        return view('Admin/header') . view('Admin/email-settings/index', $data) . view('Admin/footer');
     }
 
     public function update()

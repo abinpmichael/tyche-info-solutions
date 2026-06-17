@@ -20,7 +20,7 @@ class PasswordController extends BaseController
         if (!session()->has('username')) {
             return redirect()->to('/login');
         }
-        return view('admin/header') . view('admin/password/index') . view('admin/footer');
+        return view('Admin/header') . view('Admin/password/index') . view('Admin/footer');
     }
 
     public function update()

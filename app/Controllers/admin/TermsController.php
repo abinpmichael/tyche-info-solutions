@@ -16,9 +16,9 @@ class TermsController extends BaseController
             return redirect()->back()->with('error', 'Record not found');
         }
 
-        echo view('admin/header');
-        echo view('admin/terms/index', ['record' => $record]);
-        echo view('admin/footer');
+        echo view('Admin/header');
+        echo view('Admin/terms/index', ['record' => $record]);
+        echo view('Admin/footer');
     }
 
     public function update($id)

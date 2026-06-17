@@ -15,12 +15,12 @@ class SliderController extends BaseController
         }
         $model = new SliderModel();
         $data['records'] = $model->findAll();
-        return view('admin/header') .view('admin/slider/index', $data). view('admin/footer');
+        return view('Admin/header') .view('Admin/slider/index', $data). view('Admin/footer');
     }
 
     public function create()
     {
-        return view('admin/header').view('admin/slider/create').view('admin/footer');
+        return view('Admin/header').view('Admin/slider/create').view('Admin/footer');
     }
 
     public function store()
@@ -69,7 +69,7 @@ class SliderController extends BaseController
     {
         $model = new SliderModel();
         $data['record'] = $model->find($id);
-        return view('admin/header').view('admin/slider/edit', $data).view('admin/footer');
+        return view('Admin/header').view('Admin/slider/edit', $data).view('Admin/footer');
     }
 
     public function update($id)

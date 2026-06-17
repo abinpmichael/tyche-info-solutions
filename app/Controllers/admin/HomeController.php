@@ -19,7 +19,7 @@ class HomeController extends BaseController
        
         $model = new HomeModel();
         $data['record'] = $model->find(1);
-        return view('admin/header').view('admin/home/index', $data).view('admin/footer');
+        return view('Admin/header').view('Admin/home/index', $data).view('Admin/footer');
     }
 
     public function create()

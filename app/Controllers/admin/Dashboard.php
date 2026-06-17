@@ -54,8 +54,8 @@ class Dashboard extends BaseController
             ->get()
             ->getResultArray();
 
-        echo view('admin/header');
-        echo view('admin/dashboard', $data);
-        echo view('admin/footer');
+        echo view('Admin/header');
+        echo view('Admin/dashboard', $data);
+        echo view('Admin/footer');
     }
 }

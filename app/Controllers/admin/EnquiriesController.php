@@ -24,7 +24,7 @@ class EnquiriesController extends BaseController
         $enquiryModel = new EnquiryModel();
         $data['enquiries'] = $enquiryModel->orderBy('id', 'DESC')->findAll();
 
-        return view('admin/header') . view('admin/enquiries/index', $data) . view('admin/footer');
+        return view('Admin/header') . view('Admin/enquiries/index', $data) . view('Admin/footer');
     }
 
     public function view($id)
@@ -43,7 +43,7 @@ class EnquiriesController extends BaseController
         // Decode items JSON
         $enquiry['items'] = json_decode($enquiry['items'], true) ?? [];
 
-        return view('admin/header') . view('admin/enquiries/view', ['enquiry' => $enquiry]) . view('admin/footer');
+        return view('Admin/header') . view('Admin/enquiries/view', ['enquiry' => $enquiry]) . view('Admin/footer');
     }
 
     public function delete($id)

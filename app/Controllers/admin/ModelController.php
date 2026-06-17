@@ -20,9 +20,9 @@ class ModelController extends Controller
     ->findAll();
 
 // Pass the data to the view
-return view('admin/header')
-    . view('admin/model/index', ['models' => $models])
-    . view('admin/footer');
+return view('Admin/header')
+    . view('Admin/model/index', ['models' => $models])
+    . view('Admin/footer');
 
         
     }
@@ -39,7 +39,7 @@ return view('admin/header')
             return redirect()->to('/model')->with('error', 'Model not found.');
         }
 
-        return view('admin/header').view('admin/model/view', ['model' => $model, 'gallery' => $gallery]).view('admin/footer');
+        return view('Admin/header').view('Admin/model/view', ['model' => $model, 'gallery' => $gallery]).view('Admin/footer');
     }
     public function create()
 {
@@ -56,9 +56,9 @@ $data = [
 ];
 
 // Pass the merged data array to the view
-return view('admin/header')
-    . view('admin/model/create', $data)
-    . view('admin/footer');
+return view('Admin/header')
+    . view('Admin/model/create', $data)
+    . view('Admin/footer');
 }
 
 public function store(){
@@ -177,7 +177,7 @@ public function store(){
             return redirect()->to('/models')->with('error', 'Model not found.');
         }
 
-        return view('admin/header').view('admin/model/edit', ['model' => $model, 'gallery' => $gallery,'product' => $product,'brand' => $brand,]).view('admin/footer');
+        return view('Admin/header').view('Admin/model/edit', ['model' => $model, 'gallery' => $gallery,'product' => $product,'brand' => $brand,]).view('Admin/footer');
     }
 
     public function update($id)

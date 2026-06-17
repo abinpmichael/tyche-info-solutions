@@ -27,7 +27,7 @@ class AboutController extends BaseController
             return redirect()->to('dashboard')->with('error', 'About record not found');
         }
 
-        return view('admin/header') . view('admin/about/index', ['record' => $record]) . view('admin/footer');
+        return view('Admin/header') . view('Admin/about/index', ['record' => $record]) . view('Admin/footer');
     }
 
     public function update($id)

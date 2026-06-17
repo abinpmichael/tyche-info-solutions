@@ -207,23 +207,15 @@
                     <textarea name="ports_d" class="form-control"></textarea>
                     <br>
                 </div>
-            </div>
-            <div class="col-md-6">
-                <div class="form-group">
-                    <label for="status">Meta Title:</label>
-                    <textarea name="meta_title" class="form-control"></textarea>
-                    <br>
-                </div>
-            </div>
-             
+             </div>
         </div>
-         <div class="row">
-            <div class="col-md-6">
-                <div class="form-group">
-                    <label for="status">Mete Description:</label>
-                    <textarea name="meta_desc" class="form-control"></textarea>
-                    <br>
-                </div>
+        </div>
+
+        <!-- SEO Notice -->
+        <div class="alert alert-info d-flex align-items-center gap-2 mt-3" role="alert">
+            <i class="ti ti-info-circle fs-5"></i>
+            <div>
+                <strong>SEO for this product</strong> — After saving, manage meta title, description, keywords and scripts via <a href="<?= base_url('seo-admin') ?>" class="alert-link">SEO Settings</a> using the product's URL slug as the page route.
             </div>
         </div>
         <button type="submit" class="btn btn-primary btn-block">Update</button>

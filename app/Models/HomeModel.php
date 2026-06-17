@@ -20,6 +20,8 @@ class HomeModel extends Model
         'meta_desc',
         'header_script',
         'footer_script',
+        'enquiry_email',
+        'contact_email',
         'last_edited',
     ];
 }

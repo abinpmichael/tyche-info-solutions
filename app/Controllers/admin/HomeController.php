@@ -82,15 +82,11 @@ class HomeController extends BaseController
     // Collect input data
     $data = [
         'welcome_note' => $this->request->getPost('welcome_note'),
-        'r_link' => $this->request->getPost('r_link'),
-        'why' => $this->request->getPost('why'),
-        'why_tags' => $this->request->getPost('why_tags'),
-        'we_serve' => $this->request->getPost('we_serve'),
-        'we_tag' => $this->request->getPost('we_tag'),
-        'meta_tite' => $this->request->getPost('meta_tite'),
-        'meta_desc' => $this->request->getPost('meta_desc'),
-        'header_script' => $this->request->getPost('header_script'),
-        'footer_script' => $this->request->getPost('footer_script'),
+        'r_link'       => $this->request->getPost('r_link'),
+        'why'          => $this->request->getPost('why'),
+        'why_tags'     => $this->request->getPost('why_tags'),
+        'we_serve'     => $this->request->getPost('we_serve'),
+        'we_tag'       => $this->request->getPost('we_tag'),
     ];
 
     // Handle image upload

@@ -39,21 +39,13 @@
     
    <textarea id="editor2" name="we_serve" class="form-control"><?= $record['we_serve'] ?></textarea>
     <br>
-    <label>Meta Title:</label>
-    <input type="text" name="meta_tite" class="form-control" value="<?= $record['meta_tite'] ?>" >
-     <br>
-    <label>Meta description
-:</label>
-    <input type="text" name="meta_desc" class="form-control" value="<?= $record['meta_desc'] ?>" >
-   <br>
-    <label>Add script to header
-:</label>
-    <input type="text" name="header_script" class="form-control" value="<?= $record['header_script'] ?>" >
-   
-    <br>
-     <label>Add script to footer
-:</label>
-    <input type="text" name="footer_script" class="form-control" value="<?= $record['footer_script'] ?>" ><br>
+    <!-- SEO Notice -->
+    <div class="alert alert-info d-flex align-items-start gap-2 mt-3 mb-3" role="alert">
+        <i class="ti ti-info-circle fs-5 mt-1"></i>
+        <div>
+            <strong>SEO & Script Settings</strong> — Meta title, meta description, keywords, schema markup, and header/footer scripts for this page are managed in the <a href="<?= base_url('seo-admin') ?>" class="alert-link">SEO Settings</a> section.
+        </div>
+    </div>
     <button type="submit" class="btn btn-primary">Update</button>
 </form>
 

@@ -287,29 +287,25 @@
                 </div>
             </div>
         </div>
-           <div class="row">
+        </div>
+
+        <div class="row">
             <div class="col-md-6">
                 <div class="form-group">
-                    <label for="status">Port Datails:</label>
+                    <label for="status">Port Details:</label>
                     <textarea name="ports_d" class="form-control"><?= $model['ports_d'] ?></textarea>
                     <br>
                 </div>
             </div>
-             <div class="col-md-6">
-                <div class="form-group">
-                    <label for="status">Meta title:</label>
-                    <textarea name="meta_title" class="form-control"><?= $model['meta_title'] ?></textarea>
-                    <br>
-                </div>
-            </div>
         </div>
-            <div class="row">
-            <div class="col-md-6">
-                <div class="form-group">
-                    <label for="status">Mete Description:</label>
-                    <textarea name="meta_desc" class="form-control"><?= $model['meta_desc'] ?></textarea>
-                    <br>
-                </div>
+
+        <!-- SEO Notice -->
+        <div class="alert alert-info d-flex align-items-start gap-2 mt-3" role="alert">
+            <i class="ti ti-info-circle fs-5 mt-1"></i>
+            <div>
+                <strong>SEO for this product</strong> &mdash; Manage meta title, description, keywords, schema markup and scripts for this product in
+                <a href="<?= base_url('seo-admin') ?>" class="alert-link">SEO Settings</a>.
+                Use the page route: <code><?= esc(str_replace(' ', '-', strtolower(trim($model['name'])))) ?></code>
             </div>
         </div>
         <button type="submit" class="btn btn-primary btn-block">Update</button>

@@ -10,7 +10,7 @@
                               <div class="col-xl-3 col-lg-3 col-md-6 cols-m-6 col-xs-12 col-12  mb-3 mb-md-0">
                              <div class="mb-6">
                                 <a href="#" class="d-inline-block">
-                                   <img src="assets/img/logo1.png" width="100%">
+                                   <img src="<?= base_url('assets/img/logo1.png') ?>" width="100%">
                                 </a>
                             </div>
 
@@ -35,32 +35,32 @@
                                     <h6 class="mb-3 font-weight-bold">Company </h6>
                                     <!-- List Group -->
                                     <ul class="list-group list-group-flush list-group-borderless mb-0 list-group-transparent">
-                                        <li><a class="list-group-item list-group-item-action" href="index.php">Home</a></li>
-                                        <li><a class="list-group-item list-group-item-action" href="about-us.php">About Us</a></li>
-                                        <li><a class="list-group-item list-group-item-action" href="services.php">Services </a></li>                                         
-                                        <li><a class="list-group-item list-group-item-action" href="contact-us.php">Contact Us</a></li>									
+                                        <li><a class="list-group-item list-group-item-action" href="<?= base_url() ?>">Home</a></li>
+                                        <li><a class="list-group-item list-group-item-action" href="<?= base_url('about-us') ?>">About Us</a></li>
+                                        <li><a class="list-group-item list-group-item-action" href="<?= base_url('services') ?>">Services </a></li>                                         
+                                        <li><a class="list-group-item list-group-item-action" href="<?= base_url('contact-us') ?>">Contact Us</a></li>									
 									</ul>
                                     <!-- End List Group -->
                                 </div>
 
-                                <div class="col-xl-2 col-lg-2 col-md-6 cols-m-6 col-xs-12 col-12  mb-3 mb-md-0">
+                                <div class="col-xl-2 col-lg-2 col-md-6 cols-m-6 col-xs-12 col-12 mb-3 mb-md-0">
 								<h6 class="mb-3 font-weight-bold">Range of Products</h6>
                                     <!-- List Group -->
                                     <ul class="list-group list-group-flush list-group-borderless mb-0 list-group-transparent">
-                                        <li><a class="list-group-item list-group-item-action" href="laptops.php">Laptops</a></li>
-                                        <li><a class="list-group-item list-group-item-action" href="desktops.php">Desktops</a></li>
+                                        <li><a class="list-group-item list-group-item-action" href="<?= base_url('laptops') ?>">Laptops</a></li>
+                                        <li><a class="list-group-item list-group-item-action" href="<?= base_url('desktops') ?>">Desktops</a></li>
                                     </ul>
                                     <!-- End List Group -->
                                 </div>
 
-                                <div class="col-xl-2 col-lg-2 col-md-6 cols-m-6 col-xs-12 col-12  mb-3 mb-md-0">
+                                <div class="col-xl-2 col-lg-2 col-md-6 cols-m-6 col-xs-12 col-12 mb-3 mb-md-0">
                                     <h6 class="mb-3 font-weight-bold">Our Policy</h6>
                                     <!-- List Group -->
                                     <ul class="list-group list-group-flush list-group-borderless mb-0 list-group-transparent">
-                                        <li><a class="list-group-item list-group-item-action" href="terms-conditions.php">Terms &amp; Conditions</a></li>
-                                        <li><a class="list-group-item list-group-item-action" href="privacy-policy.php">Privacy Policy</a></li>
-                                        <li><a class="list-group-item list-group-item-action" href="refund-and-cancellation-policy.php">Refund and Cancellation Policy</a></li>
-                                        <li><a class="list-group-item list-group-item-action" href="site-map.php">Site Map</a></li>										
+                                        <li><a class="list-group-item list-group-item-action" href="<?= base_url('terms-conditions') ?>">Terms &amp; Conditions</a></li>
+                                        <li><a class="list-group-item list-group-item-action" href="<?= base_url('privacy-policy') ?>">Privacy Policy</a></li>
+                                        <li><a class="list-group-item list-group-item-action" href="<?= base_url('refund-and-cancellation-policy') ?>">Refund and Cancellation Policy</a></li>
+                                        <li><a class="list-group-item list-group-item-action" href="<?= base_url('site-map') ?>">Site Map</a></li>										
                                     </ul>
                                     <!-- End List Group -->
                                 </div>

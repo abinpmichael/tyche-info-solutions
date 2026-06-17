@@ -7,28 +7,43 @@ use App\Models\AboutModel;
 
 class AboutController extends BaseController
 {
+    public function __construct()
+    {
+        if (!session()->has('username')) {
+            return redirect()->to('/login');
+        }
+    }
+
     public function index()
     {
+        if (!session()->has('username')) {
+            return redirect()->to('/login');
+        }
+
         $model = new AboutModel();
         $record = $model->find(1);
 
         if (!$record) {
-            return redirect()->to('/about')->with('error', 'Record not found');
+            return redirect()->to('dashboard')->with('error', 'About record not found');
         }
 
-        return view('admin/about/index', ['record' => $record]);
+        return view('admin/header') . view('admin/about/index', ['record' => $record]) . view('admin/footer');
     }
 
     public function update($id)
     {
+        if (!session()->has('username')) {
+            return redirect()->to('/login');
+        }
+
         $model = new AboutModel();
 
         $validation = \Config\Services::validation();
         $validation->setRules([
-            'about' => 'required',
+            'about'       => 'required',
             'our_mission' => 'required',
-            'our_vision' => 'required',
-            'our_values' => 'required',
+            'our_vision'  => 'required',
+            'our_values'  => 'required',
         ]);
 
         if (!$validation->withRequest($this->request)->run()) {
@@ -36,10 +51,10 @@ class AboutController extends BaseController
         }
 
         $data = [
-            'about' => $this->request->getPost('about'),
+            'about'       => $this->request->getPost('about'),
             'our_mission' => $this->request->getPost('our_mission'),
-            'our_vision' => $this->request->getPost('our_vision'),
-            'our_values' => $this->request->getPost('our_values'),
+            'our_vision'  => $this->request->getPost('our_vision'),
+            'our_values'  => $this->request->getPost('our_values'),
         ];
 
         // Handle file upload
@@ -52,6 +67,6 @@ class AboutController extends BaseController
 
         $model->update($id, $data);
 
-        return redirect()->to('/about')->with('success', 'Record updated successfully');
+        return redirect()->to('about')->with('success', 'About Us page updated successfully.');
     }
 }

@@ -4,13 +4,13 @@
       </div>
     </div>
   </div>
-  <script src="assets/admin/libs/jquery/dist/jquery.min.js"></script>
-  <script src="assets/admin/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/admin/js/sidebarmenu.js"></script>
-  <script src="assets/admin/js/app.min.js"></script>
-  <script src="assets/admin/libs/apexcharts/dist/apexcharts.min.js"></script>
-  <script src="assets/admin/libs/simplebar/dist/simplebar.js"></script>
-  <script src="assets/admin/js/dashboard.js"></script>
+  <script src="<?= base_url('assets/admin/libs/jquery/dist/jquery.min.js'); ?>"></script>
+  <script src="<?= base_url('assets/admin/libs/bootstrap/dist/js/bootstrap.bundle.min.js'); ?>"></script>
+  <script src="<?= base_url('assets/admin/js/sidebarmenu.js'); ?>"></script>
+  <script src="<?= base_url('assets/admin/js/app.min.js'); ?>"></script>
+  <script src="<?= base_url('assets/admin/libs/apexcharts/dist/apexcharts.min.js'); ?>"></script>
+  <script src="<?= base_url('assets/admin/libs/simplebar/dist/simplebar.js'); ?>"></script>
+  <script src="<?= base_url('assets/admin/js/dashboard.js'); ?>"></script>
 </body>
 
 </html>

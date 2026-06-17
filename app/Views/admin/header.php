@@ -17,8 +17,8 @@
       <!-- Sidebar scroll-->
       <div class="scroll-sidebar" data-simplebar>
         <div class="d-flex mb-4 align-items-center justify-content-between">
-            <a href="index.html" class="text-nowrap logo-img ms-0 ms-md-1">
-              <img src="assets/img/logo.png" width="180" alt="">
+            <a href="<?= base_url('dashboard') ?>" class="text-nowrap logo-img ms-0 ms-md-1">
+              <img src="<?= base_url('assets/img/logo.png') ?>" width="180" alt="">
             </a>
             <div class="close-btn d-xl-none d-block sidebartoggler cursor-pointer" id="sidebarCollapse">
               <i class="ti ti-x fs-8"></i>
@@ -34,7 +34,7 @@
             <li class="sidebar-item">
               <a
                 class="sidebar-link sidebar-link primary-hover-bg"
-                href="dashboard"
+                href="<?= base_url('dashboard') ?>"
                 aria-expanded="false"
               >
                 <span class="aside-icon p-2 bg-light-primary rounded-3">
@@ -100,6 +100,42 @@
             <li class="sidebar-item">
               <a
                 class="sidebar-link sidebar-link indigo-hover-bg"
+                href="<?= base_url('enquiries')?>"
+                aria-expanded="false"
+              >
+                <span class="aside-icon p-2 bg-light-indigo rounded-3">
+                  <i class="ti ti-mail fs-7 text-indigo"></i>
+                </span>
+                <span class="hide-menu ms-2 ps-1">Enquiries</span>
+              </a>
+            </li>
+            <li class="sidebar-item">
+              <a
+                class="sidebar-link sidebar-link primary-hover-bg"
+                href="<?= base_url('services-admin')?>"
+                aria-expanded="false"
+              >
+                <span class="aside-icon p-2 bg-light-primary rounded-3">
+                  <i class="ti ti-settings fs-7 text-primary"></i>
+                </span>
+                <span class="hide-menu ms-2 ps-1">Services CMS</span>
+              </a>
+            </li>
+            <li class="sidebar-item">
+              <a
+                class="sidebar-link sidebar-link teal-hover-bg"
+                href="<?= base_url('seo-admin')?>"
+                aria-expanded="false"
+              >
+                <span class="aside-icon p-2 bg-light-success rounded-3">
+                  <i class="ti ti-search fs-7 text-success"></i>
+                </span>
+                <span class="hide-menu ms-2 ps-1">SEO Settings</span>
+              </a>
+            </li>
+            <li class="sidebar-item">
+              <a
+                class="sidebar-link sidebar-link indigo-hover-bg"
                 href="#"
                 aria-expanded="false"
               >
@@ -108,31 +144,61 @@
                 </span>
                 <span class="hide-menu ms-2 ps-1">Pages</span>
               </a>
-                  <ul class="collapse list-unstyled ps-4 ms-3" id="typographySubLinks">
-    <li>
-      <a href="<?= base_url('home')?>" class="sidebar-link">
-        <i class="ti ti-circle fs-7 text-muted"></i>
-        <span class="ms-2">Home</span>
-      </a>
-    </li>
-    <li>
-      <a href="<?= base_url('aboutus')?>" class="sidebar-link">
-        <i class="ti ti-circle fs-7 text-muted"></i>
-        <span class="ms-2">About us</span>
-      </a>
-    </li>
-    <li>
-      <a href="/typography/examples" class="sidebar-link">
-        <i class="ti ti-circle fs-7 text-muted"></i>
-        <span class="ms-2">Examples</span>
-      </a>
-    </li>
-  </ul>
+              <ul class="collapse list-unstyled ps-4 ms-3" id="typographySubLinks">
+                <li>
+                  <a href="<?= base_url('home')?>" class="sidebar-link">
+                    <i class="ti ti-circle fs-7 text-muted"></i>
+                    <span class="ms-2">Home</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="<?= base_url('about')?>" class="sidebar-link">
+                    <i class="ti ti-circle fs-7 text-muted"></i>
+                    <span class="ms-2">About us</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="<?= base_url('terms-admin')?>" class="sidebar-link">
+                    <i class="ti ti-circle fs-7 text-muted"></i>
+                    <span class="ms-2">Terms & Conditions</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="<?= base_url('privacy-admin')?>" class="sidebar-link">
+                    <i class="ti ti-circle fs-7 text-muted"></i>
+                    <span class="ms-2">Privacy Policy</span>
+                  </a>
+                </li>
+              </ul>
 
             </li>
             <li class="nav-small-cap">
               <i class="ti ti-dots nav-small-cap-icon fs-5"></i>
               <span class="hide-menu">Auth</span>
+            </li>
+            <li class="sidebar-item">
+              <a
+                class="sidebar-link sidebar-link success-hover-bg"
+                href="<?= base_url('admin/change-password')?>"
+                aria-expanded="false"
+              >
+                <span class="aside-icon p-2 bg-light-success rounded-3">
+                  <i class="ti ti-key fs-7 text-success"></i>
+                </span>
+                <span class="hide-menu ms-2 ps-1">Change Password</span>
+              </a>
+            </li>
+            <li class="sidebar-item">
+              <a
+                class="sidebar-link sidebar-link indigo-hover-bg"
+                href="<?= base_url('email-settings')?>"
+                aria-expanded="false"
+              >
+                <span class="aside-icon p-2 bg-light-indigo rounded-3">
+                  <i class="ti ti-mail-cog fs-7 text-indigo"></i>
+                </span>
+                <span class="hide-menu ms-2 ps-1">Email Settings</span>
+              </a>
             </li>
             <li class="sidebar-item">
               <a

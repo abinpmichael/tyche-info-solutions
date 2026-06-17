@@ -11,8 +11,7 @@ class Auth implements FilterInterface
 {
     public function before(RequestInterface $request, $arguments = null)
     {
-        // Example check: Ensure user is logged in (replace with your logic)
-        if (!session()->get('user_id')) {
+        if (!session()->get('isLoggedIn')) {
             // Redirect user to login page if not authenticated
             return redirect()->to('/login');
         }

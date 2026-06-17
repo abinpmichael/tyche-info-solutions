@@ -32,6 +32,7 @@ class AuthController extends BaseController
             // Password is correct, log the user in
             session()->set('isLoggedIn', true);
             session()->set('username', $username);
+            session()->set('user_id', $user['id']);
 
             return redirect()->to('/dashboard'); // Redirect to the admin dashboard
         } else {

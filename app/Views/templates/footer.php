@@ -1,37 +1,37 @@
    <!-- JS Global Compulsory -->
-        <script src="assets/vendor/jquery/dist/jquery.min.js"></script>
-        <script src="assets/vendor/jquery-migrate/dist/jquery-migrate.min.js"></script>
-        <script src="assets/vendor/popper.js/dist/umd/popper.min.js"></script>
-        <script src="assets/vendor/bootstrap/bootstrap.min.js"></script>
+        <script src="<?= base_url('assets/vendor/jquery/dist/jquery.min.js') ?>"></script>
+        <script src="<?= base_url('assets/vendor/jquery-migrate/dist/jquery-migrate.min.js') ?>"></script>
+        <script src="<?= base_url('assets/vendor/popper.js/dist/umd/popper.min.js') ?>"></script>
+        <script src="<?= base_url('assets/vendor/bootstrap/bootstrap.min.js') ?>"></script>
 
         <!-- JS Implementing Plugins -->
-        <script src="assets/vendor/appear.js"></script>
-        <script src="assets/vendor/jquery.countdown.min.js"></script>
-        <script src="assets/vendor/hs-megamenu/src/hs.megamenu.js"></script>
-        <script src="assets/vendor/svg-injector/dist/svg-injector.min.js"></script>
-        <script src="assets/vendor/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js"></script>
-        <script src="assets/vendor/jquery-validation/dist/jquery.validate.min.js"></script>
-        <script src="assets/vendor/fancybox/jquery.fancybox.min.js"></script>
-        <script src="assets/vendor/typed.js/lib/typed.min.js"></script>
-        <script src="assets/vendor/slick-carousel/slick/slick.js"></script>
-        <script src="assets/vendor/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
+        <script src="<?= base_url('assets/vendor/appear.js') ?>"></script>
+        <script src="<?= base_url('assets/vendor/jquery.countdown.min.js') ?>"></script>
+        <script src="<?= base_url('assets/vendor/hs-megamenu/src/hs.megamenu.js') ?>"></script>
+        <script src="<?= base_url('assets/vendor/svg-injector/dist/svg-injector.min.js') ?>"></script>
+        <script src="<?= base_url('assets/vendor/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js') ?>"></script>
+        <script src="<?= base_url('assets/vendor/jquery-validation/dist/jquery.validate.min.js') ?>"></script>
+        <script src="<?= base_url('assets/vendor/fancybox/jquery.fancybox.min.js') ?>"></script>
+        <script src="<?= base_url('assets/vendor/typed.js/lib/typed.min.js') ?>"></script>
+        <script src="<?= base_url('assets/vendor/slick-carousel/slick/slick.js') ?>"></script>
+        <script src="<?= base_url('assets/vendor/bootstrap-select/dist/js/bootstrap-select.min.js') ?>"></script>
 
         <!-- JS Electro -->
-        <script src="assets/js/hs.core.js"></script>
-        <script src="assets/js/components/hs.countdown.js"></script>
-        <script src="assets/js/components/hs.header.js"></script>
-        <script src="assets/js/components/hs.hamburgers.js"></script>
-        <script src="assets/js/components/hs.unfold.js"></script>
-        <script src="assets/js/components/hs.focus-state.js"></script>
-        <script src="assets/js/components/hs.malihu-scrollbar.js"></script>
-        <script src="assets/js/components/hs.validation.js"></script>
-        <script src="assets/js/components/hs.fancybox.js"></script>
-        <script src="assets/js/components/hs.onscroll-animation.js"></script>
-        <script src="assets/js/components/hs.slick-carousel.js"></script>
-        <script src="assets/js/components/hs.show-animation.js"></script>
-        <script src="assets/js/components/hs.svg-injector.js"></script>
-        <script src="assets/js/components/hs.go-to.js"></script>
-        <script src="assets/js/components/hs.selectpicker.js"></script>
+        <script src="<?= base_url('assets/js/hs.core.js') ?>"></script>
+        <script src="<?= base_url('assets/js/components/hs.countdown.js') ?>"></script>
+        <script src="<?= base_url('assets/js/components/hs.header.js') ?>"></script>
+        <script src="<?= base_url('assets/js/components/hs.hamburgers.js') ?>"></script>
+        <script src="<?= base_url('assets/js/components/hs.unfold.js') ?>"></script>
+        <script src="<?= base_url('assets/js/components/hs.focus-state.js') ?>"></script>
+        <script src="<?= base_url('assets/js/components/hs.malihu-scrollbar.js') ?>"></script>
+        <script src="<?= base_url('assets/js/components/hs.validation.js') ?>"></script>
+        <script src="<?= base_url('assets/js/components/hs.fancybox.js') ?>"></script>
+        <script src="<?= base_url('assets/js/components/hs.onscroll-animation.js') ?>"></script>
+        <script src="<?= base_url('assets/js/components/hs.slick-carousel.js') ?>"></script>
+        <script src="<?= base_url('assets/js/components/hs.show-animation.js') ?>"></script>
+        <script src="<?= base_url('assets/js/components/hs.svg-injector.js') ?>"></script>
+        <script src="<?= base_url('assets/js/components/hs.go-to.js') ?>"></script>
+        <script src="<?= base_url('assets/js/components/hs.selectpicker.js') ?>"></script>
 
         <!-- JS Plugins Init. -->
         <script>
@@ -132,7 +132,40 @@
                 $.HSCore.components.HSSelectPicker.init('.js-select');
             });
         </script>
+        <?php
+        $db = db_connect();
+        $uri = uri_string();
+        if ($uri === '') {
+            $uri = 'home';
+        }
         
+        $seo = $db->table('seo_settings')->where('page_route', $uri)->get()->getRowArray();
         
+        if (!$seo) {
+            $allModels = $db->table('models')->get()->getResultArray();
+            $matchedProduct = null;
+            foreach ($allModels as $m) {
+                $slug = str_replace(' ', '-', strtolower(trim($m['name'])));
+                if ($slug === strtolower($uri)) {
+                    $matchedProduct = $m;
+                    break;
+                }
+            }
+            if ($matchedProduct) {
+                $seo = [
+                    'footer_code' => ''
+                ];
+            }
+        }
+        
+        if (!$seo) {
+            $seo = $db->table('seo_settings')->where('page_route', 'home')->get()->getRowArray();
+        }
+        
+        $globalScripts = $db->table('seo_settings')->where('page_route', 'home')->get()->getRowArray();
+        $footerCode = !empty($seo['footer_code']) ? $seo['footer_code'] : ($globalScripts['footer_code'] ?? '');
+        
+        echo $footerCode;
+        ?>
 </body>
 </html>

@@ -3,7 +3,7 @@
 
 <!-- ========== MAIN CONTENT ========== -->
 <main id="content" role="main">
-   <div class="bg-gray-13 bg-md-transparent">
+    <div class="bg-gray-13 bg-md-transparent">
         <div class="container">
             <!-- breadcrumb -->
             <div class="my-md-3">
@@ -18,38 +18,37 @@
         </div>
     </div> 
 
-    <section id="content-section" class="services-page pb-10">
-        <div class="container">
-            <div class="card-body subhead-60 pb-6 px-0 continer-head">
-                <h4>OUR SERVICES</h4>
-                <div class="border-bottom">
-                    <div class="list-group list-group-horizontal flex-wrap list-group-borderless align-items-center mx-n0dot5">
-                        <h5>Explore Our Extensive Services for you</h5>
-                    </div>
+    <section id="content-section" class="services-page pb-10 pt-2">
+        <div class="card-body subhead-60 pb-6 px-0 continer-head">
+            <span class="eleven"><h4>OUR SERVICES</h4></span>
+            <div>
+                <div class="list-group list-group-horizontal flex-wrap list-group-borderless align-items-center mx-n0dot5">
+                    <h5>Explore Our Extensive Services for you</h5>
                 </div>
             </div>
-            
+        </div>
+
+        <div class="container">
             <div id="services-listing">
                 <?php if (!empty($services)): ?>
-                    <?php foreach ($services as $index => $service): ?>
+                    <?php foreach ($services as $service): ?>
                         <?php 
                         // Determine image URL
                         if (!empty($service['img'])) {
                             if (file_exists(WRITEPATH . 'uploads/services/' . $service['img'])) {
                                 $imgUrl = base_url('writable/uploads/services/' . $service['img']);
+                            } else if (file_exists(FCPATH . 'assets/img/services/' . $service['img'])) {
+                                $imgUrl = base_url('assets/img/services/' . $service['img']);
                             } else {
                                 $imgUrl = base_url('assets/img/services/' . $service['img']);
                             }
                         } else {
-                            $imgUrl = base_url('assets/img/services/corporate-bulk-solutions.webp');
+                            $imgUrl = base_url('assets/img/services/corporate-bulk-solutions.jpg');
                         }
-                        
-                        $isLast = ($index === count($services) - 1);
-                        $rowClass = $isLast ? 'row box mb-5 py-4' : 'row box mb-5 py-4 border-bottom';
                         ?>
-                        <div class="<?= $rowClass ?>">
-                            <div class="col-lg-6 mb-3 mb-lg-0">
-                                <div class="bg-img rounded-lg shadow-sm" style="background-image: url('<?= $imgUrl ?>'); background-size: cover; background-position: center; min-height: 300px;"></div>
+                        <div class="row box mb-5">
+                            <div class="col-lg-6">
+                                <figure class="bg-img" style="background-image: url('<?= $imgUrl ?>');"></figure>
                             </div>
                             <div class="col-lg-6">
                                 <div class="content pl-lg-4">

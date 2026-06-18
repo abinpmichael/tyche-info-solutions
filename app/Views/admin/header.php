@@ -169,6 +169,12 @@
                     <span class="ms-2">Privacy Policy</span>
                   </a>
                 </li>
+                <li>
+                  <a href="<?= base_url('refund-admin')?>" class="sidebar-link">
+                    <i class="ti ti-circle fs-7 text-muted"></i>
+                    <span class="ms-2">Refund Policy</span>
+                  </a>
+                </li>
               </ul>
 
             </li>

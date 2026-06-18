@@ -60,6 +60,6 @@ class PrivacyController extends BaseController
 
         $model->update($id, $data);
 
-        return redirect()->to('/privacy-admin')->with('success', 'Privacy Policy updated successfully');
+        return redirect()->to(base_url('privacy-admin'))->with('success', 'Privacy Policy updated successfully');
     }
 }

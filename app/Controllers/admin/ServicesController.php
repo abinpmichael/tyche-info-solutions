@@ -11,14 +11,14 @@ class ServicesController extends BaseController
     {
         // Ensure the user is logged in
         if (!session()->has('username')) {
-            return redirect()->to('/login');
+            return redirect()->to(base_url('login'));
         }
     }
 
     public function index()
     {
         if (!session()->has('username')) {
-            return redirect()->to('/login');
+            return redirect()->to(base_url('login'));
         }
 
         $serviceModel = new ServiceModel();
@@ -30,7 +30,7 @@ class ServicesController extends BaseController
     public function create()
     {
         if (!session()->has('username')) {
-            return redirect()->to('/login');
+            return redirect()->to(base_url('login'));
         }
 
         return view('Admin/header') . view('Admin/services/create') . view('Admin/footer');
@@ -39,7 +39,7 @@ class ServicesController extends BaseController
     public function store()
     {
         if (!session()->has('username')) {
-            return redirect()->to('/login');
+            return redirect()->to(base_url('login'));
         }
 
         $serviceModel = new ServiceModel();
@@ -70,20 +70,20 @@ class ServicesController extends BaseController
         }
 
         $serviceModel->save($data);
-        return redirect()->to('/services-admin')->with('success', 'Service created successfully.');
+        return redirect()->to(base_url('services-admin'))->with('success', 'Service created successfully.');
     }
 
     public function edit($id)
     {
         if (!session()->has('username')) {
-            return redirect()->to('/login');
+            return redirect()->to(base_url('login'));
         }
 
         $serviceModel = new ServiceModel();
         $service = $serviceModel->find($id);
 
         if (!$service) {
-            return redirect()->to('/services-admin')->with('error', 'Service not found.');
+            return redirect()->to(base_url('services-admin'))->with('error', 'Service not found.');
         }
 
         return view('Admin/header') . view('Admin/services/edit', ['service' => $service]) . view('Admin/footer');
@@ -92,14 +92,14 @@ class ServicesController extends BaseController
     public function update($id)
     {
         if (!session()->has('username')) {
-            return redirect()->to('/login');
+            return redirect()->to(base_url('login'));
         }
 
         $serviceModel = new ServiceModel();
         $service = $serviceModel->find($id);
 
         if (!$service) {
-            return redirect()->to('/services-admin')->with('error', 'Service not found.');
+            return redirect()->to(base_url('services-admin'))->with('error', 'Service not found.');
         }
 
         $validation = \Config\Services::validation();
@@ -132,20 +132,20 @@ class ServicesController extends BaseController
         }
 
         $serviceModel->update($id, $data);
-        return redirect()->to('/services-admin')->with('success', 'Service updated successfully.');
+        return redirect()->to(base_url('services-admin'))->with('success', 'Service updated successfully.');
     }
 
     public function delete($id)
     {
         if (!session()->has('username')) {
-            return redirect()->to('/login');
+            return redirect()->to(base_url('login'));
         }
 
         $serviceModel = new ServiceModel();
         $service = $serviceModel->find($id);
 
         if (!$service) {
-            return redirect()->to('/services-admin')->with('error', 'Service not found.');
+            return redirect()->to(base_url('services-admin'))->with('error', 'Service not found.');
         }
 
         // Delete uploaded image file
@@ -154,6 +154,6 @@ class ServicesController extends BaseController
         }
 
         $serviceModel->delete($id);
-        return redirect()->to('/services-admin')->with('success', 'Service deleted successfully.');
+        return redirect()->to(base_url('services-admin'))->with('success', 'Service deleted successfully.');
     }
 }

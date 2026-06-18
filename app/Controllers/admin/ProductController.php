@@ -11,13 +11,13 @@ class ProductController extends BaseController
     {
         // Ensure the user is logged in
         if (!session()->has('username')) {
-            return redirect()->to('/login');
+            return redirect()->to(base_url('login'));
         }
     }
     public function index()
     {
          if (!session()->has('username')) {
-            return redirect()->to('/login');
+            return redirect()->to(base_url('login'));
         }
         $ProductModel = new ProductModel();
         $data['product'] = $ProductModel->findAll();
@@ -57,13 +57,13 @@ class ProductController extends BaseController
             'p_status' => $this->request->getPost('p_status'),
         ];
         $ProductModel->update($id, $data);
-        return redirect()->to('/product')->with('success', 'Product updated successfully');
+        return redirect()->to(base_url('product'))->with('success', 'Product updated successfully');
     }
 
     public function delete($id)
     {
         $ProductModel = new ProductModel();
         $ProductModel->delete($id);
-        return redirect()->to('/product')->with('success', 'Brand deleted successfully');
+        return redirect()->to(base_url('product'))->with('success', 'Brand deleted successfully');
     }
 }

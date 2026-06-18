@@ -12,6 +12,7 @@ use App\Models\EnquiryModel;
 use App\Models\ServiceModel;
 use App\Models\TermsConditionsModel;
 use App\Models\PrivacyPolicyModel;
+use App\Models\RefundPolicyModel;
 
 class Pages extends BaseController
 {
@@ -128,6 +129,26 @@ class Pages extends BaseController
         echo view('templates/footer');
     }
 
+    public function refundPolicy()
+    {
+        $model = new RefundPolicyModel();
+        $data['policy'] = $model->find(1);
+
+        echo view('templates/header', ['title' => 'Refund and Cancellation Policy']);
+        echo view('pages/refund-policy', $data);
+        echo view('templates/footer');
+    }
+
+    public function siteMap()
+    {
+        $modelModel = new ModelModel();
+        $data['models'] = $modelModel->where('status', 1)->findAll();
+
+        echo view('templates/header', ['title' => 'Site Map']);
+        echo view('pages/site-map', $data);
+        echo view('templates/footer');
+    }
+
     public function viewModel($slug)
     {
         $modelModel = new ModelModel();
@@ -199,7 +220,7 @@ class Pages extends BaseController
         }
 
         session()->set('cart', $cart);
-        return redirect()->to('/cart')->with('success', 'Product added to cart!');
+        return redirect()->to(base_url('cart'))->with('success', 'Product added to cart!');
     }
 
     public function cartRemove($id)
@@ -213,7 +234,7 @@ class Pages extends BaseController
         }
 
         session()->set('cart', $cart);
-        return redirect()->to('/cart')->with('success', 'Product removed from cart.');
+        return redirect()->to(base_url('cart'))->with('success', 'Product removed from cart.');
     }
 
     public function cartUpdate()
@@ -230,7 +251,7 @@ class Pages extends BaseController
         }
 
         session()->set('cart', $cart);
-        return redirect()->to('/cart')->with('success', 'Cart updated successfully.');
+        return redirect()->to(base_url('cart'))->with('success', 'Cart updated successfully.');
     }
 
     public function enquireNow()
@@ -258,7 +279,7 @@ class Pages extends BaseController
         $source = $this->request->getPost('source') ?? 'enquiry';
         $cart = session()->get('cart') ?? [];
         if ($source === 'enquiry' && empty($cart)) {
-            return redirect()->to('/')->with('error', 'Your cart is empty. Cannot submit enquiry.');
+            return redirect()->to(base_url())->with('error', 'Your cart is empty. Cannot submit enquiry.');
         }
 
         $enquiryModel = new EnquiryModel();

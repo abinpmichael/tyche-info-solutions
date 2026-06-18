@@ -58,6 +58,6 @@ class TermsController extends BaseController
 
         $model->update($id, $data);
 
-        return redirect()->to('/terms-admin')->with('success', 'Terms and Conditions updated successfully');
+        return redirect()->to(base_url('terms-admin'))->with('success', 'Terms and Conditions updated successfully');
     }
 }

@@ -2,25 +2,38 @@
     RewriteEngine On
 
     # ---------------------------------------------------------------
-    # IMPORTANT: Set this to the subfolder path on the live server.
-    # If the app is at https://example.com/cms/ → RewriteBase /cms/
-    # If the app is at https://example.com/    → RewriteBase /
+    # Auto-detect environment and set the correct RewriteBase.
+    #
+    # LOCAL  (XAMPP):   RewriteBase /tyche-info-solutions/
+    # LIVE   (cPanel):  RewriteBase /cms/
     # ---------------------------------------------------------------
-    RewriteBase /cms/
 
-    # Remove index.php from URL (redirect to clean URL)
-    RewriteCond %{THE_REQUEST} ^[A-Z]{3,}\s/+cms/index\.php(/[^\s]*)?\ HTTP/
-    RewriteRule ^index\.php(/(.*))?$ /cms/$2 [R=301,L]
+    # ── LIVE SUBFOLDER ──────────────────────────────────────────────
+    RewriteCond %{REQUEST_URI} ^/cms/ [NC]
+    RewriteRule ^ - [E=BASE:/cms/]
 
-    # Allow actual files and directories to be served directly
+    # ── LOCAL (XAMPP) ───────────────────────────────────────────────
+    RewriteCond %{HTTP_HOST} ^localhost$ [NC]
+    RewriteRule ^ - [E=BASE:/tyche-info-solutions/]
+
+    # ── DEFAULT / LIVE ROOT ─────────────────────────────────────────
+    RewriteCond %{ENV:BASE} ^$
+    RewriteRule ^ - [E=BASE:/]
+
+    # RewriteBase /
+    
+    # Remove index.php from URL
+    RewriteCond %{THE_REQUEST} \s/+[^?]*index\.php[/\s?] [NC]
+    RewriteRule ^(.*)index\.php(.*)$ %{ENV:BASE}$1$2 [R=301,NE,L]
+
+    # Allow actual files and directories to load directly
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteCond %{REQUEST_FILENAME} !-d
 
     # Route everything else through index.php
-    RewriteRule ^(.*)$ index.php/$1 [L]
+    RewriteRule ^(.*)$ %{ENV:BASE}index.php/$1 [L]
 </IfModule>
 
 <IfModule !mod_rewrite.c>
-    # If mod_rewrite is not available, set the index page
-    ErrorDocument 404 /cms/index.php
+    ErrorDocument 404 /index.php
 </IfModule>

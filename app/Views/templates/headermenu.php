@@ -34,6 +34,38 @@ $cartCount = 0;
 foreach ($cart as $item) {
     $cartCount += $item['qty'];
 }
+
+// Active menu logic
+$uri = uri_string();
+$activeMenu = '';
+
+if ($uri === '' || $uri === 'home') {
+    $activeMenu = 'home';
+} elseif ($uri === 'about-us') {
+    $activeMenu = 'about';
+} elseif ($uri === 'laptops') {
+    $activeMenu = 'laptops';
+} elseif ($uri === 'desktops') {
+    $activeMenu = 'desktops';
+} elseif ($uri === 'services') {
+    $activeMenu = 'services';
+} elseif ($uri === 'contact-us') {
+    $activeMenu = 'contact';
+} else {
+    // Check if it matches a product model to highlight the correct catalog section
+    $modelRow = $db->table('models')->get()->getResultArray();
+    foreach ($modelRow as $m) {
+        $slug = str_replace(' ', '-', strtolower(trim($m['name'])));
+        if ($slug === strtolower($uri)) {
+            if ($m['type'] == '1') {
+                $activeMenu = 'laptops';
+            } elseif ($m['type'] == '2') {
+                $activeMenu = 'desktops';
+            }
+            break;
+        }
+    }
+}
 ?>
 <!-- ========== HEADER ========== -->
 <header id="header" class="u-header u-header-left-aligned-nav">
@@ -129,27 +161,27 @@ foreach ($cart as $item) {
                                                 <!-- List -->
                                                 <ul id="headerSidebarList" class="u-header-collapse__nav">
                                                     <!-- Home -->
-                                                    <li class="nav-item hs-has-mega-menu u-header__nav-item">
+                                                    <li class="nav-item hs-has-mega-menu u-header__nav-item <?= ($activeMenu === 'home') ? 'active' : '' ?>">
                                                         <a class="nav-link u-header__nav-link" href="<?= base_url() ?>">Home</a>
                                                     </li>
                                                     <!-- About Us -->
-                                                    <li class="nav-item hs-has-mega-menu u-header__nav-item">
+                                                    <li class="nav-item hs-has-mega-menu u-header__nav-item <?= ($activeMenu === 'about') ? 'active' : '' ?>">
                                                         <a class="nav-link u-header__nav-link" href="<?= base_url('about-us') ?>">About Us</a>
                                                     </li>
                                                     <!-- Laptops -->
-                                                    <li class="nav-item hs-has-mega-menu u-header__nav-item">
+                                                    <li class="nav-item hs-has-mega-menu u-header__nav-item <?= ($activeMenu === 'laptops') ? 'active' : '' ?>">
                                                         <a class="nav-link u-header__nav-link" href="<?= base_url('laptops') ?>">Laptops</a>
                                                     </li>
                                                     <!-- Desktops -->
-                                                    <li class="nav-item hs-has-mega-menu u-header__nav-item">
+                                                    <li class="nav-item hs-has-mega-menu u-header__nav-item <?= ($activeMenu === 'desktops') ? 'active' : '' ?>">
                                                         <a class="nav-link u-header__nav-link" href="<?= base_url('desktops') ?>">Desktops</a>
                                                     </li>
                                                     <!-- Services -->
-                                                    <li class="nav-item hs-has-mega-menu u-header__nav-item">
+                                                    <li class="nav-item hs-has-mega-menu u-header__nav-item <?= ($activeMenu === 'services') ? 'active' : '' ?>">
                                                         <a class="nav-link u-header__nav-link" href="<?= base_url('services') ?>">Services</a>
                                                     </li>
                                                     <!-- Contact Us -->
-                                                    <li class="nav-item hs-has-mega-menu u-header__nav-item">
+                                                    <li class="nav-item hs-has-mega-menu u-header__nav-item <?= ($activeMenu === 'contact') ? 'active' : '' ?>">
                                                         <a class="nav-link u-header__nav-link" href="<?= base_url('contact-us') ?>">Contact Us</a>
                                                     </li>
                                                     <!-- Cart -->
@@ -176,15 +208,15 @@ foreach ($cart as $item) {
                             <div id="navBar" class="collapse navbar-collapse u-header__navbar-collapse">
                                 <ul class="navbar-nav u-header__navbar-nav">
                                     <!-- Home -->
-                                    <li class="nav-item hs-has-mega-menu u-header__nav-item">
+                                    <li class="nav-item hs-has-mega-menu u-header__nav-item <?= ($activeMenu === 'home') ? 'active' : '' ?>">
                                         <a id="homeMegaMenu" class="nav-link u-header__nav-link" href="<?= base_url() ?>">Home</a>
                                     </li>
                                     <!-- About Us -->
-                                    <li class="nav-item hs-has-mega-menu u-header__nav-item">
+                                    <li class="nav-item hs-has-mega-menu u-header__nav-item <?= ($activeMenu === 'about') ? 'active' : '' ?>">
                                         <a id="aboutMegaMenu" class="nav-link u-header__nav-link" href="<?= base_url('about-us') ?>">About Us</a>
                                     </li>
                                     <!-- Laptops -->
-                                    <li class="nav-item hs-has-mega-menu u-header__nav-item" data-event="hover" data-animation-in="slideInUp" data-animation-out="fadeOut">
+                                    <li class="nav-item hs-has-mega-menu u-header__nav-item <?= ($activeMenu === 'laptops') ? 'active' : '' ?>" data-event="hover" data-animation-in="slideInUp" data-animation-out="fadeOut">
                                         <a id="laptopsMegaMenu" class="nav-link u-header__nav-link u-header__nav-link-toggle" href="<?= base_url('laptops') ?>">Laptops</a>
                                         <!-- Laptops Mega Menu -->
                                         <div class="hs-mega-menu u-header__sub-menu" aria-labelledby="laptopsMegaMenu" style="min-width: 700px;">
@@ -219,7 +251,7 @@ foreach ($cart as $item) {
                                         </div>
                                     </li>
                                     <!-- Desktops -->
-                                    <li class="nav-item hs-has-mega-menu u-header__nav-item" data-event="hover" data-animation-in="slideInUp" data-animation-out="fadeOut">
+                                    <li class="nav-item hs-has-mega-menu u-header__nav-item <?= ($activeMenu === 'desktops') ? 'active' : '' ?>" data-event="hover" data-animation-in="slideInUp" data-animation-out="fadeOut">
                                         <a id="desktopsMegaMenu" class="nav-link u-header__nav-link u-header__nav-link-toggle" href="<?= base_url('desktops') ?>">Desktops</a>
                                         <!-- Desktops Mega Menu -->
                                         <div class="hs-mega-menu u-header__sub-menu" aria-labelledby="desktopsMegaMenu" style="min-width: 600px;">
@@ -254,11 +286,11 @@ foreach ($cart as $item) {
                                         </div>
                                     </li>
                                     <!-- Services -->
-                                    <li class="nav-item hs-has-mega-menu u-header__nav-item">
+                                    <li class="nav-item hs-has-mega-menu u-header__nav-item <?= ($activeMenu === 'services') ? 'active' : '' ?>">
                                         <a class="nav-link u-header__nav-link" href="<?= base_url('services') ?>">Services</a>
                                     </li>
                                     <!-- Contact Us -->
-                                    <li class="nav-item hs-has-mega-menu u-header__nav-item">
+                                    <li class="nav-item hs-has-mega-menu u-header__nav-item <?= ($activeMenu === 'contact') ? 'active' : '' ?>">
                                         <a class="nav-link u-header__nav-link" href="<?= base_url('contact-us') ?>">Contact Us</a>
                                     </li>
                                     <!-- Cart Indicator -->

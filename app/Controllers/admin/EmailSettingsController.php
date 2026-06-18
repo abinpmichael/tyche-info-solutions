@@ -10,14 +10,14 @@ class EmailSettingsController extends BaseController
     public function __construct()
     {
         if (!session()->has('username')) {
-            return redirect()->to('/login');
+            return redirect()->to(base_url('login'));
         }
     }
 
     public function index()
     {
         if (!session()->has('username')) {
-            return redirect()->to('/login');
+            return redirect()->to(base_url('login'));
         }
 
         $model = new HomeModel();
@@ -29,7 +29,7 @@ class EmailSettingsController extends BaseController
     public function update()
     {
         if (!session()->has('username')) {
-            return redirect()->to('/login');
+            return redirect()->to(base_url('login'));
         }
 
         $validation = \Config\Services::validation();

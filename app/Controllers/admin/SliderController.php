@@ -11,7 +11,7 @@ class SliderController extends BaseController
     public function index()
     {
         if (!session()->has('username')) {
-            return redirect()->to('/login');
+            return redirect()->to(base_url('login'));
         }
         $model = new SliderModel();
         $data['records'] = $model->findAll();
@@ -61,7 +61,7 @@ class SliderController extends BaseController
 
     $Model->insert($data);
 
-    return redirect()->to('/slider')->with('msg', 'Record added successfully.');
+    return redirect()->to(base_url('slider'))->with('msg', 'Record added successfully.');
 
     }
 
@@ -109,7 +109,7 @@ $data = [
     // Update the slider
     $model->update($id, $data);
 
-    return redirect()->to('/slider')->with('msg', 'Record updated successfully.');
+    return redirect()->to(base_url('slider'))->with('msg', 'Record updated successfully.');
 
     }
 
@@ -117,6 +117,6 @@ $data = [
     {
         $model = new SliderModel();
         $model->delete($id);
-        return redirect()->to('/slider')->with('msg', 'Record Delete Successfully.');
+        return redirect()->to(base_url('slider'))->with('msg', 'Record Delete Successfully.');
     }
 }

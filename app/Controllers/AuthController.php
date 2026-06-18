@@ -34,10 +34,10 @@ class AuthController extends BaseController
             session()->set('username', $username);
             session()->set('user_id', $user['id']);
 
-            return redirect()->to('/dashboard'); // Redirect to the admin dashboard
+            return redirect()->to(base_url('dashboard')); // Redirect to admin dashboard
         } else {
             // Invalid credentials
-            return redirect()->to('/login')->with('error', 'Invalid username or password');
+            return redirect()->to(base_url('login'))->with('error', 'Invalid username or password');
         }
     }
 
@@ -54,6 +54,6 @@ class AuthController extends BaseController
     public function logout()
     {
         session()->destroy();
-        return redirect()->to('/login');
+        return redirect()->to(base_url('login'));
     }
 }

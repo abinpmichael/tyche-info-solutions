@@ -11,14 +11,14 @@ class EnquiriesController extends BaseController
     {
         // Ensure the user is logged in
         if (!session()->has('username')) {
-            return redirect()->to('/login');
+            return redirect()->to(base_url('login'));
         }
     }
 
     public function index()
     {
         if (!session()->has('username')) {
-            return redirect()->to('/login');
+            return redirect()->to(base_url('login'));
         }
 
         $enquiryModel = new EnquiryModel();
@@ -30,14 +30,14 @@ class EnquiriesController extends BaseController
     public function view($id)
     {
         if (!session()->has('username')) {
-            return redirect()->to('/login');
+            return redirect()->to(base_url('login'));
         }
 
         $enquiryModel = new EnquiryModel();
         $enquiry = $enquiryModel->find($id);
 
         if (!$enquiry) {
-            return redirect()->to('/enquiries')->with('error', 'Enquiry not found.');
+            return redirect()->to(base_url('enquiries'))->with('error', 'Enquiry not found.');
         }
 
         // Decode items JSON
@@ -49,17 +49,17 @@ class EnquiriesController extends BaseController
     public function delete($id)
     {
         if (!session()->has('username')) {
-            return redirect()->to('/login');
+            return redirect()->to(base_url('login'));
         }
 
         $enquiryModel = new EnquiryModel();
         $enquiry = $enquiryModel->find($id);
 
         if (!$enquiry) {
-            return redirect()->to('/enquiries')->with('error', 'Enquiry not found.');
+            return redirect()->to(base_url('enquiries'))->with('error', 'Enquiry not found.');
         }
 
         $enquiryModel->delete($id);
-        return redirect()->to('/enquiries')->with('success', 'Enquiry deleted successfully.');
+        return redirect()->to(base_url('enquiries'))->with('success', 'Enquiry deleted successfully.');
     }
 }

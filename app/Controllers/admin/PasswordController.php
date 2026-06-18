@@ -11,14 +11,14 @@ class PasswordController extends BaseController
     {
         // Ensure user is logged in
         if (!session()->has('username')) {
-            return redirect()->to('/login');
+            return redirect()->to(base_url('login'));
         }
     }
 
     public function index()
     {
         if (!session()->has('username')) {
-            return redirect()->to('/login');
+            return redirect()->to(base_url('login'));
         }
         return view('Admin/header') . view('Admin/password/index') . view('Admin/footer');
     }
@@ -26,7 +26,7 @@ class PasswordController extends BaseController
     public function update()
     {
         if (!session()->has('username')) {
-            return redirect()->to('/login');
+            return redirect()->to(base_url('login'));
         }
 
         $validation = \Config\Services::validation();

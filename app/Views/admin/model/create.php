@@ -20,11 +20,18 @@
                 <div class="card-body">
  <!-- Check if the 'errors' session flashdata exists -->
 <?php if (session()->has('errors')): ?>
-    <div class="alert alert-errors">
+    <div class="alert alert-danger">
+        <ul class="mb-0">
         <?php 
-            // Display the error message
-            echo session()->get('errors');
-        ?>
+            $errors = session()->get('errors');
+            if (is_array($errors)):
+                foreach ($errors as $error): ?>
+                    <li><?= esc($error) ?></li>
+                <?php endforeach;
+            else: ?>
+                <li><?= esc($errors) ?></li>
+            <?php endif; ?>
+        </ul>
     </div>
 <?php endif; ?>
 
@@ -52,7 +59,7 @@
             <div class="col-md-6">
                 <div class="form-group">
     <label for="product">Product:</label>
-    <select name="product_id" id="product" class="form-control" required>
+    <select name="type" id="product" class="form-control" required>
         <option value="">-- Select a Product --</option>
         <?php foreach ($product as $products): ?>
             <option value="<?= esc($products['p_id']) ?>"><?= esc($products['p_name']) ?></option>

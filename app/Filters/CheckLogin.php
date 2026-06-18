@@ -17,17 +17,13 @@ class CheckLogin implements FilterInterface
      * execution will end and that Response will be
      * sent back to the client, allowing for error pages,
      * redirects, etc.
-     *
-     * @param RequestInterface $request
-     * @param array|null       $arguments
-     *
      * @return RequestInterface|ResponseInterface|string|void
      */
     public function before(RequestInterface $request, $arguments = null)
     {
-           if (!session()->has('username')) {
+        if (!session()->has('username')) {
             // If not, redirect to login page
-            return redirect()->to('/login');
+            return redirect()->to(base_url('login'));
         }
     }
 

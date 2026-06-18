@@ -20,35 +20,87 @@ class Database extends Config
     public string $defaultGroup = 'default';
 
     /**
-     * The default database connection.
+     * Auto-detected database connection.
+     * Switches between local (XAMPP) and live (hosting) credentials automatically.
+     *
+     * ── LOCAL  → hostname: localhost | db: ci4_tyche   | user: root
+     * ── LIVE   → hostname: localhost | db: <live_db>   | user: <live_user>
      *
      * @var array<string, mixed>
      */
-    public array $default = [
-        'DSN'          => '',
-        'hostname'     => 'localhost',
-        'username'     => 'root',
-        'password'     => '',
-        'database'     => 'ci4_tyche',
-        'DBDriver'     => 'MySQLi',
-        'DBPrefix'     => '',
-        'pConnect'     => false,
-        'DBDebug'      => true,
-        'charset'      => 'utf8mb4',
-        'DBCollat'     => 'utf8mb4_general_ci',
-        'swapPre'      => '',
-        'encrypt'      => false,
-        'compress'     => false,
-        'strictOn'     => false,
-        'failover'     => [],
-        'port'         => 3306,
-        'numberNative' => false,
-        'dateFormat'   => [
-            'date'     => 'Y-m-d',
-            'datetime' => 'Y-m-d H:i:s',
-            'time'     => 'H:i:s',
-        ],
-    ];
+    public array $default = [];
+
+    public function __construct()
+    {
+        parent::__construct();
+
+        $host = $_SERVER['HTTP_HOST'] ?? 'localhost';
+
+        $isLocal = ($host === 'localhost' || str_starts_with($host, '127.') || $host === '::1');
+
+        if ($isLocal) {
+            // ── LOCAL (XAMPP) ───────────────────────────────────────────────────
+            $this->default = [
+                'DSN'          => '',
+                'hostname'     => 'localhost',
+                'username'     => 'root',
+                'password'     => '',
+                'database'     => 'ci4_tyche',
+                'DBDriver'     => 'MySQLi',
+                'DBPrefix'     => '',
+                'pConnect'     => false,
+                'DBDebug'      => true,
+                'charset'      => 'utf8mb4',
+                'DBCollat'     => 'utf8mb4_general_ci',
+                'swapPre'      => '',
+                'encrypt'      => false,
+                'compress'     => false,
+                'strictOn'     => false,
+                'failover'     => [],
+                'port'         => 3306,
+                'numberNative' => false,
+                'dateFormat'   => [
+                    'date'     => 'Y-m-d',
+                    'datetime' => 'Y-m-d H:i:s',
+                    'time'     => 'H:i:s',
+                ],
+            ];
+        } else {
+            // ── LIVE SERVER (Hosting) ───────────────────────────────────────────
+            // ⚠️  Fill in your hosting cPanel database details below:
+            $this->default = [
+                'DSN'          => '',
+                'hostname'     => 'localhost',
+                'username'     => 'tycheinfosolutions_cms',
+                'password'     => 'TrXExthN5khEQh94eyzu',
+                'database'     => 'tycheinfosolutions_cms',
+                'DBDriver'     => 'MySQLi',
+                'DBPrefix'     => '',
+                'pConnect'     => false,
+                'DBDebug'      => false,              // hide errors on live
+                'charset'      => 'utf8mb4',
+                'DBCollat'     => 'utf8mb4_general_ci',
+                'swapPre'      => '',
+                'encrypt'      => false,
+                'compress'     => false,
+                'strictOn'     => false,
+                'failover'     => [],
+                'port'         => 3306,
+                'numberNative' => false,
+                'dateFormat'   => [
+                    'date'     => 'Y-m-d',
+                    'datetime' => 'Y-m-d H:i:s',
+                    'time'     => 'H:i:s',
+                ],
+            ];
+        }
+
+        // Always use the 'tests' group when running automated tests
+        if (defined('ENVIRONMENT') && ENVIRONMENT === 'testing') {
+            $this->defaultGroup = 'tests';
+        }
+    }
+
 
     //    /**
     //     * Sample database connection for SQLite3.
@@ -187,15 +239,4 @@ class Database extends Config
         ],
     ];
 
-    public function __construct()
-    {
-        parent::__construct();
-
-        // Ensure that we always set the database group to 'tests' if
-        // we are currently running an automated test suite, so that
-        // we don't overwrite live data on accident.
-        if (ENVIRONMENT === 'testing') {
-            $this->defaultGroup = 'tests';
-        }
-    }
 }

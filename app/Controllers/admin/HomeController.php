@@ -11,7 +11,7 @@ class HomeController extends BaseController
     {
         // Ensure the user is logged in
         if (!session()->has('username')) {
-            return redirect()->to('/login');
+            return redirect()->to(base_url('login'));
         }
     }
     public function index()
@@ -32,7 +32,7 @@ class HomeController extends BaseController
         $model = new HomeModel();
         $data = $this->request->getPost();
         $model->save($data);
-        return redirect()->to('/your-table');
+        return redirect()->to(base_url('your-table'));
     }
 
     public function edit($id)
@@ -62,14 +62,6 @@ class HomeController extends BaseController
             'errors' => [
                 'required' => '{field} is required.',
                 'valid_url' => '{field} must be a valid URL.',
-            ],
-        ],
-        'meta_tite' => [
-            'label' => 'Meta Title',
-            'rules' => 'required',
-            'errors' => [
-                'required' => '{field} is required.',
-                'max_length' => '{field} cannot exceed 255 characters.',
             ],
         ],
     ]);
@@ -107,6 +99,6 @@ class HomeController extends BaseController
     {
         $model = new HomeModel();
         $model->delete($id);
-        return redirect()->to('/your-table');
+        return redirect()->to(base_url('your-table'));
     }
 }

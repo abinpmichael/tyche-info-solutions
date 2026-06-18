@@ -17,90 +17,126 @@
     <!-- End breadcrumb -->
 
     <div class="container">
-        <!-- Single Product Gallary and overview -->
-        <div class="row mb-8">
-            <!-- Product Images -->
-            <div class="col-md-6 mb-4 mb-md-0">
-                <div class="p-3 border rounded-lg text-center bg-white">
-                    <!-- Main image -->
-                    <div class="mb-3">
-                        <img id="mainProductImage" class="img-fluid" src="<?= base_url('writable/uploads/thumbnails/' . $product['thumbnail']) ?>" alt="<?= esc($product['name']) ?>" style="max-height: 400px; object-fit: contain;">
-                    </div>
-                    
-                    <!-- Gallery thumbnails -->
-                    <?php if (!empty($product['gallery'])): ?>
-                        <div class="d-flex justify-content-center overflow-auto py-2">
-                            <div class="mx-1 border rounded p-1 cursor-pointer" onclick="changeMainImage('<?= base_url('writable/uploads/thumbnails/' . $product['thumbnail']) ?>')">
-                                <img src="<?= base_url('writable/uploads/thumbnails/' . $product['thumbnail']) ?>" width="60" height="60" style="object-fit: contain;">
-                            </div>
-                            <?php foreach ($product['gallery'] as $img): ?>
-                                <div class="mx-1 border rounded p-1 cursor-pointer" onclick="changeMainImage('<?= base_url('writable/uploads/gallery/' . $img['image']) ?>')">
-                                    <img src="<?= base_url('writable/uploads/gallery/' . $img['image']) ?>" width="60" height="60" style="object-fit: contain;">
+        <!-- Single Product Gallery and overview -->
+        <div class="mb-xl-14 mb-6 pt-6">
+            <div class="row">
+                <!-- Product Images -->
+                <div class="col-xl-5 col-lg-5 col-md-12 col-12 mb-4 mb-md-0">
+                    <div class="p-3 border rounded-lg text-center bg-white">
+                        <!-- Main image -->
+                        <div class="mb-3 text-center" style="height: 350px; display: flex; align-items: center; justify-content: center;">
+                            <img id="mainProductImage" class="img-fluid" src="<?= base_url('writable/uploads/thumbnails/' . $product['thumbnail']) ?>" alt="<?= esc($product['name']) ?>" style="max-height: 100%; max-width: 100%; object-fit: contain;">
+                        </div>
+                        
+                        <!-- Gallery thumbnails -->
+                        <?php if (!empty($product['gallery'])): ?>
+                            <div class="d-flex justify-content-center overflow-auto py-2">
+                                <div class="mx-1 border rounded p-1 cursor-pointer" onclick="changeMainImage('<?= base_url('writable/uploads/thumbnails/' . $product['thumbnail']) ?>')">
+                                    <img src="<?= base_url('writable/uploads/thumbnails/' . $product['thumbnail']) ?>" width="60" height="60" style="object-fit: contain;">
                                 </div>
-                            <?php endforeach; ?>
-                        </div>
-                    <?php endif; ?>
+                                <?php foreach ($product['gallery'] as $img): ?>
+                                    <div class="mx-1 border rounded p-1 cursor-pointer" onclick="changeMainImage('<?= base_url('writable/uploads/gallery/' . $img['image']) ?>')">
+                                        <img src="<?= base_url('writable/uploads/gallery/' . $img['image']) ?>" width="60" height="60" style="object-fit: contain;">
+                                    </div>
+                                <?php endforeach; ?>
+                            </div>
+                        <?php endif; ?>
+                    </div>
                 </div>
-            </div>
 
-            <!-- Product Info -->
-            <div class="col-md-6">
-                <div class="pl-md-4">
-                    <div class="mb-3">
-                        <span class="font-size-13 text-muted text-uppercase"><?= esc($product['brand']['b_name'] ?? '') ?></span>
-                        <h1 class="font-size-30 font-weight-bold text-dark mt-1 mb-2"><?= esc($product['name']) ?></h1>
-                        <p class="text-gray-90 font-size-16 font-weight-medium mb-3"><?= esc($product['s_desc']) ?></p>
-                    </div>
+                <!-- Product Info -->
+                <div class="col-xl-7 col-lg-7 col-md-12 col-12 mb-md-6 mb-lg-0">
+                    <div class="mb-6">
+                        <div class="border-bottom mb-3 pb-md-1 pb-3 product-det">
+                            <h2 class="font-size-25 text-lh-1dot2">
+                                <?= esc($product['name']) ?> <br>
+                                <span> (<?= esc($product['s_desc']) ?>)</span>
+                            </h2>
+                        </div>
+                        
+                        <div class="d-md-flex align-items-center mb-3">
+                            <div class="text-gray-9 font-size-17">Availability: <span class="text-green font-weight-bold">In Stock</span></div>
+                        </div>
 
-                    <!-- Highlight Specs Table -->
-                    <div class="border-top border-bottom py-3 mb-4">
-                        <h5 class="font-weight-bold mb-3 font-size-14 text-primary">Quick Specifications</h5>
-                        <div class="row">
-                            <div class="col-6 mb-2">
-                                <strong>Processor:</strong> <span class="text-gray-90"><?= esc($product['processor']) ?></span>
+                        <!-- Booking Form -->
+                        <form action="<?= base_url('cart/add/' . $product['id']) ?>" method="get" class="mb-4">
+                            <div class="d-md-flex align-items-end mb-3">
+                                <div class="max-width-150 mb-4 mb-md-0">
+                                    <h6 class="font-size-14 mb-2">Quantity</h6>
+                                    <div class="quantity-picker d-flex border rounded bg-white" style="width: 120px;">
+                                        <button type="button" class="btn btn-sm btn-light border-0" onclick="decrementQty()">-</button>
+                                        <input type="number" name="qty" id="productQty" class="form-control border-0 text-center font-weight-bold" value="1" min="1" style="width: 50px; height: 32px; background: transparent;" readonly>
+                                        <button type="button" class="btn btn-sm btn-light border-0" onclick="incrementQty()">+</button>
+                                    </div>
+                                </div>
+                                <div class="ml-md-3">
+                                    <button type="submit" name="type" value="buy" class="btn btn-primary-dark transition-3d-hover px-5 mr-2">Buy</button>
+                                    <button type="submit" name="type" value="rent" class="btn btn-primary-dark transition-3d-hover px-5">Rent</button>
+                                </div>
                             </div>
-                            <div class="col-6 mb-2">
-                                <strong>Memory:</strong> <span class="text-gray-90"><?= esc($product['memory']) ?></span>
-                            </div>
-                            <div class="col-6 mb-2">
-                                <strong>Storage:</strong> <span class="text-gray-90"><?= esc($product['storage']) ?></span>
-                            </div>
-                            <div class="col-6 mb-2">
-                                <strong>Screen Size:</strong> <span class="text-gray-90"><?= esc($product['screen_size']) ?>"</span>
-                            </div>
-                            <div class="col-6">
-                                <strong>Warranty:</strong> <span class="text-gray-90"><?= esc($product['warranty']) ?></span>
-                            </div>
-                            <div class="col-6">
-                                <strong>Graphics:</strong> <span class="text-gray-90"><?= esc($product['graphics']) ?></span>
-                            </div>
+                        </form>
+
+                        <!-- Specifications Blocks -->
+                        <div class="product__description rte quick-add-hidden">
+                            <hr class="clearfix mb-3">
+                            
+                            <?php if (!empty($product['processor'])): ?>
+                                <div class="spec1-float col-xl-4 col-lg-4 col-md-4 col-sm-6 col-sx-6 col-12 mb-3">
+                                    <div class="spec1">
+                                        <p class="s1">Processor</p>
+                                        <p class="s2"><?= esc($product['processor']) ?></p>
+                                    </div>
+                                </div>
+                            <?php endif; ?>
+
+                            <?php if (!empty($product['screen_size'])): ?>
+                                <div class="spec1-float col-xl-4 col-lg-4 col-md-4 col-sm-6 col-sx-6 col-12 mb-3">
+                                    <div class="spec1">
+                                        <p class="s1">Screen Size</p>
+                                        <p class="s2"><?= esc($product['screen_size']) ?>"</p>
+                                    </div>
+                                </div>
+                            <?php endif; ?>
+
+                            <?php if (!empty($product['storage'])): ?>
+                                <div class="spec1-float col-xl-4 col-lg-4 col-md-4 col-sm-6 col-sx-6 col-12 mb-3">
+                                    <div class="spec1">
+                                        <p class="s1">Storage</p>
+                                        <p class="s2"><?= esc($product['storage']) ?></p>
+                                    </div>
+                                </div>
+                            <?php endif; ?>
+
+                            <?php if (!empty($product['memory'])): ?>
+                                <div class="spec1-float col-xl-4 col-lg-4 col-md-4 col-sm-6 col-sx-6 col-12 mb-3">
+                                    <div class="spec1">
+                                        <p class="s1">Memory</p>
+                                        <p class="s2"><?= esc($product['memory']) ?></p>
+                                    </div>
+                                </div>
+                            <?php endif; ?>
+
+                            <?php if (!empty($product['warranty'])): ?>
+                                <div class="spec1-float col-xl-4 col-lg-4 col-md-4 col-sm-6 col-sx-6 col-12 mb-3">
+                                    <div class="spec1">
+                                        <p class="s1">Warranty</p>
+                                        <p class="s2"><?= esc($product['warranty']) ?></p>
+                                    </div>
+                                </div>
+                            <?php endif; ?>
+
+                            <?php if (!empty($product['graphics'])): ?>
+                                <div class="spec1-float col-xl-4 col-lg-4 col-md-4 col-sm-6 col-sx-6 col-12 mb-3">
+                                    <div class="spec1">
+                                        <p class="s1">Graphics</p>
+                                        <p class="s2"><?= esc($product['graphics']) ?></p>
+                                    </div>
+                                </div>
+                            <?php endif; ?>
+
+                            <div class="clearfix"></div>
                         </div>
                     </div>
-
-                    <!-- Booking Form -->
-                    <form action="<?= base_url('cart/add/' . $product['id']) ?>" method="get" class="card p-4 border bg-light">
-                        <div class="d-flex align-items-center mb-3">
-                            <label class="font-weight-bold text-dark mr-3 mb-0">Qty:</label>
-                            <div class="quantity-picker d-flex border rounded bg-white">
-                                <button type="button" class="btn btn-sm btn-light border-0" onclick="decrementQty()">-</button>
-                                <input type="number" name="qty" id="productQty" class="form-control border-0 text-center font-weight-bold" value="1" min="1" style="width: 50px; height: 32px; background: transparent;">
-                                <button type="button" class="btn btn-sm btn-light border-0" onclick="incrementQty()">+</button>
-                            </div>
-                        </div>
-
-                        <div class="row">
-                            <div class="col-sm-6 mb-2 mb-sm-0">
-                                <button type="submit" name="type" value="rent" class="btn btn-primary btn-block transition-3d-hover font-weight-medium">
-                                    <i class="ec ec-add-to-cart mr-2"></i> Add for Rent
-                                </button>
-                            </div>
-                            <div class="col-sm-6">
-                                <button type="submit" name="type" value="buy" class="btn btn-dark btn-block transition-3d-hover font-weight-medium">
-                                    <i class="ec ec-add-to-cart mr-2"></i> Add for Buy
-                                </button>
-                            </div>
-                        </div>
-                    </form>
                 </div>
             </div>
         </div>
@@ -110,7 +146,6 @@
             <h3 class="font-size-22 font-weight-bold mb-4 text-dark border-bottom pb-2">Product Details & Specs</h3>
             
             <div class="row">
-                <!-- Tabs/Accordions -->
                 <div class="col-md-12">
                     <div class="accordion" id="specificationsAccordion">
                         <!-- About Product -->
@@ -128,51 +163,53 @@
                         </div>
 
                         <!-- Technical Specs -->
-                        <div class="card border-0 mb-2">
-                            <div class="card-header bg-light border-0 py-3 collapsed cursor-pointer" id="headingSpecs" data-toggle="collapse" data-target="#collapseSpecs" aria-expanded="false" aria-controls="collapseSpecs">
-                                <h5 class="mb-0 font-weight-bold text-dark font-size-16">
-                                    <i class="fas fa-sliders-h text-primary mr-2"></i> Detailed Specifications
-                                </h5>
-                            </div>
-                            <div id="collapseSpecs" class="collapse" aria-labelledby="headingSpecs" data-parent="#specificationsAccordion">
-                                <div class="card-body pl-0 pr-0 py-4">
-                                    <table class="table table-striped table-bordered">
-                                        <tbody>
-                                            <?php if (!empty($product['graphics_d'])): ?>
-                                                <tr>
-                                                    <td class="font-weight-bold text-dark" style="width: 250px;">Graphics Detail</td>
-                                                    <td class="text-gray-90"><?= esc($product['graphics_d']) ?></td>
-                                                </tr>
-                                            <?php endif; ?>
-                                            <?php if (!empty($product['display_d'])): ?>
-                                                <tr>
-                                                    <td class="font-weight-bold text-dark">Display Detail</td>
-                                                    <td class="text-gray-90"><?= esc($product['display_d']) ?></td>
-                                                </tr>
-                                            <?php endif; ?>
-                                            <?php if (!empty($product['audio_d'])): ?>
-                                                <tr>
-                                                    <td class="font-weight-bold text-dark">Audio Detail</td>
-                                                    <td class="text-gray-90"><?= esc($product['audio_d']) ?></td>
-                                                </tr>
-                                            <?php endif; ?>
-                                            <?php if (!empty($product['dimensions_d'])): ?>
-                                                <tr>
-                                                    <td class="font-weight-bold text-dark">Dimensions & Weight</td>
-                                                    <td class="text-gray-90"><?= esc($product['dimensions_d']) ?></td>
-                                                </tr>
-                                            <?php endif; ?>
-                                            <?php if (!empty($product['ports_d'])): ?>
-                                                <tr>
-                                                    <td class="font-weight-bold text-dark">Ports & Slots</td>
-                                                    <td class="text-gray-90"><?= esc($product['ports_d']) ?></td>
-                                                </tr>
-                                            <?php endif; ?>
-                                        </tbody>
-                                    </table>
+                        <?php if (!empty($product['graphics_d']) || !empty($product['display_d']) || !empty($product['audio_d']) || !empty($product['dimensions_d']) || !empty($product['ports_d'])): ?>
+                            <div class="card border-0 mb-2">
+                                <div class="card-header bg-light border-0 py-3 collapsed cursor-pointer" id="headingSpecs" data-toggle="collapse" data-target="#collapseSpecs" aria-expanded="false" aria-controls="collapseSpecs">
+                                    <h5 class="mb-0 font-weight-bold text-dark font-size-16">
+                                        <i class="fas fa-sliders-h text-primary mr-2"></i> Detailed Specifications
+                                    </h5>
+                                </div>
+                                <div id="collapseSpecs" class="collapse" aria-labelledby="headingSpecs" data-parent="#specificationsAccordion">
+                                    <div class="card-body pl-0 pr-0 py-4">
+                                        <table class="table table-striped table-bordered">
+                                            <tbody>
+                                                <?php if (!empty($product['graphics_d'])): ?>
+                                                    <tr>
+                                                        <td class="font-weight-bold text-dark" style="width: 250px;">Graphics Detail</td>
+                                                        <td class="text-gray-90"><?= esc($product['graphics_d']) ?></td>
+                                                    </tr>
+                                                <?php endif; ?>
+                                                <?php if (!empty($product['display_d'])): ?>
+                                                    <tr>
+                                                        <td class="font-weight-bold text-dark">Display Detail</td>
+                                                        <td class="text-gray-90"><?= esc($product['display_d']) ?></td>
+                                                    </tr>
+                                                <?php endif; ?>
+                                                <?php if (!empty($product['audio_d'])): ?>
+                                                    <tr>
+                                                        <td class="font-weight-bold text-dark">Audio Detail</td>
+                                                        <td class="text-gray-90"><?= esc($product['audio_d']) ?></td>
+                                                    </tr>
+                                                <?php endif; ?>
+                                                <?php if (!empty($product['dimensions_d'])): ?>
+                                                    <tr>
+                                                        <td class="font-weight-bold text-dark">Dimensions & Weight</td>
+                                                        <td class="text-gray-90"><?= esc($product['dimensions_d']) ?></td>
+                                                    </tr>
+                                                <?php endif; ?>
+                                                <?php if (!empty($product['ports_d'])): ?>
+                                                    <tr>
+                                                        <td class="font-weight-bold text-dark">Ports & Slots</td>
+                                                        <td class="text-gray-90"><?= esc($product['ports_d']) ?></td>
+                                                    </tr>
+                                                <?php endif; ?>
+                                            </tbody>
+                                        </table>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
+                        <?php endif; ?>
                     </div>
                 </div>
             </div>

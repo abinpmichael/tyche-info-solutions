@@ -1,0 +1,209 @@
+<div class="container-fluid">
+
+    <!-- Page Header -->
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <div>
+            <h1 class="mb-1">Refund &amp; Cancellation Policy CMS</h1>
+            <p class="text-muted mb-0 fs-3">Manage the content displayed on the Refund and Cancellation Policy public page.</p>
+        </div>
+        <a href="<?= base_url('refund-and-cancellation-policy') ?>" target="_blank" class="btn btn-outline-secondary">
+            <i class="ti ti-external-link me-1"></i> View Page
+        </a>
+    </div>
+
+    <!-- Flash Messages -->
+    <?php if (session()->getFlashdata('success')): ?>
+        <div class="alert alert-success alert-dismissible fade show d-flex align-items-center gap-2 mb-4">
+            <i class="ti ti-circle-check fs-5"></i>
+            <div><?= session()->getFlashdata('success') ?></div>
+            <button type="button" class="btn-close ms-auto" data-bs-dismiss="alert"></button>
+        </div>
+    <?php endif; ?>
+    <?php if (session()->getFlashdata('errors')): ?>
+        <div class="alert alert-danger alert-dismissible fade show mb-4">
+            <ul class="mb-0 ps-3">
+                <?php foreach (session()->getFlashdata('errors') as $e): ?>
+                    <li><?= esc($e) ?></li>
+                <?php endforeach; ?>
+            </ul>
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        </div>
+    <?php endif; ?>
+
+    <form method="post" action="<?= base_url('refund-admin/update/1') ?>">
+        <?= csrf_field() ?>
+
+        <div class="row g-4">
+
+            <!-- LEFT: Content Sections -->
+            <div class="col-lg-8">
+
+                <!-- Cancellation Policy -->
+                <div class="card border-0 shadow-sm rounded-lg mb-4">
+                    <div class="card-header bg-white border-bottom py-3 px-4 d-flex align-items-center gap-2">
+                        <span class="p-2 bg-light-danger rounded-2"><i class="ti ti-ban fs-5 text-danger"></i></span>
+                        <div>
+                            <h6 class="mb-0 fw-semibold">Cancellation Policy — For Rentals</h6>
+                            <small class="text-muted">Before/after delivery cancellation rules</small>
+                        </div>
+                    </div>
+                    <div class="card-body p-4">
+                        <textarea class="form-control" name="cancellation_rentals" rows="6"><?= esc(old('cancellation_rentals', $record['cancellation_rentals'])) ?></textarea>
+                    </div>
+                </div>
+
+                <div class="card border-0 shadow-sm rounded-lg mb-4">
+                    <div class="card-header bg-white border-bottom py-3 px-4 d-flex align-items-center gap-2">
+                        <span class="p-2 bg-light-warning rounded-2"><i class="ti ti-ban fs-5 text-warning"></i></span>
+                        <div>
+                            <h6 class="mb-0 fw-semibold">Cancellation Policy — For Refurbished Products</h6>
+                            <small class="text-muted">Order cancellation window for refurbished products</small>
+                        </div>
+                    </div>
+                    <div class="card-body p-4">
+                        <textarea class="form-control" name="cancellation_refurbished" rows="4"><?= esc(old('cancellation_refurbished', $record['cancellation_refurbished'])) ?></textarea>
+                    </div>
+                </div>
+
+                <!-- Refund Policy -->
+                <div class="card border-0 shadow-sm rounded-lg mb-4">
+                    <div class="card-header bg-white border-bottom py-3 px-4 d-flex align-items-center gap-2">
+                        <span class="p-2 bg-light-success rounded-2"><i class="ti ti-cash-refund fs-5 text-success"></i></span>
+                        <div>
+                            <h6 class="mb-0 fw-semibold">Refund Policy — For Rentals</h6>
+                            <small class="text-muted">When and how rental refunds are processed</small>
+                        </div>
+                    </div>
+                    <div class="card-body p-4">
+                        <textarea class="form-control" name="refund_rentals" rows="5"><?= esc(old('refund_rentals', $record['refund_rentals'])) ?></textarea>
+                    </div>
+                </div>
+
+                <div class="card border-0 shadow-sm rounded-lg mb-4">
+                    <div class="card-header bg-white border-bottom py-3 px-4 d-flex align-items-center gap-2">
+                        <span class="p-2 bg-light-primary rounded-2"><i class="ti ti-cash-refund fs-5 text-primary"></i></span>
+                        <div>
+                            <h6 class="mb-0 fw-semibold">Refund Policy — For Refurbished Products</h6>
+                            <small class="text-muted">Defective product refund conditions</small>
+                        </div>
+                    </div>
+                    <div class="card-body p-4">
+                        <textarea class="form-control" name="refund_refurbished" rows="5"><?= esc(old('refund_refurbished', $record['refund_refurbished'])) ?></textarea>
+                    </div>
+                </div>
+
+                <!-- Return & Exchange -->
+                <div class="card border-0 shadow-sm rounded-lg mb-4">
+                    <div class="card-header bg-white border-bottom py-3 px-4 d-flex align-items-center gap-2">
+                        <span class="p-2 bg-light-indigo rounded-2"><i class="ti ti-arrows-exchange fs-5 text-indigo"></i></span>
+                        <div>
+                            <h6 class="mb-0 fw-semibold">Return and Exchange Policy</h6>
+                            <small class="text-muted">Conditions for returns and product exchanges</small>
+                        </div>
+                    </div>
+                    <div class="card-body p-4">
+                        <textarea class="form-control" name="return_exchange" rows="6"><?= esc(old('return_exchange', $record['return_exchange'])) ?></textarea>
+                    </div>
+                </div>
+
+                <!-- Exceptions -->
+                <div class="card border-0 shadow-sm rounded-lg mb-4">
+                    <div class="card-header bg-white border-bottom py-3 px-4 d-flex align-items-center gap-2">
+                        <span class="p-2 bg-light-danger rounded-2"><i class="ti ti-alert-triangle fs-5 text-danger"></i></span>
+                        <div>
+                            <h6 class="mb-0 fw-semibold">Exceptions to Refunds</h6>
+                            <small class="text-muted">Cases where refunds will NOT be provided</small>
+                        </div>
+                    </div>
+                    <div class="card-body p-4">
+                        <textarea class="form-control" name="exceptions" rows="5"><?= esc(old('exceptions', $record['exceptions'])) ?></textarea>
+                    </div>
+                </div>
+
+                <!-- Process -->
+                <div class="card border-0 shadow-sm rounded-lg mb-4">
+                    <div class="card-header bg-white border-bottom py-3 px-4 d-flex align-items-center gap-2">
+                        <span class="p-2 bg-light-success rounded-2"><i class="ti ti-list-check fs-5 text-success"></i></span>
+                        <div>
+                            <h6 class="mb-0 fw-semibold">Process for Refunds and Returns</h6>
+                            <small class="text-muted">Step-by-step instructions for customers</small>
+                        </div>
+                    </div>
+                    <div class="card-body p-4">
+                        <textarea class="form-control" name="process" rows="4"><?= esc(old('process', $record['process'])) ?></textarea>
+                    </div>
+                </div>
+
+                <!-- Late or Missing Refunds -->
+                <div class="card border-0 shadow-sm rounded-lg mb-4">
+                    <div class="card-header bg-white border-bottom py-3 px-4 d-flex align-items-center gap-2">
+                        <span class="p-2 bg-light-warning rounded-2"><i class="ti ti-clock-pause fs-5 text-warning"></i></span>
+                        <div>
+                            <h6 class="mb-0 fw-semibold">Late or Missing Refunds</h6>
+                            <small class="text-muted">What customers should do if refund is delayed</small>
+                        </div>
+                    </div>
+                    <div class="card-body p-4">
+                        <textarea class="form-control" name="late_missing" rows="4"><?= esc(old('late_missing', $record['late_missing'])) ?></textarea>
+                    </div>
+                </div>
+
+                <!-- Changes to Policy -->
+                <div class="card border-0 shadow-sm rounded-lg mb-4">
+                    <div class="card-header bg-white border-bottom py-3 px-4 d-flex align-items-center gap-2">
+                        <span class="p-2 bg-light-secondary rounded-2"><i class="ti ti-refresh fs-5 text-secondary"></i></span>
+                        <div>
+                            <h6 class="mb-0 fw-semibold">Changes to This Policy</h6>
+                            <small class="text-muted">Policy modification notice statement</small>
+                        </div>
+                    </div>
+                    <div class="card-body p-4">
+                        <textarea class="form-control" name="changes_policy" rows="3"><?= esc(old('changes_policy', $record['changes_policy'])) ?></textarea>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- RIGHT: Save Panel -->
+            <div class="col-lg-4">
+                <div class="card border-0 shadow-sm rounded-lg sticky-top" style="top:80px;">
+                    <div class="card-header bg-white border-bottom py-3 px-4">
+                        <h6 class="mb-0 fw-semibold">Save Changes</h6>
+                    </div>
+                    <div class="card-body p-4">
+                        <button type="submit" class="btn btn-primary w-100 py-2 mb-2">
+                            <i class="ti ti-device-floppy me-1"></i> Update Policy
+                        </button>
+                        <a href="<?= base_url('refund-and-cancellation-policy') ?>" target="_blank" class="btn btn-outline-secondary w-100 mb-2">
+                            <i class="ti ti-external-link me-1"></i> View Live Page
+                        </a>
+                        <hr class="my-3">
+                        <div class="alert alert-light border mb-0 fs-2">
+                            <i class="ti ti-info-circle me-1 text-primary"></i>
+                            <strong>SEO for this page</strong> is managed in
+                            <a href="<?= base_url('seo-admin') ?>">SEO Settings</a>
+                            using route: <code>refund-and-cancellation-policy</code>
+                        </div>
+                    </div>
+                    <!-- Sections guide -->
+                    <div class="card-body border-top pt-3 px-4 pb-4">
+                        <p class="fs-2 fw-semibold text-muted mb-2">PAGE SECTIONS</p>
+                        <ul class="list-unstyled fs-2 text-muted mb-0">
+                            <li class="mb-1"><i class="ti ti-ban text-danger me-1"></i> Cancellation — Rentals</li>
+                            <li class="mb-1"><i class="ti ti-ban text-warning me-1"></i> Cancellation — Refurbished</li>
+                            <li class="mb-1"><i class="ti ti-cash-refund text-success me-1"></i> Refund — Rentals</li>
+                            <li class="mb-1"><i class="ti ti-cash-refund text-primary me-1"></i> Refund — Refurbished</li>
+                            <li class="mb-1"><i class="ti ti-arrows-exchange text-indigo me-1"></i> Return &amp; Exchange</li>
+                            <li class="mb-1"><i class="ti ti-alert-triangle text-danger me-1"></i> Exceptions</li>
+                            <li class="mb-1"><i class="ti ti-list-check text-success me-1"></i> Process</li>
+                            <li class="mb-1"><i class="ti ti-clock-pause text-warning me-1"></i> Late/Missing Refunds</li>
+                            <li class="mb-1"><i class="ti ti-refresh text-secondary me-1"></i> Policy Changes</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </form>
+
+</div>

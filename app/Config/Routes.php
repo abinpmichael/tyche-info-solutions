@@ -38,6 +38,8 @@ $routes->get('services', 'Pages::services');
 $routes->get('contact-us', 'Pages::contactUs');
 $routes->get('terms-conditions', 'Pages::termsConditions');
 $routes->get('privacy-policy', 'Pages::privacyPolicy');
+$routes->get('refund-and-cancellation-policy', 'Pages::refundPolicy');
+$routes->get('site-map', 'Pages::siteMap');
 $routes->get('enquire-now', 'Pages::enquireNow');
 $routes->post('submit-enquiry', 'Pages::submitEnquiry');
 
@@ -96,6 +98,10 @@ $routes->group('', ['filter' => 'auth'], function($routes) {
     
     $routes->get('privacy-admin', 'Admin\PrivacyController::index');
     $routes->post('privacy-admin/update/(:num)', 'Admin\PrivacyController::update/$1');
+
+    // Refund & Cancellation Policy Admin CMS
+    $routes->get('refund-admin', 'Admin\RefundPolicyController::index');
+    $routes->post('refund-admin/update/(:num)', 'Admin\RefundPolicyController::update/$1');
     
     // Enquiries Admin
     $routes->get('enquiries', 'Admin\EnquiriesController::index');

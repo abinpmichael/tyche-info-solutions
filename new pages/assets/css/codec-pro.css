@@ -1,0 +1,29 @@
+
+@font-face { 
+	font-family:codec pro;
+	font-style:normal;
+	font-weight:400;
+	src:local('Codec Pro'), url(assets/fonts/CodecPro-Regular.woff) format('woff')}
+
+	@font-face{font-family:codec pro;font-style:italic;font-weight:400;src:local('Codec Pro'),url(assets/fonts/CodecPro-Italic.woff) format('woff')}
+
+
+	@font-face {
+    font-family: 'CodecProRegular';
+    src: url('../fonts/CodecProRegular.eot');
+    src: url('../fonts/CodecProRegular.eot') format('embedded-opentype'),
+         url('../fonts/CodecProRegular.woff2') format('woff2'),
+         url('../fonts/CodecProRegular.woff') format('woff'),
+         url('../fonts/CodecProRegular.ttf') format('truetype'),
+         url('../fonts/CodecProRegular.svg#CodecProRegular') format('svg');
+}
+
+@font-face {
+    font-family: 'CodecProItalic';
+    src: url('../fonts/CodecProItalic.eot');
+    src: url('../fonts/CodecProItalic.eot') format('embedded-opentype'),
+         url('../fonts/CodecProItalic.woff2') format('woff2'),
+         url('../fonts/CodecProItalic.woff') format('woff'),
+         url('../fonts/CodecProItalic.ttf') format('truetype'),
+         url('../fonts/CodecProItalic.svg#CodecProItalic') format('svg');
+}

@@ -212,18 +212,30 @@
             </div>
         </div>
 <?php if (session()->has('message')): ?>
-    <div class="alert alert-danger ">
-        <?php  
-            // Display the error message
-            echo session()->get('message');
-        ?>
+    <div class="alert alert-success">
+        <?= esc(session()->get('message')) ?>
     </div>
+<?php endif; ?>
+
+<?php if (session()->has('errors')): ?>
+    <div class="alert alert-danger">
+        <ul class="mb-0">
+        <?php 
+            $errors = session()->get('errors');
+            if (is_array($errors)):
+                foreach ($errors as $error): ?>
+                    <li><?= esc($error) ?></li>
+                <?php endforeach;
+            else: ?>
+                <li><?= esc($errors) ?></li>
+            <?php endif; ?>
+        </ul>
+    </div>
+<?php endif; ?>
+
         <div class="form-group">
             <label>Gallery:</label>
             <div class="gallery-images">
-                <!-- Check if the 'errors' session flashdata exists -->
-
-<?php endif; ?>
                 <?php foreach ($gallery as $image): ?>
                     <div class="gallery-item">
                         <img src="<?= base_url("writable/uploads/gallery/" . $image['image']); ?>" width="100" class="mr-2">

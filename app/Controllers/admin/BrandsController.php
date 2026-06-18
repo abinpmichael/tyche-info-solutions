@@ -11,13 +11,13 @@ class BrandsController extends BaseController
     {
         // Ensure the user is logged in
         if (!session()->has('username')) {
-            return redirect()->to('/login');
+            return redirect()->to(base_url('login'));
         }
     }
     public function index()
     {
          if (!session()->has('username')) {
-            return redirect()->to('/login');
+            return redirect()->to(base_url('login'));
         }
         $brandModel = new BrandModel();
         $data['brands'] = $brandModel->findAll();
@@ -139,13 +139,13 @@ class BrandsController extends BaseController
         $data['img'] = $imgName;
     }
         $brandModel->update($id, $data);
-        return redirect()->to('/brands')->with('success', 'Brand updated successfully');
+        return redirect()->to(base_url('brands'))->with('success', 'Brand updated successfully');
     }
 
     public function delete($id)
     {
         $brandModel = new BrandModel();
         $brandModel->delete($id);
-        return redirect()->to('/brands')->with('success', 'Brand deleted successfully');
+        return redirect()->to(base_url('brands'))->with('success', 'Brand deleted successfully');
     }
 }

@@ -8,15 +8,41 @@ class App extends BaseConfig
 {
     /**
      * --------------------------------------------------------------------------
-     * Base Site URL
+     * Base Site URL — Auto-detected from hostname
      * --------------------------------------------------------------------------
+     * Automatically switches between localhost and live server.
+     * No manual changes needed when deploying.
      *
-     * URL to your CodeIgniter root. Typically, this will be your base URL,
-     * WITH a trailing slash:
-     *
-     * E.g., http://example.com/
+     *  Local  → http://localhost/tyche-info-solutions/
+     *  Live   → https://tycheinfosolutions.com/cms/
      */
-   public $baseURL = 'https://tycheinfosolutions.com/cms/';
+    public string $baseURL = '';
+
+    public function __construct()
+    {
+        parent::__construct();
+
+        if (PHP_SAPI === 'cli') {
+            $this->baseURL = 'http://localhost/tyche-info-solutions/';
+            return;
+        }
+
+        $host = $_SERVER['HTTP_HOST'] ?? 'localhost';
+
+        if ($host === 'localhost' || str_starts_with($host, '127.') || $host === '::1') {
+            // ── LOCAL ──────────────────────────────────────────────────────────
+            $this->baseURL = 'http://localhost/tyche-info-solutions/';
+        } else {
+            // ── LIVE SERVER (Auto-detect root or subfolder dynamically) ────────
+            $protocol = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on') ? 'https' : 'http';
+            $scriptName = $_SERVER['SCRIPT_NAME'] ?? '';
+            $dir = str_replace('\\', '/', dirname($scriptName));
+            if ($dir !== '/') {
+                $dir = rtrim($dir, '/') . '/';
+            }
+            $this->baseURL = $protocol . '://' . $host . $dir;
+        }
+    }
 
 
 

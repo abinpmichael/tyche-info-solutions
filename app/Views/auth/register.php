@@ -20,6 +20,6 @@
         <button type="submit">Register</button>
     </form>
 
-    <p>Already have an account? <a href="/login">Login</a></p>
+    <p>Already have an account? <a href="<?= base_url('login') ?>">Login</a></p>
 </body>
 </html>

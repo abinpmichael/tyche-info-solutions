@@ -133,15 +133,14 @@
             
             <div class="col-lg-5 col-xl-6">
                 <div class="mb-6">
-                    <iframe src="https://www.google.com/maps/embed?pb=!4v1731921779732!6m8!1m7!1s_aCD_K2M9TLRogHtaG2qjQ!2m2!1d9.96465096124624!2d76.29622882810366!3f1.531924232742032!4f16.942133920754728!5f1.1404164657993436" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4958.087645598176!2d76.29376067592241!3d9.964713873639113!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b080d13456244c9%3A0x550363485d612e02!2sSYNERGEZE%20GLOBAL%20CONNECT%20PRIVATE%20LIMITED!5e1!3m2!1sen!2sin!4v1747393201191!5m2!1sen!2sin" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                 </div>
                 <div class="border-bottom border-color-1 mb-5">
                     <h3 class="section-title mb-0 pb-2 font-size-28">Our Address</h3>
                 </div>
                 <address class="mb-6">
-                    G52, Kalarikkal, 1st Cross Road, <br> Panampilly Nagar, Kochi - 682036<br> GSTIN: 32ABECS7461B1ZM<br>
-                    <a href="tel:+919946622288" class="font-size-16 text-blue">+91 9946622288</a><br>
-                    <a href="tel:+919946633380" class="font-size-16 text-blue">+91 9946633380</a><br>
+                    G-54, 1st Cross Road, Panampilly Nagar, Kochi - 682036<br> GSTIN: 32ABECS7461B1ZM<br>
+                    <a href="tel:+919946622288" class="font-size-16 text-blue">+91 9946622288</a>  |  <a href="tel:+919946722288" class="font-size-16 text-blue">+91 9946722288</a><br>
                     <a class="font-size-16 text-blue" href="mailto:sales@tycheinfosolutions.com">sales@tycheinfosolutions.com</a>
                 </address>
             </div>

@@ -36,7 +36,7 @@ return view('Admin/header')
         $gallery = $galleryModel->where('model_id', $id)->findAll();
 
         if (!$model) {
-            return redirect()->to('/model')->with('error', 'Model not found.');
+            return redirect()->to(base_url('model'))->with('error', 'Model not found.');
         }
 
         return view('Admin/header').view('Admin/model/view', ['model' => $model, 'gallery' => $gallery]).view('Admin/footer');
@@ -68,26 +68,16 @@ public function store(){
     // Validation rules for inputs
     $rules = [
         'name'        => 'required|string|max_length[255]',
+        's_desc'      => 'required|string|max_length[1000]',
         'type'        => 'required|string|max_length[100]',
-        'processor'   => 'string|max_length[255]',
-        'screen_size' => 'string|max_length[50]',
-        'storage'     => 'string|max_length[100]',
-        'memory'      => 'string|max_length[100]',
-        'warranty'    => 'string|max_length[100]',
-        'graphics'    => 'string|max_length[255]',
-        'status'      => 'string|max_length[50]',
-        'graphics_d'  => 'string',
-        'display_d'   => 'string',
-        'audio_d'     => 'string',
-        'dimensions_d'=> 'string',
-        'ports_d'     => 'string',
-        'about'       => 'string',
-        'b_id'       => 'b_id',
-        /*'meta_title'  => 'string',
-        'meta_desc'  => 'string',*/
-        /* Uncomment if validating images
-        'thumbnail'   => 'is_image[thumbnail]|max_size[thumbnail,2048]',
-        'gallery'     => 'is_image[gallery.*]|max_size[gallery.*,2048]', */
+        'b_id'        => 'required|integer',
+        'processor'   => 'permit_empty|string|max_length[255]',
+        'screen_size' => 'permit_empty|string|max_length[50]',
+        'storage'     => 'permit_empty|string|max_length[100]',
+        'memory'      => 'permit_empty|string|max_length[500]',
+        'warranty'    => 'permit_empty|string|max_length[100]',
+        'graphics'    => 'permit_empty|string|max_length[255]',
+        'status'      => 'permit_empty|string|max_length[50]',
     ];
 
     if (!$this->validate($rules)) {
@@ -107,22 +97,22 @@ public function store(){
         'name'        => $data['name'],
         's_desc'      => $data['s_desc'],
         'type'        => $data['type'],
-        'processor'   => $data['processor'],
-        'screen_size' => $data['screen_size'],
-        'storage'     => $data['storage'],
-        'memory'      => $data['memory'],
-        'warranty'    => $data['warranty'],
-        'graphics'    => $data['graphics'],
-        'status'      => $data['status'],
-        'graphics_d'  => $data['graphics_d'],
-        'display_d'   => $data['display_d'],
-        'audio_d'     => $data['audio_d'],
-        'dimensions_d'=> $data['dimensions_d'],
-        'ports_d'     => $data['ports_d'],
-        'about'       => $data['about'],
-        'meta_title'  => $data['meta_title'],
-        'meta_desc'   => $data['meta_desc'],
-         'b_id'   => $data['b_id'],
+        'processor'   => $data['processor'] ?? '',
+        'screen_size' => $data['screen_size'] ?? '',
+        'storage'     => $data['storage'] ?? '',
+        'memory'      => $data['memory'] ?? '',
+        'warranty'    => $data['warranty'] ?? '',
+        'graphics'    => $data['graphics'] ?? '',
+        'status'      => $data['status'] ?? '1',
+        'graphics_d'  => $data['graphics_d'] ?? '',
+        'display_d'   => $data['display_d'] ?? '',
+        'audio_d'     => $data['audio_d'] ?? '',
+        'dimensions_d'=> $data['dimensions_d'] ?? '',
+        'ports_d'     => $data['ports_d'] ?? '',
+        'about'       => $data['about'] ?? '',
+        'meta_title'  => $data['meta_title'] ?? '',
+        'meta_desc'   => $data['meta_desc'] ?? '',
+        'b_id'        => $data['b_id'],
     ]);
 
     if (!$modelId) {
@@ -130,7 +120,7 @@ public function store(){
     }
 
     // Handle thumbnail upload
-    if ($thumbnail = $files['thumbnail']) {
+    if (isset($files['thumbnail']) && $thumbnail = $files['thumbnail']) {
         if ($thumbnail->isValid() && !$thumbnail->hasMoved()) {
             $thumbnailName = $thumbnail->getRandomName();
             $thumbnail->move(WRITEPATH . 'uploads/thumbnails', $thumbnailName);
@@ -174,7 +164,7 @@ public function store(){
         $product = $productModel->findAll();
 
         if (!$model) {
-            return redirect()->to('/models')->with('error', 'Model not found.');
+            return redirect()->to(base_url('models'))->with('error', 'Model not found.');
         }
 
         return view('Admin/header').view('Admin/model/edit', ['model' => $model, 'gallery' => $gallery,'product' => $product,'brand' => $brand,]).view('Admin/footer');
@@ -186,14 +176,16 @@ public function store(){
 
         $rules = [
             'name'        => 'required|string|max_length[255]',
+            's_desc'      => 'required|string|max_length[1000]',
             'type'        => 'required|string|max_length[100]',
-            'processor'   => 'string|max_length[255]',
-            'screen_size' => 'string|max_length[50]',
-            'storage'     => 'string|max_length[100]',
-            'warranty'    => 'string|max_length[100]',
-            'graphics'    => 'string|max_length[255]',
-            /*'thumbnail'   => 'is_image[thumbnail]|max_size[thumbnail,2048]',
-            'gallery'     => 'is_image[gallery.*]|max_size[gallery.*,2048]',*/
+            'b_id'        => 'required|integer',
+            'processor'   => 'permit_empty|string|max_length[255]',
+            'screen_size' => 'permit_empty|string|max_length[50]',
+            'storage'     => 'permit_empty|string|max_length[100]',
+            'memory'      => 'permit_empty|string|max_length[500]',
+            'warranty'    => 'permit_empty|string|max_length[100]',
+            'graphics'    => 'permit_empty|string|max_length[255]',
+            'status'      => 'permit_empty|string|max_length[50]',
         ];
 
         if (!$this->validate($rules)) {
@@ -211,26 +203,26 @@ public function store(){
             'name'        => $data['name'],
             's_desc'      => $data['s_desc'],
             'type'        => $data['type'],
-            'processor'   => $data['processor'],
-            'screen_size' => $data['screen_size'],
-            'storage'     => $data['storage'],
-            'memory'      => $data['memory'],
-            'warranty'    => $data['warranty'],
-            'graphics'    => $data['graphics'],
-            'status'    => $data['status'],
-            'graphics_d' => $data['graphics_d'],
-            'display_d'     => $data['display_d'],
-            'audio_d'      => $data['audio_d'],
-            'dimensions_d'    => $data['dimensions_d'],
-            'ports_d'    => $data['ports_d'],
-            'about'    => $data['about'],
-            'meta_title'  => $data['meta_title'],
-        'meta_desc'   => $data['meta_desc'],
-        'b_id'         => $data['b_id'],
+            'processor'   => $data['processor'] ?? '',
+            'screen_size' => $data['screen_size'] ?? '',
+            'storage'     => $data['storage'] ?? '',
+            'memory'      => $data['memory'] ?? '',
+            'warranty'    => $data['warranty'] ?? '',
+            'graphics'    => $data['graphics'] ?? '',
+            'status'      => $data['status'] ?? '1',
+            'graphics_d'  => $data['graphics_d'] ?? '',
+            'display_d'   => $data['display_d'] ?? '',
+            'audio_d'     => $data['audio_d'] ?? '',
+            'dimensions_d'=> $data['dimensions_d'] ?? '',
+            'ports_d'     => $data['ports_d'] ?? '',
+            'about'       => $data['about'] ?? '',
+            'meta_title'  => $data['meta_title'] ?? '',
+            'meta_desc'   => $data['meta_desc'] ?? '',
+            'b_id'        => $data['b_id'],
         ]);
 
         // Replace Thumbnail if uploaded
-        if ($thumbnail = $files['thumbnail']) {
+        if (isset($files['thumbnail']) && $thumbnail = $files['thumbnail']) {
             if ($thumbnail->isValid() && !$thumbnail->hasMoved()) {
                 $thumbnailName = $thumbnail->getRandomName();
                 $thumbnail->move(WRITEPATH . 'uploads/thumbnails', $thumbnailName);

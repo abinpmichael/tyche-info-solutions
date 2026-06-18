@@ -11,14 +11,14 @@ class SeoController extends BaseController
     {
         // Ensure user is logged in
         if (!session()->has('username')) {
-            return redirect()->to('/login');
+            return redirect()->to(base_url('login'));
         }
     }
 
     public function index()
     {
         if (!session()->has('username')) {
-            return redirect()->to('/login');
+            return redirect()->to(base_url('login'));
         }
 
         $model = new SeoModel();
@@ -30,7 +30,7 @@ class SeoController extends BaseController
     public function edit($id)
     {
         if (!session()->has('username')) {
-            return redirect()->to('/login');
+            return redirect()->to(base_url('login'));
         }
 
         $model = new SeoModel();
@@ -46,7 +46,7 @@ class SeoController extends BaseController
     public function update($id)
     {
         if (!session()->has('username')) {
-            return redirect()->to('/login');
+            return redirect()->to(base_url('login'));
         }
 
         $model = new SeoModel();
@@ -105,7 +105,7 @@ class SeoController extends BaseController
     public function create()
     {
         if (!session()->has('username')) {
-            return redirect()->to('/login');
+            return redirect()->to(base_url('login'));
         }
 
         return view('Admin/header') . view('Admin/seo/create') . view('Admin/footer');
@@ -114,7 +114,7 @@ class SeoController extends BaseController
     public function store()
     {
         if (!session()->has('username')) {
-            return redirect()->to('/login');
+            return redirect()->to(base_url('login'));
         }
 
         $model = new SeoModel();

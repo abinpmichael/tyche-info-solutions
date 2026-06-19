@@ -50,12 +50,12 @@
 
                 <div class="mb-3">
                     <label class="form-label font-weight-bold">Description Paragraph 1 <span class="text-danger">*</span></label>
-                    <textarea class="form-control" name="desc1" rows="5" required><?= old('desc1', $service['desc1']) ?></textarea>
+                    <textarea class="form-control rich-editor" name="desc1" rows="5" required><?= old('desc1', $service['desc1']) ?></textarea>
                 </div>
 
                 <div class="mb-3">
                     <label class="form-label font-weight-bold">Description Paragraph 2</label>
-                    <textarea class="form-control" name="desc2" rows="5"><?= old('desc2', $service['desc2']) ?></textarea>
+                    <textarea class="form-control rich-editor" name="desc2" rows="5"><?= old('desc2', $service['desc2']) ?></textarea>
                 </div>
 
                 <div class="mb-4">
@@ -71,3 +71,40 @@
         </div>
     </div>
 </div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tinymce/5.9.2/tinymce.min.js" integrity="sha512-Li99Fwr7Wagnan6Di9BMCxQ0DiCJYL11qn2YM/S8tGeSSPCMeMHjEOwWUXDYAu/pcyLhQko2zmvyiCphdUKC7Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script> 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tinymce/5.9.2/jquery.tinymce.min.js" integrity="sha512-nmHWouzLZ3EkXUiXVLpRy/scUPyOOwWkAZ6p8GJnswtVIfSgQ6dFjfCv4VrUA9YgutCRqUDyjHGfQ+/3OEbH4Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tinymce/5.2.2/plugins/advlist/plugin.min.js"></script>
+
+<script>
+tinymce.init({
+    selector: 'textarea.rich-editor',
+    height: 250,
+    plugins: 'image code table lists link media paste emoticons fullscreen',
+    toolbar: 'undo redo | formatselect | bold italic | numlist bullist | alignleft aligncenter alignright | link image table | code fullscreen',
+    image_title: true,
+    automatic_uploads: true,
+    file_picker_types: 'image',
+    file_picker_callback: function (cb, value, meta) {
+        var input = document.createElement('input');
+        input.setAttribute('type', 'file');
+        input.setAttribute('accept', 'image/*');
+        input.onchange = function () {
+            var file = this.files[0];
+            var reader = new FileReader();
+            reader.onload = function () {
+                var id = 'blobid' + (new Date()).getTime();
+                var blobCache = tinymce.activeEditor.editorUpload.blobCache;
+                var base64 = reader.result.split(',')[1];
+                var blobInfo = blobCache.create(id, file, base64);
+                blobCache.add(blobInfo);
+                cb(blobInfo.blobUri(), {title: file.name});
+            };
+            reader.readAsDataURL(file);
+        };
+        input.click();
+    },
+    content_style: 'body { font-family:Helvetica,Arial,sans-serif; font-size:14px }'
+});
+</script>

@@ -54,10 +54,10 @@
                                 <div class="content pl-lg-4">
                                     <h2 class="font-weight-bold text-dark mb-3"><?= esc($service['title']) ?></h2>
                                     <?php if (!empty($service['desc1'])): ?>
-                                        <p class="gyr text-gray-90"><?= esc($service['desc1']) ?></p>
+                                        <div class="gyr text-gray-90"><?= $service['desc1'] ?></div>
                                     <?php endif; ?>
                                     <?php if (!empty($service['desc2'])): ?>
-                                        <p class="gyr text-gray-90"><?= esc($service['desc2']) ?></p>
+                                        <div class="gyr text-gray-90"><?= $service['desc2'] ?></div>
                                     <?php endif; ?>
                                 </div>
                             </div>

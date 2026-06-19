@@ -57,7 +57,7 @@
                     <div class="card-body p-4">
                         <label for="about" class="form-label fw-semibold">About Text <span class="text-danger">*</span></label>
                         <textarea
-                            class="form-control"
+                            class="form-control rich-editor"
                             id="about"
                             name="about"
                             rows="6"
@@ -81,7 +81,7 @@
                     <div class="card-body p-4">
                         <label for="our_mission" class="form-label fw-semibold">Mission Statement <span class="text-danger">*</span></label>
                         <textarea
-                            class="form-control"
+                            class="form-control rich-editor"
                             id="our_mission"
                             name="our_mission"
                             rows="5"
@@ -105,7 +105,7 @@
                     <div class="card-body p-4">
                         <label for="our_vision" class="form-label fw-semibold">Vision Statement <span class="text-danger">*</span></label>
                         <textarea
-                            class="form-control"
+                            class="form-control rich-editor"
                             id="our_vision"
                             name="our_vision"
                             rows="5"
@@ -129,7 +129,7 @@
                     <div class="card-body p-4">
                         <label for="our_values" class="form-label fw-semibold">Values Description <span class="text-danger">*</span></label>
                         <textarea
-                            class="form-control"
+                            class="form-control rich-editor"
                             id="our_values"
                             name="our_values"
                             rows="5"
@@ -222,3 +222,40 @@
     </form>
 
 </div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tinymce/5.9.2/tinymce.min.js" integrity="sha512-Li99Fwr7Wagnan6Di9BMCxQ0DiCJYL11qn2YM/S8tGeSSPCMeMHjEOwWUXDYAu/pcyLhQko2zmvyiCphdUKC7Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script> 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tinymce/5.9.2/jquery.tinymce.min.js" integrity="sha512-nmHWouzLZ3EkXUiXVLpRy/scUPyOOwWkAZ6p8GJnswtVIfSgQ6dFjfCv4VrUA9YgutCRqUDyjHGfQ+/3OEbH4Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tinymce/5.2.2/plugins/advlist/plugin.min.js"></script>
+
+<script>
+tinymce.init({
+    selector: 'textarea.rich-editor',
+    height: 250,
+    plugins: 'image code table lists link media paste emoticons fullscreen',
+    toolbar: 'undo redo | formatselect | bold italic | numlist bullist | alignleft aligncenter alignright | link image table | code fullscreen',
+    image_title: true,
+    automatic_uploads: true,
+    file_picker_types: 'image',
+    file_picker_callback: function (cb, value, meta) {
+        var input = document.createElement('input');
+        input.setAttribute('type', 'file');
+        input.setAttribute('accept', 'image/*');
+        input.onchange = function () {
+            var file = this.files[0];
+            var reader = new FileReader();
+            reader.onload = function () {
+                var id = 'blobid' + (new Date()).getTime();
+                var blobCache = tinymce.activeEditor.editorUpload.blobCache;
+                var base64 = reader.result.split(',')[1];
+                var blobInfo = blobCache.create(id, file, base64);
+                blobCache.add(blobInfo);
+                cb(blobInfo.blobUri(), {title: file.name});
+            };
+            reader.readAsDataURL(file);
+        };
+        input.click();
+    },
+    content_style: 'body { font-family:Helvetica,Arial,sans-serif; font-size:14px }'
+});
+</script>

@@ -253,10 +253,12 @@ if (!function_exists('parseProcessor')) {
                 <div class="col-lg-6 col-12">
                     <div class="about-right wow fadeInUp" data-wow-duration="1s" data-wow-delay=".25s" style="visibility: visible; animation-duration: 1s; animation-delay: 0.25s; animation-name: fadeInUp;">
                         <div class="card-body subhead-60 pt-6 pb-4 px-0 continer-head">
-                            <span class="eleven"><h4>Welcome to Tyche Info Solutions</h4></span>
+                            <span class="eleven">
+                                <<?= esc($home['welcome_title_tag'] ?? 'h4') ?>><?= esc($home['welcome_title'] ?? 'Welcome to Tyche Info Solutions') ?></<?= esc($home['welcome_title_tag'] ?? 'h4') ?>>
+                            </span>
                             <div>
                                 <div class="list-group list-group-horizontal flex-wrap list-group-borderless align-items-center mx-n0dot5">
-                                    <h5>Best Dealers for Rental and Refurbished Services in Kochi</h5>
+                                    <<?= esc($home['welcome_subtitle_tag'] ?? 'h5') ?>><?= esc($home['welcome_subtitle'] ?? 'Best Dealers for Rental and Refurbished Services in Kochi') ?></<?= esc($home['welcome_subtitle_tag'] ?? 'h5') ?>>
                                 </div>
                             </div>
                         </div>
@@ -302,10 +304,12 @@ if (!function_exists('parseProcessor')) {
         <div class="container">
             <div class="row">
                 <div class="card-body subhead-60 px-0 continer-head">
-                    <span class="eleven"><h4>Our Laptops and Desktops Collections</h4></span>
+                    <span class="eleven">
+                        <<?= esc($home['products_title_tag'] ?? 'h4') ?>><?= esc($home['products_title'] ?? 'Our Laptops and Desktops Collections') ?></<?= esc($home['products_title_tag'] ?? 'h4') ?>>
+                    </span>
                     <div>
                         <div class="list-group list-group-horizontal flex-wrap list-group-borderless align-items-center mx-n0dot5">
-                            <h5>Latest collection of Rental & Refurbished laptops and Desktops available.</h5>
+                            <<?= esc($home['products_subtitle_tag'] ?? 'h5') ?>><?= esc($home['products_subtitle'] ?? 'Latest collection of Rental & Refurbished laptops and Desktops available.') ?></<?= esc($home['products_subtitle_tag'] ?? 'h5') ?>>
                         </div>
                     </div>
                 </div>    
@@ -386,10 +390,12 @@ if (!function_exists('parseProcessor')) {
     <div class="bg-gray-1 py-6 mb-5 why-wrapp">
         <div class="container">
             <div class="card-body subhead-60 pb-4 px-0 continer-head">
-                <span class="eleven"><h4>Why Choose Us</h4></span>
+                <span class="eleven">
+                    <<?= esc($home['why_title_tag'] ?? 'h4') ?>><?= esc($home['why_title'] ?? 'Why Choose Us') ?></<?= esc($home['why_title_tag'] ?? 'h4') ?>>
+                </span>
                 <div>
                     <div class="list-group list-group-horizontal flex-wrap list-group-borderless align-items-center mx-n0dot5">
-                        <h5>Tyche Info Solutions is Kerala's leading provider of rental solutions.</h5>
+                        <<?= esc($home['why_subtitle_tag'] ?? 'h5') ?>><?= esc($home['why_subtitle'] ?? 'Tyche Info Solutions is Kerala\'s leading provider of rental solutions.') ?></<?= esc($home['why_subtitle_tag'] ?? 'h5') ?>>
                     </div>
                 </div> 
             </div> 
@@ -433,10 +439,12 @@ if (!function_exists('parseProcessor')) {
     <!-- Our Brands Section -->
     <div class="container mb-8">
         <div class="card-body subhead-60 pb-4 px-0 continer-head">
-            <span class="eleven"><h4>Our Brands</h4></span>
+            <span class="eleven">
+                <<?= esc($home['brands_title_tag'] ?? 'h4') ?>><?= esc($home['brands_title'] ?? 'Our Brands') ?></<?= esc($home['brands_title_tag'] ?? 'h4') ?>>
+            </span>
             <div>
                 <div class="list-group list-group-horizontal flex-wrap list-group-borderless align-items-center mx-n0dot5">
-                    <h5>Bringing you products from the world’s best brands.</h5>
+                    <<?= esc($home['brands_subtitle_tag'] ?? 'h5') ?>><?= esc($home['brands_subtitle'] ?? 'Bringing you products from the world’s best brands.') ?></<?= esc($home['brands_subtitle_tag'] ?? 'h5') ?>>
                 </div>
             </div>
         </div>             

@@ -38,10 +38,10 @@
             <h2 class="mb-1 pb-2 font-size-25">Cancellation Policy</h2>
 
             <h3 class="mb-1 pb-2 font-size-25">For Rentals:</h3>
-            <p class="text-gray-90"><?= nl2br(esc($policy['cancellation_rentals'] ?? '')) ?></p>
+            <div class="text-gray-90"><?= $policy['cancellation_rentals'] ?? '' ?></div>
 
             <h3 class="mb-2 pb-2 font-size-25">For Refurbished Products:</h3>
-            <p class="text-gray-90"><?= nl2br(esc($policy['cancellation_refurbished'] ?? '')) ?></p>
+            <div class="text-gray-90"><?= $policy['cancellation_refurbished'] ?? '' ?></div>
         </div>
 
         <!-- Refund Policy -->
@@ -49,28 +49,28 @@
             <h2 class="mb-1 pb-2 font-size-25">Refund Policy</h2>
 
             <h3 class="mb-1 pb-2 font-size-25">For Rentals:</h3>
-            <p class="text-gray-90"><?= nl2br(esc($policy['refund_rentals'] ?? '')) ?></p>
+            <div class="text-gray-90"><?= $policy['refund_rentals'] ?? '' ?></div>
 
             <h3 class="mb-2 pb-2 font-size-25">For Refurbished Products:</h3>
-            <p class="text-gray-90"><?= nl2br(esc($policy['refund_refurbished'] ?? '')) ?></p>
+            <div class="text-gray-90"><?= $policy['refund_refurbished'] ?? '' ?></div>
         </div>
 
         <!-- Return & Exchange -->
         <div class="mb-5">
             <h2 class="mb-1 pb-2 font-size-25">Return and Exchange Policy</h2>
-            <p class="text-gray-90"><?= nl2br(esc($policy['return_exchange'] ?? '')) ?></p>
+            <div class="text-gray-90"><?= $policy['return_exchange'] ?? '' ?></div>
 
             <h3 class="mb-2 pb-2 font-size-25">Exceptions to Refunds</h3>
-            <p class="text-gray-90"><?= nl2br(esc($policy['exceptions'] ?? '')) ?></p>
+            <div class="text-gray-90"><?= $policy['exceptions'] ?? '' ?></div>
 
             <h3 class="mb-2 pb-2 font-size-25">Process for Refunds and Returns</h3>
-            <p class="text-gray-90"><?= nl2br(esc($policy['process'] ?? '')) ?></p>
+            <div class="text-gray-90"><?= $policy['process'] ?? '' ?></div>
 
             <h3 class="mb-2 pb-2 font-size-25">Late or Missing Refunds</h3>
-            <p class="text-gray-90"><?= nl2br(esc($policy['late_missing'] ?? '')) ?></p>
+            <div class="text-gray-90"><?= $policy['late_missing'] ?? '' ?></div>
 
             <h3 class="mb-2 pb-2 font-size-25">Changes to This Policy</h3>
-            <p class="text-gray-90"><?= nl2br(esc($policy['changes_policy'] ?? '')) ?></p>
+            <div class="text-gray-90"><?= $policy['changes_policy'] ?? '' ?></div>
         </div>
 
     </div>

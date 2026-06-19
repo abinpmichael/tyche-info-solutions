@@ -20,7 +20,143 @@
 ///foreach ($record as $record): ?>
 <form action="<?= base_url('home/update/1'); ?>" method="post" enctype="multipart/form-data">
      <?= csrf_field(); ?>
-    <label>Welcome Note:</label>
+
+    <!-- Heading Customizations -->
+    <div class="card mb-4 border shadow-sm">
+        <div class="card-header bg-light py-3 d-flex align-items-center">
+            <i class="ti ti-typography fs-5 text-primary me-2"></i>
+            <h6 class="mb-0 fw-semibold text-primary">Edit Section Headings & HTML Tags</h6>
+        </div>
+        <div class="card-body">
+            <!-- Section 1: Welcome Section -->
+            <div class="border-bottom pb-3 mb-3">
+                <h6 class="fw-semibold text-dark mb-3">1. Welcome Section</h6>
+                <div class="row">
+                    <div class="col-md-8 mb-3">
+                        <label class="form-label">Welcome Title Text:</label>
+                        <input type="text" name="welcome_title" class="form-control" value="<?= esc($record['welcome_title'] ?? '') ?>">
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label class="form-label">Welcome Title Tag:</label>
+                        <select name="welcome_title_tag" class="form-select">
+                            <?php foreach (['h1','h2','h3','h4','h5','h6','span','p','div'] as $tag): ?>
+                                <option value="<?= $tag ?>" <?= ($record['welcome_title_tag'] ?? 'h4') === $tag ? 'selected' : '' ?>><?= $tag ?></option>
+                            <?php endforeach; ?>
+                        </select>
+                    </div>
+                    <div class="col-md-8 mb-3">
+                        <label class="form-label">Welcome Subtitle Text:</label>
+                        <input type="text" name="welcome_subtitle" class="form-control" value="<?= esc($record['welcome_subtitle'] ?? '') ?>">
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label class="form-label">Welcome Subtitle Tag:</label>
+                        <select name="welcome_subtitle_tag" class="form-select">
+                            <?php foreach (['h1','h2','h3','h4','h5','h6','span','p','div'] as $tag): ?>
+                                <option value="<?= $tag ?>" <?= ($record['welcome_subtitle_tag'] ?? 'h5') === $tag ? 'selected' : '' ?>><?= $tag ?></option>
+                            <?php endforeach; ?>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section 2: Products Section -->
+            <div class="border-bottom pb-3 mb-3">
+                <h6 class="fw-semibold text-dark mb-3">2. Laptops & Desktops Collections Section</h6>
+                <div class="row">
+                    <div class="col-md-8 mb-3">
+                        <label class="form-label">Collections Title Text:</label>
+                        <input type="text" name="products_title" class="form-control" value="<?= esc($record['products_title'] ?? '') ?>">
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label class="form-label">Collections Title Tag:</label>
+                        <select name="products_title_tag" class="form-select">
+                            <?php foreach (['h1','h2','h3','h4','h5','h6','span','p','div'] as $tag): ?>
+                                <option value="<?= $tag ?>" <?= ($record['products_title_tag'] ?? 'h4') === $tag ? 'selected' : '' ?>><?= $tag ?></option>
+                            <?php endforeach; ?>
+                        </select>
+                    </div>
+                    <div class="col-md-8 mb-3">
+                        <label class="form-label">Collections Subtitle Text:</label>
+                        <input type="text" name="products_subtitle" class="form-control" value="<?= esc($record['products_subtitle'] ?? '') ?>">
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label class="form-label">Collections Subtitle Tag:</label>
+                        <select name="products_subtitle_tag" class="form-select">
+                            <?php foreach (['h1','h2','h3','h4','h5','h6','span','p','div'] as $tag): ?>
+                                <option value="<?= $tag ?>" <?= ($record['products_subtitle_tag'] ?? 'h5') === $tag ? 'selected' : '' ?>><?= $tag ?></option>
+                            <?php endforeach; ?>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section 3: Why Choose Us Section -->
+            <div class="border-bottom pb-3 mb-3">
+                <h6 class="fw-semibold text-dark mb-3">3. Why Choose Us Section</h6>
+                <div class="row">
+                    <div class="col-md-8 mb-3">
+                        <label class="form-label">Why Choose Us Title Text:</label>
+                        <input type="text" name="why_title" class="form-control" value="<?= esc($record['why_title'] ?? '') ?>">
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label class="form-label">Why Choose Us Title Tag:</label>
+                        <select name="why_title_tag" class="form-select">
+                            <?php foreach (['h1','h2','h3','h4','h5','h6','span','p','div'] as $tag): ?>
+                                <option value="<?= $tag ?>" <?= ($record['why_title_tag'] ?? 'h4') === $tag ? 'selected' : '' ?>><?= $tag ?></option>
+                            <?php endforeach; ?>
+                        </select>
+                    </div>
+                    <div class="col-md-8 mb-3">
+                        <label class="form-label">Why Choose Us Subtitle Text:</label>
+                        <input type="text" name="why_subtitle" class="form-control" value="<?= esc($record['why_subtitle'] ?? '') ?>">
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label class="form-label">Why Choose Us Subtitle Tag:</label>
+                        <select name="why_subtitle_tag" class="form-select">
+                            <?php foreach (['h1','h2','h3','h4','h5','h6','span','p','div'] as $tag): ?>
+                                <option value="<?= $tag ?>" <?= ($record['why_subtitle_tag'] ?? 'h5') === $tag ? 'selected' : '' ?>><?= $tag ?></option>
+                            <?php endforeach; ?>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section 4: Our Brands Section -->
+            <div>
+                <h6 class="fw-semibold text-dark mb-3">4. Our Brands Section</h6>
+                <div class="row">
+                    <div class="col-md-8 mb-3">
+                        <label class="form-label">Our Brands Title Text:</label>
+                        <input type="text" name="brands_title" class="form-control" value="<?= esc($record['brands_title'] ?? '') ?>">
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label class="form-label">Our Brands Title Tag:</label>
+                        <select name="brands_title_tag" class="form-select">
+                            <?php foreach (['h1','h2','h3','h4','h5','h6','span','p','div'] as $tag): ?>
+                                <option value="<?= $tag ?>" <?= ($record['brands_title_tag'] ?? 'h4') === $tag ? 'selected' : '' ?>><?= $tag ?></option>
+                            <?php endforeach; ?>
+                        </select>
+                    </div>
+                    <div class="col-md-8 mb-3">
+                        <label class="form-label">Our Brands Subtitle Text:</label>
+                        <input type="text" name="brands_subtitle" class="form-control" value="<?= esc($record['brands_subtitle'] ?? '') ?>">
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label class="form-label">Our Brands Subtitle Tag:</label>
+                        <select name="brands_subtitle_tag" class="form-select">
+                            <?php foreach (['h1','h2','h3','h4','h5','h6','span','p','div'] as $tag): ?>
+                                <option value="<?= $tag ?>" <?= ($record['brands_subtitle_tag'] ?? 'h5') === $tag ? 'selected' : '' ?>><?= $tag ?></option>
+                            <?php endforeach; ?>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <hr class="my-4">
+
+    <label class="fw-semibold text-dark mb-2">Welcome Note Content:</label>
     <textarea id="editor" name="welcome_note" class="form-control"><?= $record['welcome_note'] ?></textarea>
     <br>
     <label>Image:</label>

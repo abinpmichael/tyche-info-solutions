@@ -34,7 +34,7 @@
                 <div class="row box pb-6">
                     <div class="col-lg-6">
                         <div class="content">
-                            <p><?= nl2br(esc($about['about'] ?? 'Tyche Info Solutions is a dynamic company dedicated to providing top-notch refurbished and rental solutions built on the principles of quality and affordability.')) ?></p>
+                            <div><?= $about['about'] ?? 'Tyche Info Solutions is a dynamic company dedicated to providing top-notch refurbished and rental solutions built on the principles of quality and affordability.' ?></div>
                             
                             <div class="row justify-content-between" id="cat-slider" style="justify-content: space-around !important;">
                                 <a href="<?= base_url('laptops') ?>" class="col-lg-2 col-3 d-flex flex-column align-items-center mb-3 mb-md-0 link link-dark">
@@ -149,21 +149,21 @@
                     <div class="box-1">
                         <img src="<?= base_url('assets/img/about/mission.png') ?>" alt="Mission">  
                         <h2>Our Mission</h2>
-                        <p><?= nl2br(esc($about['our_mission'] ?? '')) ?></p>
+                        <div><?= $about['our_mission'] ?? '' ?></div>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6 col-12 pb-2">
                     <div class="box-2">
                         <img src="<?= base_url('assets/img/about/vision.png') ?>" alt="Vision">
                         <h2>Our Vision</h2>
-                        <p><?= nl2br(esc($about['our_vision'] ?? '')) ?></p>
+                        <div><?= $about['our_vision'] ?? '' ?></div>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-12 col-12 pb-2">
                     <div class="box-3">
                         <img src="<?= base_url('assets/img/about/values.png') ?>" alt="Values">   
                         <h2>Our Values</h2>
-                        <p><?= nl2br(esc($about['our_values'] ?? '')) ?></p>
+                        <div><?= $about['our_values'] ?? '' ?></div>
                     </div>
                 </div>
             </div>

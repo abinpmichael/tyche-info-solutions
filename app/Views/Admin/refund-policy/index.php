@@ -48,7 +48,7 @@
                         </div>
                     </div>
                     <div class="card-body p-4">
-                        <textarea class="form-control" name="cancellation_rentals" rows="6"><?= esc(old('cancellation_rentals', $record['cancellation_rentals'])) ?></textarea>
+                        <textarea class="form-control rich-editor" name="cancellation_rentals" rows="6"><?= esc(old('cancellation_rentals', $record['cancellation_rentals'])) ?></textarea>
                     </div>
                 </div>
 
@@ -61,7 +61,7 @@
                         </div>
                     </div>
                     <div class="card-body p-4">
-                        <textarea class="form-control" name="cancellation_refurbished" rows="4"><?= esc(old('cancellation_refurbished', $record['cancellation_refurbished'])) ?></textarea>
+                        <textarea class="form-control rich-editor" name="cancellation_refurbished" rows="4"><?= esc(old('cancellation_refurbished', $record['cancellation_refurbished'])) ?></textarea>
                     </div>
                 </div>
 
@@ -75,7 +75,7 @@
                         </div>
                     </div>
                     <div class="card-body p-4">
-                        <textarea class="form-control" name="refund_rentals" rows="5"><?= esc(old('refund_rentals', $record['refund_rentals'])) ?></textarea>
+                        <textarea class="form-control rich-editor" name="refund_rentals" rows="5"><?= esc(old('refund_rentals', $record['refund_rentals'])) ?></textarea>
                     </div>
                 </div>
 
@@ -88,7 +88,7 @@
                         </div>
                     </div>
                     <div class="card-body p-4">
-                        <textarea class="form-control" name="refund_refurbished" rows="5"><?= esc(old('refund_refurbished', $record['refund_refurbished'])) ?></textarea>
+                        <textarea class="form-control rich-editor" name="refund_refurbished" rows="5"><?= esc(old('refund_refurbished', $record['refund_refurbished'])) ?></textarea>
                     </div>
                 </div>
 
@@ -102,7 +102,7 @@
                         </div>
                     </div>
                     <div class="card-body p-4">
-                        <textarea class="form-control" name="return_exchange" rows="6"><?= esc(old('return_exchange', $record['return_exchange'])) ?></textarea>
+                        <textarea class="form-control rich-editor" name="return_exchange" rows="6"><?= esc(old('return_exchange', $record['return_exchange'])) ?></textarea>
                     </div>
                 </div>
 
@@ -116,7 +116,7 @@
                         </div>
                     </div>
                     <div class="card-body p-4">
-                        <textarea class="form-control" name="exceptions" rows="5"><?= esc(old('exceptions', $record['exceptions'])) ?></textarea>
+                        <textarea class="form-control rich-editor" name="exceptions" rows="5"><?= esc(old('exceptions', $record['exceptions'])) ?></textarea>
                     </div>
                 </div>
 
@@ -130,7 +130,7 @@
                         </div>
                     </div>
                     <div class="card-body p-4">
-                        <textarea class="form-control" name="process" rows="4"><?= esc(old('process', $record['process'])) ?></textarea>
+                        <textarea class="form-control rich-editor" name="process" rows="4"><?= esc(old('process', $record['process'])) ?></textarea>
                     </div>
                 </div>
 
@@ -144,7 +144,7 @@
                         </div>
                     </div>
                     <div class="card-body p-4">
-                        <textarea class="form-control" name="late_missing" rows="4"><?= esc(old('late_missing', $record['late_missing'])) ?></textarea>
+                        <textarea class="form-control rich-editor" name="late_missing" rows="4"><?= esc(old('late_missing', $record['late_missing'])) ?></textarea>
                     </div>
                 </div>
 
@@ -158,7 +158,7 @@
                         </div>
                     </div>
                     <div class="card-body p-4">
-                        <textarea class="form-control" name="changes_policy" rows="3"><?= esc(old('changes_policy', $record['changes_policy'])) ?></textarea>
+                        <textarea class="form-control rich-editor" name="changes_policy" rows="3"><?= esc(old('changes_policy', $record['changes_policy'])) ?></textarea>
                     </div>
                 </div>
 
@@ -207,3 +207,40 @@
     </form>
 
 </div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tinymce/5.9.2/tinymce.min.js" integrity="sha512-Li99Fwr7Wagnan6Di9BMCxQ0DiCJYL11qn2YM/S8tGeSSPCMeMHjEOwWUXDYAu/pcyLhQko2zmvyiCphdUKC7Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script> 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tinymce/5.9.2/jquery.tinymce.min.js" integrity="sha512-nmHWouzLZ3EkXUiXVLpRy/scUPyOOwWkAZ6p8GJnswtVIfSgQ6dFjfCv4VrUA9YgutCRqUDyjHGfQ+/3OEbH4Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tinymce/5.2.2/plugins/advlist/plugin.min.js"></script>
+
+<script>
+tinymce.init({
+    selector: 'textarea.rich-editor',
+    height: 250,
+    plugins: 'image code table lists link media paste emoticons fullscreen',
+    toolbar: 'undo redo | formatselect | bold italic | numlist bullist | alignleft aligncenter alignright | link image table | code fullscreen',
+    image_title: true,
+    automatic_uploads: true,
+    file_picker_types: 'image',
+    file_picker_callback: function (cb, value, meta) {
+        var input = document.createElement('input');
+        input.setAttribute('type', 'file');
+        input.setAttribute('accept', 'image/*');
+        input.onchange = function () {
+            var file = this.files[0];
+            var reader = new FileReader();
+            reader.onload = function () {
+                var id = 'blobid' + (new Date()).getTime();
+                var blobCache = tinymce.activeEditor.editorUpload.blobCache;
+                var base64 = reader.result.split(',')[1];
+                var blobInfo = blobCache.create(id, file, base64);
+                blobCache.add(blobInfo);
+                cb(blobInfo.blobUri(), {title: file.name});
+            };
+            reader.readAsDataURL(file);
+        };
+        input.click();
+    },
+    content_style: 'body { font-family:Helvetica,Arial,sans-serif; font-size:14px }'
+});
+</script>

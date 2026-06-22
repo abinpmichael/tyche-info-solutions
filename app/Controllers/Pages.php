@@ -204,23 +204,20 @@ class Pages extends BaseController
         $qty = intval($this->request->getVar('qty') ?? 1);
         if ($qty < 1) $qty = 1;
 
-        $cart = session()->get('cart') ?? [];
+        // Clear previous cart contents to allow direct enquiry of this product
+        $cart = [];
         $key = $id . '_' . $type;
 
-        if (isset($cart[$key])) {
-            $cart[$key]['qty'] += $qty;
-        } else {
-            $cart[$key] = [
-                'id' => $product['id'],
-                'name' => $product['name'],
-                'thumbnail' => $product['thumbnail'],
-                'type' => $type,
-                'qty' => $qty
-            ];
-        }
+        $cart[$key] = [
+            'id' => $product['id'],
+            'name' => $product['name'],
+            'thumbnail' => $product['thumbnail'],
+            'type' => $type,
+            'qty' => $qty
+        ];
 
         session()->set('cart', $cart);
-        return redirect()->to(base_url('cart'))->with('success', 'Product added to cart!');
+        return redirect()->to(base_url('enquire-now'));
     }
 
     public function cartRemove($id)
@@ -256,9 +253,14 @@ class Pages extends BaseController
 
     public function enquireNow()
     {
+        $homeModel = new HomeModel();
+        $homeSettings = $homeModel->find(1);
         $cart = session()->get('cart') ?? [];
         echo view('templates/header', ['title' => 'Enquire Now']);
-        echo view('pages/enquire-now', ['cart' => $cart]);
+        echo view('pages/enquire-now', [
+            'cart' => $cart,
+            'homeSettings' => $homeSettings
+        ]);
         echo view('templates/footer');
     }
 

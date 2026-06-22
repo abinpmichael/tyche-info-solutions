@@ -184,10 +184,11 @@ if ($uri === '' || $uri === 'home') {
                                                     <li class="nav-item hs-has-mega-menu u-header__nav-item <?= ($activeMenu === 'contact') ? 'active' : '' ?>">
                                                         <a class="nav-link u-header__nav-link" href="<?= base_url('contact-us') ?>">Contact Us</a>
                                                     </li>
-                                                    <!-- Cart -->
-                                                    <li class="nav-item hs-has-mega-menu u-header__nav-item">
+                                                    <!-- Cart (Hidden)
+                                                    <li class="nav-item hs-has-mega-menu u-header__nav-item" style="display: none !important;">
                                                         <a class="nav-link u-header__nav-link" href="<?= base_url('cart') ?>">Cart (<?= $cartCount ?>)</a>
                                                     </li>
+                                                    -->
                                                 </ul>
                                                 <!-- End List -->
                                             </div>
@@ -293,8 +294,8 @@ if ($uri === '' || $uri === 'home') {
                                     <li class="nav-item hs-has-mega-menu u-header__nav-item <?= ($activeMenu === 'contact') ? 'active' : '' ?>">
                                         <a class="nav-link u-header__nav-link" href="<?= base_url('contact-us') ?>">Contact Us</a>
                                     </li>
-                                    <!-- Cart Indicator -->
-                                    <li class="nav-item u-header__nav-item ml-xl-auto">
+                                    <!-- Cart Indicator (Hidden)
+                                    <li class="nav-item u-header__nav-item ml-xl-auto" style="display: none !important;">
                                         <a class="nav-link u-header__nav-link d-flex align-items-center text-primary" href="<?= base_url('cart') ?>" title="View Cart">
                                             <i class="fas fa-shopping-bag font-size-22 mr-1"></i>
                                             <?php if ($cartCount > 0): ?>
@@ -302,6 +303,7 @@ if ($uri === '' || $uri === 'home') {
                                             <?php endif; ?>
                                         </a>
                                     </li>
+                                    -->
                                 </ul>
                             </div>
                             <!-- End Navigation -->

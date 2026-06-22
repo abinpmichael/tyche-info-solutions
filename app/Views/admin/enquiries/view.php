@@ -61,16 +61,16 @@
                             <table class="table table-hover table-bordered mb-0">
                                 <thead class="table-light">
                                     <tr>
-                                        <th style="width: 80px;">Thumbnail</th>
+                                        <!-- <th style="width: 80px;">Thumbnail</th>
                                         <th>Product Name</th>
-                                        <th class="text-center">Qty</th>
+                                        <th class="text-center">Qty</th> -->
                                         <th class="text-center">Type</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <?php foreach ($enquiry['items'] as $item): ?>
                                         <tr class="align-middle">
-                                            <td>
+                                            <!-- <td>
                                                 <img class="img-fluid rounded border p-1" src="<?= base_url('writable/uploads/thumbnails/' . $item['thumbnail']) ?>" alt="Thumbnail" style="max-height: 50px; object-fit: contain;">
                                             </td>
                                             <td>
@@ -78,7 +78,7 @@
                                             </td>
                                             <td class="text-center font-weight-bold">
                                                 <?= intval($item['qty']) ?>
-                                            </td>
+                                            </td> -->
                                             <td class="text-center">
                                                 <?php if ($item['type'] === 'rent'): ?>
                                                     <span class="badge bg-primary px-3 py-2 text-uppercase">Rent</span>

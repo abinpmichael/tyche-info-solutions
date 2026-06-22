@@ -19,6 +19,19 @@ class PrivacyPolicyModel extends Model
         'user_rights',
         'retention_data',
         'third_party_links',
-        'policy_changes'
+        'policy_changes',
+        'privacy_title',
+        'privacy_title_tag',
+        'privacy_subtitle',
+        'privacy_subtitle_tag',
+        'collect_title',
+        'use_title',
+        'share_title',
+        'security_title',
+        'cookies_title',
+        'rights_title',
+        'retention_title',
+        'third_party_title',
+        'changes_title'
     ];
 }

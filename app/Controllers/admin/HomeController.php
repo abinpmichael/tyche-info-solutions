@@ -143,6 +143,9 @@ class HomeController extends BaseController
             'brands_title_tag'      => $this->request->getPost('brands_title_tag'),
             'brands_subtitle'       => $this->request->getPost('brands_subtitle'),
             'brands_subtitle_tag'   => $this->request->getPost('brands_subtitle_tag'),
+            'header_script'         => $this->request->getPost('header_script'),
+            'footer_script'         => $this->request->getPost('footer_script'),
+            'show_enquiry_summary'  => intval($this->request->getPost('show_enquiry_summary') ?? 0),
         ];
 
         // Handle image upload

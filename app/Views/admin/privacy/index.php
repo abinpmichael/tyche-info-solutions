@@ -21,15 +21,40 @@
     <form method="post" action="<?= base_url('privacy-admin/update/' . $record['id']) ?>">
         <?= csrf_field() ?>
         
-        <!-- Intro Title -->
-        <div class="mb-3">
-            <label for="intro_title" class="form-label font-weight-bold">Introductory Title</label>
-            <textarea 
-                class="form-control rich-editor" 
-                id="intro_title" 
-                name="intro_title" 
-                rows="2" 
-                required><?= old('intro_title', $record['intro_title']) ?></textarea>
+        <!-- Heading Customizations -->
+        <div class="card mb-4 border shadow-sm">
+            <div class="card-header bg-light py-3 d-flex align-items-center">
+                <i class="ti ti-typography fs-5 text-primary me-2"></i>
+                <h6 class="mb-0 fw-semibold text-primary">Page Heading & HTML Tags</h6>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-8 mb-3">
+                        <label class="form-label fw-semibold">Privacy Title Text:</label>
+                        <input type="text" name="privacy_title" class="form-control" value="<?= esc($record['privacy_title'] ?? '') ?>">
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label class="form-label fw-semibold">Title Tag:</label>
+                        <select name="privacy_title_tag" class="form-select">
+                            <?php foreach (['h1','h2','h3','h4','h5','h6','span','p','div'] as $tag): ?>
+                                <option value="<?= $tag ?>" <?= ($record['privacy_title_tag'] ?? 'h4') === $tag ? 'selected' : '' ?>><?= $tag ?></option>
+                            <?php endforeach; ?>
+                        </select>
+                    </div>
+                    <div class="col-md-8 mb-3">
+                        <label class="form-label fw-semibold">Privacy Subtitle Text:</label>
+                        <input type="text" name="privacy_subtitle" class="form-control" value="<?= esc($record['privacy_subtitle'] ?? '') ?>">
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label class="form-label fw-semibold">Subtitle Tag:</label>
+                        <select name="privacy_subtitle_tag" class="form-select">
+                            <?php foreach (['h1','h2','h3','h4','h5','h6','span','p','div'] as $tag): ?>
+                                <option value="<?= $tag ?>" <?= ($record['privacy_subtitle_tag'] ?? 'h5') === $tag ? 'selected' : '' ?>><?= $tag ?></option>
+                            <?php endforeach; ?>
+                        </select>
+                    </div>
+                </div>
+            </div>
         </div>
 
         <!-- Intro Text -->
@@ -45,7 +70,9 @@
 
         <!-- Info Collect -->
         <div class="mb-3">
-            <label for="info_collect" class="form-label font-weight-bold">Information We Collect</label>
+            <label for="collect_title" class="form-label font-weight-bold">Information We Collect Section Title</label>
+            <input type="text" name="collect_title" id="collect_title" class="form-control mb-2" value="<?= esc($record['collect_title'] ?? '') ?>">
+            <label for="info_collect" class="form-label font-weight-bold">Information We Collect Content</label>
             <textarea 
                 class="form-control rich-editor" 
                 id="info_collect" 
@@ -56,7 +83,9 @@
 
         <!-- Info Use -->
         <div class="mb-3">
-            <label for="info_use" class="form-label font-weight-bold">How We Use Your Information</label>
+            <label for="use_title" class="form-label font-weight-bold">How We Use Your Information Section Title</label>
+            <input type="text" name="use_title" id="use_title" class="form-control mb-2" value="<?= esc($record['use_title'] ?? '') ?>">
+            <label for="info_use" class="form-label font-weight-bold">How We Use Your Information Content</label>
             <textarea 
                 class="form-control rich-editor" 
                 id="info_use" 
@@ -67,7 +96,9 @@
 
         <!-- Info Share -->
         <div class="mb-3">
-            <label for="info_share" class="form-label font-weight-bold">Sharing of Information</label>
+            <label for="share_title" class="form-label font-weight-bold">Sharing of Information Section Title</label>
+            <input type="text" name="share_title" id="share_title" class="form-control mb-2" value="<?= esc($record['share_title'] ?? '') ?>">
+            <label for="info_share" class="form-label font-weight-bold">Sharing of Information Content</label>
             <textarea 
                 class="form-control rich-editor" 
                 id="info_share" 
@@ -78,7 +109,9 @@
 
         <!-- Data Security -->
         <div class="mb-3">
-            <label for="data_security" class="form-label font-weight-bold">Data Security</label>
+            <label for="security_title" class="form-label font-weight-bold">Data Security Section Title</label>
+            <input type="text" name="security_title" id="security_title" class="form-control mb-2" value="<?= esc($record['security_title'] ?? '') ?>">
+            <label for="data_security" class="form-label font-weight-bold">Data Security Content</label>
             <textarea 
                 class="form-control rich-editor" 
                 id="data_security" 
@@ -89,7 +122,9 @@
 
         <!-- Cookies Tracking -->
         <div class="mb-3">
-            <label for="cookies_tracking" class="form-label font-weight-bold">Cookies and Tracking</label>
+            <label for="cookies_title" class="form-label font-weight-bold">Cookies and Tracking Section Title</label>
+            <input type="text" name="cookies_title" id="cookies_title" class="form-control mb-2" value="<?= esc($record['cookies_title'] ?? '') ?>">
+            <label for="cookies_tracking" class="form-label font-weight-bold">Cookies and Tracking Content</label>
             <textarea 
                 class="form-control rich-editor" 
                 id="cookies_tracking" 
@@ -100,7 +135,9 @@
 
         <!-- User Rights -->
         <div class="mb-3">
-            <label for="user_rights" class="form-label font-weight-bold">Your Rights</label>
+            <label for="rights_title" class="form-label font-weight-bold">Your Rights Section Title</label>
+            <input type="text" name="rights_title" id="rights_title" class="form-control mb-2" value="<?= esc($record['rights_title'] ?? '') ?>">
+            <label for="user_rights" class="form-label font-weight-bold">Your Rights Content</label>
             <textarea 
                 class="form-control rich-editor" 
                 id="user_rights" 
@@ -111,7 +148,9 @@
 
         <!-- Retention Data -->
         <div class="mb-3">
-            <label for="retention_data" class="form-label font-weight-bold">Retention of Data</label>
+            <label for="retention_title" class="form-label font-weight-bold">Retention of Data Section Title</label>
+            <input type="text" name="retention_title" id="retention_title" class="form-control mb-2" value="<?= esc($record['retention_title'] ?? '') ?>">
+            <label for="retention_data" class="form-label font-weight-bold">Retention of Data Content</label>
             <textarea 
                 class="form-control rich-editor" 
                 id="retention_data" 
@@ -122,7 +161,9 @@
 
         <!-- Third Party Links -->
         <div class="mb-3">
-            <label for="third_party_links" class="form-label font-weight-bold">Third-Party Links</label>
+            <label for="third_party_title" class="form-label font-weight-bold">Third-Party Links Section Title</label>
+            <input type="text" name="third_party_title" id="third_party_title" class="form-control mb-2" value="<?= esc($record['third_party_title'] ?? '') ?>">
+            <label for="third_party_links" class="form-label font-weight-bold">Third-Party Links Content</label>
             <textarea 
                 class="form-control rich-editor" 
                 id="third_party_links" 
@@ -133,7 +174,9 @@
 
         <!-- Policy Changes -->
         <div class="mb-3">
-            <label for="policy_changes" class="form-label font-weight-bold">Changes to This Policy</label>
+            <label for="changes_title" class="form-label font-weight-bold">Changes to This Policy Section Title</label>
+            <input type="text" name="changes_title" id="changes_title" class="form-control mb-2" value="<?= esc($record['changes_title'] ?? '') ?>">
+            <label for="policy_changes" class="form-label font-weight-bold">Changes to This Policy Content</label>
             <textarea 
                 class="form-control rich-editor" 
                 id="policy_changes" 

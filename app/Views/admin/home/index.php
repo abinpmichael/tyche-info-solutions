@@ -16,8 +16,6 @@
 <?php endif; ?>
 
 <div class="table-responsive">
-<?php// print_r($record);
-///foreach ($record as $record): ?>
 <form action="<?= base_url('home/update/1'); ?>" method="post" enctype="multipart/form-data">
      <?= csrf_field(); ?>
 
@@ -175,11 +173,49 @@
     
    <textarea id="editor2" name="we_serve" class="form-control"><?= $record['we_serve'] ?></textarea>
     <br>
+    <!-- Enquiry Page Settings -->
+    <div class="card mb-4 border shadow-sm">
+        <div class="card-header bg-light py-3 d-flex align-items-center">
+            <i class="ti ti-settings fs-5 text-primary me-2"></i>
+            <h6 class="mb-0 fw-semibold text-primary">Enquiry Page Settings</h6>
+        </div>
+        <div class="card-body">
+            <div class="form-check form-switch mb-2">
+                <input type="hidden" name="show_enquiry_summary" value="0">
+                <input class="form-check-input" type="checkbox" name="show_enquiry_summary" id="showEnquirySummary" value="1" <?= ($record['show_enquiry_summary'] ?? 0) == 1 ? 'checked' : '' ?>>
+                <label class="form-check-label fw-semibold text-dark" for="showEnquirySummary">
+                    Show Selected Products Summary on Enquiry Page
+                </label>
+                <div class="form-text text-muted">
+                    If checked, the selected products summary is displayed. If unchecked, the original advertisement banner image (ads.webp) is displayed instead.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Custom Scripts -->
+    <div class="card mb-4 border shadow-sm">
+        <div class="card-header bg-light py-3 d-flex align-items-center">
+            <i class="ti ti-code fs-5 text-primary me-2"></i>
+            <h6 class="mb-0 fw-semibold text-primary">Custom Scripts (e.g. Tawk.to Chat, Google Analytics)</h6>
+        </div>
+        <div class="card-body">
+            <div class="mb-3">
+                <label class="form-label fw-semibold">Header Scripts:</label>
+                <textarea name="header_script" class="form-control" rows="5" placeholder="<!-- Paste your head scripts here (will be inserted before &lt;/head&gt;) -->"><?= esc($record['header_script'] ?? '') ?></textarea>
+            </div>
+            <div class="mb-3">
+                <label class="form-label fw-semibold">Footer Scripts:</label>
+                <textarea name="footer_script" class="form-control" rows="5" placeholder="<!-- Paste your footer/body scripts here (will be inserted before &lt;/body&gt;) -->"><?= esc($record['footer_script'] ?? '') ?></textarea>
+            </div>
+        </div>
+    </div>
+
     <!-- SEO Notice -->
     <div class="alert alert-info d-flex align-items-start gap-2 mt-3 mb-3" role="alert">
         <i class="ti ti-info-circle fs-5 mt-1"></i>
         <div>
-            <strong>SEO & Script Settings</strong> — Meta title, meta description, keywords, schema markup, and header/footer scripts for this page are managed in the <a href="<?= base_url('seo-admin') ?>" class="alert-link">SEO Settings</a> section.
+            <strong>SEO & Script Settings</strong> — Meta title, meta description, keywords, schema markup, and additional header/footer scripts for this page can also be managed in the <a href="<?= base_url('seo-admin') ?>" class="alert-link">SEO Settings</a> section.
         </div>
     </div>
     <button type="submit" class="btn btn-primary">Update</button>

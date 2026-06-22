@@ -43,6 +43,47 @@
             <!-- LEFT COLUMN: Content Sections -->
             <div class="col-lg-8">
 
+                <!-- Heading Customizations -->
+                <div class="card shadow-sm border-0 rounded-lg mb-4">
+                    <div class="card-header bg-white border-bottom py-3 px-4 d-flex align-items-center gap-2">
+                        <span class="p-2 bg-light-primary rounded-2">
+                            <i class="ti ti-typography fs-5 text-primary"></i>
+                        </span>
+                        <div>
+                            <h6 class="mb-0 fw-semibold">Page Heading & HTML Tags</h6>
+                            <small class="text-muted">Customize the main headings on the About Us page</small>
+                        </div>
+                    </div>
+                    <div class="card-body p-4">
+                        <div class="row">
+                            <div class="col-md-8 mb-3">
+                                <label class="form-label fw-semibold">About Us Title Text:</label>
+                                <input type="text" name="about_title" class="form-control" value="<?= esc($record['about_title'] ?? '') ?>">
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <label class="form-label fw-semibold">Title Tag:</label>
+                                <select name="about_title_tag" class="form-select">
+                                    <?php foreach (['h1','h2','h3','h4','h5','h6','span','p','div'] as $tag): ?>
+                                        <option value="<?= $tag ?>" <?= ($record['about_title_tag'] ?? 'h4') === $tag ? 'selected' : '' ?>><?= $tag ?></option>
+                                    <?php endforeach; ?>
+                                </select>
+                            </div>
+                            <div class="col-md-8 mb-3">
+                                <label class="form-label fw-semibold">About Us Subtitle Text:</label>
+                                <input type="text" name="about_subtitle" class="form-control" value="<?= esc($record['about_subtitle'] ?? '') ?>">
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <label class="form-label fw-semibold">Subtitle Tag:</label>
+                                <select name="about_subtitle_tag" class="form-select">
+                                    <?php foreach (['h1','h2','h3','h4','h5','h6','span','p','div'] as $tag): ?>
+                                        <option value="<?= $tag ?>" <?= ($record['about_subtitle_tag'] ?? 'h5') === $tag ? 'selected' : '' ?>><?= $tag ?></option>
+                                    <?php endforeach; ?>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
                 <!-- About Section -->
                 <div class="card shadow-sm border-0 rounded-lg mb-4">
                     <div class="card-header bg-white border-bottom py-3 px-4 d-flex align-items-center gap-2">
@@ -79,6 +120,10 @@
                         </div>
                     </div>
                     <div class="card-body p-4">
+                        <div class="mb-3">
+                            <label for="mission_title" class="form-label fw-semibold">Mission Section Title</label>
+                            <input type="text" name="mission_title" id="mission_title" class="form-control" value="<?= esc($record['mission_title'] ?? '') ?>">
+                        </div>
                         <label for="our_mission" class="form-label fw-semibold">Mission Statement <span class="text-danger">*</span></label>
                         <textarea
                             class="form-control rich-editor"
@@ -103,6 +148,10 @@
                         </div>
                     </div>
                     <div class="card-body p-4">
+                        <div class="mb-3">
+                            <label for="vision_title" class="form-label fw-semibold">Vision Section Title</label>
+                            <input type="text" name="vision_title" id="vision_title" class="form-control" value="<?= esc($record['vision_title'] ?? '') ?>">
+                        </div>
                         <label for="our_vision" class="form-label fw-semibold">Vision Statement <span class="text-danger">*</span></label>
                         <textarea
                             class="form-control rich-editor"
@@ -127,6 +176,10 @@
                         </div>
                     </div>
                     <div class="card-body p-4">
+                        <div class="mb-3">
+                            <label for="values_title" class="form-label fw-semibold">Values Section Title</label>
+                            <input type="text" name="values_title" id="values_title" class="form-control" value="<?= esc($record['values_title'] ?? '') ?>">
+                        </div>
                         <label for="our_values" class="form-label fw-semibold">Values Description <span class="text-danger">*</span></label>
                         <textarea
                             class="form-control rich-editor"

@@ -21,10 +21,16 @@
     
     <section id="content-section" class="services-page pb-5 pt-2">
         <div class="card-body subhead-60 pb-6 px-0 continer-head">
-            <span class="eleven"><h4>About Tyche Info Solutions</h4></span>
+            <?php 
+            $aboutTitleTag = esc($about['about_title_tag'] ?? 'h4');
+            $aboutTitleText = esc($about['about_title'] ?? 'About Tyche Info Solutions');
+            $aboutSubtitleTag = esc($about['about_subtitle_tag'] ?? 'h5');
+            $aboutSubtitleText = esc($about['about_subtitle'] ?? 'Use Your Gadgets from Tyche Info Solutions');
+            ?>
+            <span class="eleven"><<?= $aboutTitleTag ?>><?= $aboutTitleText ?></<?= $aboutTitleTag ?>></span>
             <div>
                 <div class="list-group list-group-horizontal flex-wrap list-group-borderless align-items-center mx-n0dot5">
-                    <h5>Use Your Gadgets from Tyche Info Solutions</h5>
+                    <<?= $aboutSubtitleTag ?>><?= $aboutSubtitleText ?></<?= $aboutSubtitleTag ?>>
                 </div>
             </div>
         </div>
@@ -148,21 +154,21 @@
                 <div class="col-lg-4 col-md-6 col-12 pb-2">
                     <div class="box-1">
                         <img src="<?= base_url('assets/img/about/mission.png') ?>" alt="Mission">  
-                        <h2>Our Mission</h2>
+                        <h2><?= esc($about['mission_title'] ?? 'Our Mission') ?></h2>
                         <div><?= $about['our_mission'] ?? '' ?></div>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6 col-12 pb-2">
                     <div class="box-2">
                         <img src="<?= base_url('assets/img/about/vision.png') ?>" alt="Vision">
-                        <h2>Our Vision</h2>
+                        <h2><?= esc($about['vision_title'] ?? 'Our Vision') ?></h2>
                         <div><?= $about['our_vision'] ?? '' ?></div>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-12 col-12 pb-2">
                     <div class="box-3">
                         <img src="<?= base_url('assets/img/about/values.png') ?>" alt="Values">   
-                        <h2>Our Values</h2>
+                        <h2><?= esc($about['values_title'] ?? 'Our Values') ?></h2>
                         <div><?= $about['our_values'] ?? '' ?></div>
                     </div>
                 </div>

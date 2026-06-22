@@ -38,6 +38,47 @@
             <!-- LEFT: Content Sections -->
             <div class="col-lg-8">
 
+                <!-- Heading Customizations -->
+                <div class="card border-0 shadow-sm rounded-lg mb-4">
+                    <div class="card-header bg-white border-bottom py-3 px-4 d-flex align-items-center gap-2">
+                        <span class="p-2 bg-light-primary rounded-2">
+                            <i class="ti ti-typography fs-5 text-primary"></i>
+                        </span>
+                        <div>
+                            <h6 class="mb-0 fw-semibold">Page Heading & HTML Tags</h6>
+                            <small class="text-muted">Customize the main headings on the Refund Policy page</small>
+                        </div>
+                    </div>
+                    <div class="card-body p-4">
+                        <div class="row">
+                            <div class="col-md-8 mb-3">
+                                <label class="form-label fw-semibold">Refund Title Text:</label>
+                                <input type="text" name="refund_title" class="form-control" value="<?= esc($record['refund_title'] ?? '') ?>">
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <label class="form-label fw-semibold">Title Tag:</label>
+                                <select name="refund_title_tag" class="form-select">
+                                    <?php foreach (['h1','h2','h3','h4','h5','h6','span','p','div'] as $tag): ?>
+                                        <option value="<?= $tag ?>" <?= ($record['refund_title_tag'] ?? 'h4') === $tag ? 'selected' : '' ?>><?= $tag ?></option>
+                                    <?php endforeach; ?>
+                                </select>
+                            </div>
+                            <div class="col-md-8 mb-3">
+                                <label class="form-label fw-semibold">Refund Subtitle Text:</label>
+                                <input type="text" name="refund_subtitle" class="form-control" value="<?= esc($record['refund_subtitle'] ?? '') ?>">
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <label class="form-label fw-semibold">Subtitle Tag:</label>
+                                <select name="refund_subtitle_tag" class="form-select">
+                                    <?php foreach (['h1','h2','h3','h4','h5','h6','span','p','div'] as $tag): ?>
+                                        <option value="<?= $tag ?>" <?= ($record['refund_subtitle_tag'] ?? 'h5') === $tag ? 'selected' : '' ?>><?= $tag ?></option>
+                                    <?php endforeach; ?>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
                 <!-- Cancellation Policy -->
                 <div class="card border-0 shadow-sm rounded-lg mb-4">
                     <div class="card-header bg-white border-bottom py-3 px-4 d-flex align-items-center gap-2">
@@ -48,6 +89,14 @@
                         </div>
                     </div>
                     <div class="card-body p-4">
+                        <div class="mb-3">
+                            <label for="cancellation_title" class="form-label fw-semibold">Cancellation Policy Section Main Title</label>
+                            <input type="text" name="cancellation_title" id="cancellation_title" class="form-control mb-2" value="<?= esc($record['cancellation_title'] ?? '') ?>">
+                        </div>
+                        <div class="mb-3">
+                            <label for="cancellation_rentals_title" class="form-label fw-semibold">For Rentals Subsection Title</label>
+                            <input type="text" name="cancellation_rentals_title" id="cancellation_rentals_title" class="form-control mb-2" value="<?= esc($record['cancellation_rentals_title'] ?? '') ?>">
+                        </div>
                         <textarea class="form-control rich-editor" name="cancellation_rentals" rows="6"><?= esc(old('cancellation_rentals', $record['cancellation_rentals'])) ?></textarea>
                     </div>
                 </div>
@@ -61,6 +110,10 @@
                         </div>
                     </div>
                     <div class="card-body p-4">
+                        <div class="mb-3">
+                            <label for="cancellation_refurbished_title" class="form-label fw-semibold">For Refurbished Products Subsection Title</label>
+                            <input type="text" name="cancellation_refurbished_title" id="cancellation_refurbished_title" class="form-control mb-2" value="<?= esc($record['cancellation_refurbished_title'] ?? '') ?>">
+                        </div>
                         <textarea class="form-control rich-editor" name="cancellation_refurbished" rows="4"><?= esc(old('cancellation_refurbished', $record['cancellation_refurbished'])) ?></textarea>
                     </div>
                 </div>
@@ -75,6 +128,14 @@
                         </div>
                     </div>
                     <div class="card-body p-4">
+                        <div class="mb-3">
+                            <label for="refund_title_sec" class="form-label fw-semibold">Refund Policy Section Main Title</label>
+                            <input type="text" name="refund_title_sec" id="refund_title_sec" class="form-control mb-2" value="<?= esc($record['refund_title_sec'] ?? '') ?>">
+                        </div>
+                        <div class="mb-3">
+                            <label for="refund_rentals_title" class="form-label fw-semibold">For Rentals Subsection Title</label>
+                            <input type="text" name="refund_rentals_title" id="refund_rentals_title" class="form-control mb-2" value="<?= esc($record['refund_rentals_title'] ?? '') ?>">
+                        </div>
                         <textarea class="form-control rich-editor" name="refund_rentals" rows="5"><?= esc(old('refund_rentals', $record['refund_rentals'])) ?></textarea>
                     </div>
                 </div>
@@ -88,6 +149,10 @@
                         </div>
                     </div>
                     <div class="card-body p-4">
+                        <div class="mb-3">
+                            <label for="refund_refurbished_title" class="form-label fw-semibold">For Refurbished Products Subsection Title</label>
+                            <input type="text" name="refund_refurbished_title" id="refund_refurbished_title" class="form-control mb-2" value="<?= esc($record['refund_refurbished_title'] ?? '') ?>">
+                        </div>
                         <textarea class="form-control rich-editor" name="refund_refurbished" rows="5"><?= esc(old('refund_refurbished', $record['refund_refurbished'])) ?></textarea>
                     </div>
                 </div>
@@ -102,6 +167,10 @@
                         </div>
                     </div>
                     <div class="card-body p-4">
+                        <div class="mb-3">
+                            <label for="return_exchange_title" class="form-label fw-semibold">Return and Exchange Policy Section Title</label>
+                            <input type="text" name="return_exchange_title" id="return_exchange_title" class="form-control mb-2" value="<?= esc($record['return_exchange_title'] ?? '') ?>">
+                        </div>
                         <textarea class="form-control rich-editor" name="return_exchange" rows="6"><?= esc(old('return_exchange', $record['return_exchange'])) ?></textarea>
                     </div>
                 </div>
@@ -116,6 +185,10 @@
                         </div>
                     </div>
                     <div class="card-body p-4">
+                        <div class="mb-3">
+                            <label for="exceptions_title" class="form-label fw-semibold">Exceptions Section Title</label>
+                            <input type="text" name="exceptions_title" id="exceptions_title" class="form-control mb-2" value="<?= esc($record['exceptions_title'] ?? '') ?>">
+                        </div>
                         <textarea class="form-control rich-editor" name="exceptions" rows="5"><?= esc(old('exceptions', $record['exceptions'])) ?></textarea>
                     </div>
                 </div>
@@ -130,6 +203,10 @@
                         </div>
                     </div>
                     <div class="card-body p-4">
+                        <div class="mb-3">
+                            <label for="process_title" class="form-label fw-semibold">Process Section Title</label>
+                            <input type="text" name="process_title" id="process_title" class="form-control mb-2" value="<?= esc($record['process_title'] ?? '') ?>">
+                        </div>
                         <textarea class="form-control rich-editor" name="process" rows="4"><?= esc(old('process', $record['process'])) ?></textarea>
                     </div>
                 </div>
@@ -144,6 +221,10 @@
                         </div>
                     </div>
                     <div class="card-body p-4">
+                        <div class="mb-3">
+                            <label for="late_missing_title" class="form-label fw-semibold">Late or Missing Refunds Section Title</label>
+                            <input type="text" name="late_missing_title" id="late_missing_title" class="form-control mb-2" value="<?= esc($record['late_missing_title'] ?? '') ?>">
+                        </div>
                         <textarea class="form-control rich-editor" name="late_missing" rows="4"><?= esc(old('late_missing', $record['late_missing'])) ?></textarea>
                     </div>
                 </div>
@@ -158,6 +239,10 @@
                         </div>
                     </div>
                     <div class="card-body p-4">
+                        <div class="mb-3">
+                            <label for="changes_policy_title" class="form-label fw-semibold">Changes to This Policy Section Title</label>
+                            <input type="text" name="changes_policy_title" id="changes_policy_title" class="form-control mb-2" value="<?= esc($record['changes_policy_title'] ?? '') ?>">
+                        </div>
                         <textarea class="form-control rich-editor" name="changes_policy" rows="3"><?= esc(old('changes_policy', $record['changes_policy'])) ?></textarea>
                     </div>
                 </div>

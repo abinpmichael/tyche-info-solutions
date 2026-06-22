@@ -21,20 +21,47 @@
     <form method="post" action="<?= base_url('terms-admin/update/' . $record['id']) ?>">
         <?= csrf_field() ?>
         
-        <!-- Intro -->
-        <div class="mb-3">
-            <label for="intro" class="form-label font-weight-bold">Introduction Subtitle</label>
-            <textarea 
-                class="form-control rich-editor" 
-                id="intro" 
-                name="intro" 
-                rows="2" 
-                required><?= old('intro', $record['intro']) ?></textarea>
+        <!-- Heading Customizations -->
+        <div class="card mb-4 border shadow-sm">
+            <div class="card-header bg-light py-3 d-flex align-items-center">
+                <i class="ti ti-typography fs-5 text-primary me-2"></i>
+                <h6 class="mb-0 fw-semibold text-primary">Page Heading & HTML Tags</h6>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-8 mb-3">
+                        <label class="form-label fw-semibold">Terms Title Text:</label>
+                        <input type="text" name="terms_title" class="form-control" value="<?= esc($record['terms_title'] ?? '') ?>">
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label class="form-label fw-semibold">Title Tag:</label>
+                        <select name="terms_title_tag" class="form-select">
+                            <?php foreach (['h1','h2','h3','h4','h5','h6','span','p','div'] as $tag): ?>
+                                <option value="<?= $tag ?>" <?= ($record['terms_title_tag'] ?? 'h4') === $tag ? 'selected' : '' ?>><?= $tag ?></option>
+                            <?php endforeach; ?>
+                        </select>
+                    </div>
+                    <div class="col-md-8 mb-3">
+                        <label class="form-label fw-semibold">Terms Subtitle Text:</label>
+                        <input type="text" name="terms_subtitle" class="form-control" value="<?= esc($record['terms_subtitle'] ?? '') ?>">
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label class="form-label fw-semibold">Subtitle Tag:</label>
+                        <select name="terms_subtitle_tag" class="form-select">
+                            <?php foreach (['h1','h2','h3','h4','h5','h6','span','p','div'] as $tag): ?>
+                                <option value="<?= $tag ?>" <?= ($record['terms_subtitle_tag'] ?? 'h5') === $tag ? 'selected' : '' ?>><?= $tag ?></option>
+                            <?php endforeach; ?>
+                        </select>
+                    </div>
+                </div>
+            </div>
         </div>
 
         <!-- Rental Terms -->
         <div class="mb-3">
-            <label for="rental_terms" class="form-label font-weight-bold">Rental Services Terms</label>
+            <label for="rental_title" class="form-label font-weight-bold">Rental Services Section Title</label>
+            <input type="text" name="rental_title" id="rental_title" class="form-control mb-2" value="<?= esc($record['rental_title'] ?? '') ?>">
+            <label for="rental_terms" class="form-label font-weight-bold">Rental Services Terms Content</label>
             <textarea 
                 class="form-control rich-editor" 
                 id="rental_terms" 
@@ -45,7 +72,9 @@
 
         <!-- Refurbished Terms -->
         <div class="mb-3">
-            <label for="refurbished_terms" class="form-label font-weight-bold">Refurbished Products Terms</label>
+            <label for="refurbished_title" class="form-label font-weight-bold">Refurbished Products Section Title</label>
+            <input type="text" name="refurbished_title" id="refurbished_title" class="form-control mb-2" value="<?= esc($record['refurbished_title'] ?? '') ?>">
+            <label for="refurbished_terms" class="form-label font-weight-bold">Refurbished Products Terms Content</label>
             <textarea 
                 class="form-control rich-editor" 
                 id="refurbished_terms" 
@@ -56,7 +85,9 @@
 
         <!-- Payments Charges -->
         <div class="mb-3">
-            <label for="payments_charges" class="form-label font-weight-bold">Payments and Charges</label>
+            <label for="payments_title" class="form-label font-weight-bold">Payments and Charges Section Title</label>
+            <input type="text" name="payments_title" id="payments_title" class="form-control mb-2" value="<?= esc($record['payments_title'] ?? '') ?>">
+            <label for="payments_charges" class="form-label font-weight-bold">Payments and Charges Content</label>
             <textarea 
                 class="form-control rich-editor" 
                 id="payments_charges" 
@@ -67,7 +98,9 @@
 
         <!-- Delivery Collection -->
         <div class="mb-3">
-            <label for="delivery_collection" class="form-label font-weight-bold">Delivery and Collection</label>
+            <label for="delivery_title" class="form-label font-weight-bold">Delivery and Collection Section Title</label>
+            <input type="text" name="delivery_title" id="delivery_title" class="form-control mb-2" value="<?= esc($record['delivery_title'] ?? '') ?>">
+            <label for="delivery_collection" class="form-label font-weight-bold">Delivery and Collection Content</label>
             <textarea 
                 class="form-control rich-editor" 
                 id="delivery_collection" 
@@ -78,7 +111,9 @@
 
         <!-- Limitation Liability -->
         <div class="mb-3">
-            <label for="limitation_liability" class="form-label font-weight-bold">Limitation of Liability</label>
+            <label for="liability_title" class="form-label font-weight-bold">Limitation of Liability Section Title</label>
+            <input type="text" name="liability_title" id="liability_title" class="form-control mb-2" value="<?= esc($record['liability_title'] ?? '') ?>">
+            <label for="limitation_liability" class="form-label font-weight-bold">Limitation of Liability Content</label>
             <textarea 
                 class="form-control rich-editor" 
                 id="limitation_liability" 
@@ -89,7 +124,9 @@
 
         <!-- Privacy Terms -->
         <div class="mb-3">
-            <label for="privacy_terms" class="form-label font-weight-bold">Privacy Terms</label>
+            <label for="privacy_title_sec" class="form-label font-weight-bold">Privacy Section Title</label>
+            <input type="text" name="privacy_title_sec" id="privacy_title_sec" class="form-control mb-2" value="<?= esc($record['privacy_title_sec'] ?? '') ?>">
+            <label for="privacy_terms" class="form-label font-weight-bold">Privacy Terms Content</label>
             <textarea 
                 class="form-control rich-editor" 
                 id="privacy_terms" 

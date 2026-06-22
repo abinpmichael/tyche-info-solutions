@@ -8,8 +8,7 @@
             <nav class="py-3" aria-label="breadcrumb">
                 <ol class="breadcrumb breadcrumb-md-transparent mb-0">
                     <li class="breadcrumb-item"><a href="<?= base_url() ?>">Home</a></li>
-                    <li class="breadcrumb-item"><a href="<?= base_url('cart') ?>">Cart</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Enquiry Checkout</li>
+                    <li class="breadcrumb-item active" aria-current="page">Enquire Now</li>
                 </ol>
             </nav>
         </div>
@@ -21,9 +20,9 @@
             <h2 class="font-size-30 font-weight-bold text-dark mb-4 text-center">Enquire About Your Selected Products</h2>
 
             <?php if (empty($cart)): ?>
-                <script>window.location.href = "<?= base_url('cart') ?>";</script>
+                <script>window.location.href = "<?= base_url() ?>";</script>
                 <div class="text-center py-6">
-                    <p>Your cart is empty. Redirecting to cart...</p>
+                    <p>Redirecting to home page...</p>
                 </div>
             <?php else: ?>
                 <div class="row">
@@ -74,33 +73,42 @@
                         </div>
                     </div>
 
-                    <!-- Selected Items Summary -->
-                    <div class="col-lg-5">
-                        <div class="card border-0 bg-light p-4 shadow-sm rounded-lg">
-                            <h4 class="font-weight-bold mb-4 text-dark border-bottom pb-2">Enquiry Summary</h4>
-                            
-                            <ul class="list-unstyled mb-4">
-                                <?php foreach ($cart as $item): ?>
-                                    <li class="d-flex align-items-center mb-3 border-bottom pb-3">
-                                        <div class="max-width-70 mr-3">
-                                            <img class="img-fluid rounded border bg-white p-1" src="<?= base_url('writable/uploads/thumbnails/' . $item['thumbnail']) ?>" alt="<?= esc($item['name']) ?>">
-                                        </div>
-                                        <div class="flex-grow-1">
-                                            <h6 class="font-size-14 font-weight-bold text-dark mb-0"><?= esc($item['name']) ?></h6>
-                                            <div class="d-flex align-items-center mt-1">
-                                                <span class="badge badge-pill badge-secondary mr-2 font-size-10 px-2 text-uppercase"><?= esc($item['type']) ?></span>
-                                                <span class="text-muted font-size-12">Qty: <?= intval($item['qty']) ?></span>
+                    <!-- Selected Items Summary or Ad Banner -->
+                    <?php if (!empty($homeSettings['show_enquiry_summary'])): ?>
+                        <div class="col-lg-5">
+                            <div class="card border-0 bg-light p-4 shadow-sm rounded-lg">
+                                <h4 class="font-weight-bold mb-4 text-dark border-bottom pb-2">Enquiry Summary</h4>
+                                
+                                <ul class="list-unstyled mb-4">
+                                    <?php foreach ($cart as $item): ?>
+                                        <li class="d-flex align-items-center mb-3 border-bottom pb-3">
+                                            <div class="max-width-70 mr-3">
+                                                <img class="img-fluid rounded border bg-white p-1" src="<?= base_url('writable/uploads/thumbnails/' . $item['thumbnail']) ?>" alt="<?= esc($item['name']) ?>">
                                             </div>
-                                        </div>
-                                    </li>
-                                <?php endforeach; ?>
-                            </ul>
+                                            <div class="flex-grow-1">
+                                                <h6 class="font-size-14 font-weight-bold text-dark mb-0"><?= esc($item['name']) ?></h6>
+                                                <div class="d-flex align-items-center mt-1">
+                                                    <span class="badge badge-pill badge-secondary mr-2 font-size-10 px-2 text-uppercase"><?= esc($item['type']) ?></span>
+                                                    <span class="text-muted font-size-12">Qty: <?= intval($item['qty']) ?></span>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    <?php endforeach; ?>
+                                </ul>
 
-                            <div class="bg-white border rounded-lg p-3 text-center">
-                                <span class="text-muted font-size-13">No payment gateway or deposits are required at this stage. Submit your enquiry and our support staff will call you back shortly.</span>
+                                <div class="bg-white border rounded-lg p-3 text-center">
+                                    <span class="text-muted font-size-13">No payment gateway or deposits are required at this stage. Submit your enquiry and our support staff will call you back shortly.</span>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    <?php else: ?>
+                        <!-- Ad Image -->
+                        <div class="col-lg-5">
+                            <div class="pl-lg-3 text-center">
+                                <img class="img-fluid rounded shadow-sm" src="<?= base_url('assets/img/ads/ads.webp') ?>" width="100%" alt="Latest Tech Gadgets Ads">
+                            </div>
+                        </div>
+                    <?php endif; ?>
                 </div>
             <?php endif; ?>
         </div>

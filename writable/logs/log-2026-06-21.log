@@ -1,0 +1,96 @@
+ERROR - 2026-06-21 19:18:50 --> Email: sendWithMail throwed ErrorException: mail(): Failed to connect to mailserver at &quot;localhost&quot; port 25, verify your &quot;SMTP&quot; and &quot;smtp_port&quot; setting in php.ini or use ini_set() in C:\xampp\htdocs\tyche-info-solutions\system\Email\Email.php:1762
+Stack trace:
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'mail(): Failed ...', 'C:\\xampp\\htdocs...', 1762)
+#1 C:\xampp\htdocs\tyche-info-solutions\system\Email\Email.php(1762): mail('teslin.m@krishd...', '=?UTF-8?Q?New=2...', 'You have receiv...', 'Date: Sun, 21 J...', '-f no-reply@tyc...')
+#2 C:\xampp\htdocs\tyche-info-solutions\system\Email\Email.php(1694): CodeIgniter\Email\Email->sendWithMail()
+#3 C:\xampp\htdocs\tyche-info-solutions\system\Email\Email.php(1589): CodeIgniter\Email\Email->spoolEmail()
+#4 C:\xampp\htdocs\tyche-info-solutions\app\Controllers\Pages.php(344): CodeIgniter\Email\Email->send()
+#5 C:\xampp\htdocs\tyche-info-solutions\system\CodeIgniter.php(933): App\Controllers\Pages->submitEnquiry()
+#6 C:\xampp\htdocs\tyche-info-solutions\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pages))
+#7 C:\xampp\htdocs\tyche-info-solutions\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\tyche-info-solutions\system\Boot.php(325): CodeIgniter\CodeIgniter->run()
+#9 C:\xampp\htdocs\tyche-info-solutions\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#10 C:\xampp\htdocs\tyche-info-solutions\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#11 {main}
+ERROR - 2026-06-21 19:18:50 --> Email: Unable to send email using PHP mail(). Your server might not be configured to send mail using this method.
+ERROR - 2026-06-21 19:18:50 --> 
+ERROR - 2026-06-21 19:18:52 --> Email: sendWithMail throwed ErrorException: mail(): Failed to connect to mailserver at &quot;localhost&quot; port 25, verify your &quot;SMTP&quot; and &quot;smtp_port&quot; setting in php.ini or use ini_set() in C:\xampp\htdocs\tyche-info-solutions\system\Email\Email.php:1762
+Stack trace:
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'mail(): Failed ...', 'C:\\xampp\\htdocs...', 1762)
+#1 C:\xampp\htdocs\tyche-info-solutions\system\Email\Email.php(1762): mail('abinp.michael@g...', '=?UTF-8?Q?Tyche...', 'Dear Abin Micha...', 'Date: Sun, 21 J...', '-f no-reply@tyc...')
+#2 C:\xampp\htdocs\tyche-info-solutions\system\Email\Email.php(1694): CodeIgniter\Email\Email->sendWithMail()
+#3 C:\xampp\htdocs\tyche-info-solutions\system\Email\Email.php(1589): CodeIgniter\Email\Email->spoolEmail()
+#4 C:\xampp\htdocs\tyche-info-solutions\app\Controllers\Pages.php(371): CodeIgniter\Email\Email->send()
+#5 C:\xampp\htdocs\tyche-info-solutions\system\CodeIgniter.php(933): App\Controllers\Pages->submitEnquiry()
+#6 C:\xampp\htdocs\tyche-info-solutions\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pages))
+#7 C:\xampp\htdocs\tyche-info-solutions\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\tyche-info-solutions\system\Boot.php(325): CodeIgniter\CodeIgniter->run()
+#9 C:\xampp\htdocs\tyche-info-solutions\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#10 C:\xampp\htdocs\tyche-info-solutions\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#11 {main}
+ERROR - 2026-06-21 19:18:52 --> Email: Unable to send email using PHP mail(). Your server might not be configured to send mail using this method.
+ERROR - 2026-06-21 19:18:52 --> 
+ERROR - 2026-06-21 19:29:12 --> Email: sendWithMail throwed ErrorException: mail(): Failed to connect to mailserver at &quot;localhost&quot; port 25, verify your &quot;SMTP&quot; and &quot;smtp_port&quot; setting in php.ini or use ini_set() in C:\xampp\htdocs\tyche-info-solutions\system\Email\Email.php:1762
+Stack trace:
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'mail(): Failed ...', 'C:\\xampp\\htdocs...', 1762)
+#1 C:\xampp\htdocs\tyche-info-solutions\system\Email\Email.php(1762): mail('abinp.michael@g...', '=?UTF-8?Q?New=2...', 'You have receiv...', 'Date: Sun, 21 J...', '-f no-reply@tyc...')
+#2 C:\xampp\htdocs\tyche-info-solutions\system\Email\Email.php(1694): CodeIgniter\Email\Email->sendWithMail()
+#3 C:\xampp\htdocs\tyche-info-solutions\system\Email\Email.php(1589): CodeIgniter\Email\Email->spoolEmail()
+#4 C:\xampp\htdocs\tyche-info-solutions\app\Controllers\Pages.php(349): CodeIgniter\Email\Email->send()
+#5 C:\xampp\htdocs\tyche-info-solutions\system\CodeIgniter.php(933): App\Controllers\Pages->submitEnquiry()
+#6 C:\xampp\htdocs\tyche-info-solutions\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pages))
+#7 C:\xampp\htdocs\tyche-info-solutions\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\tyche-info-solutions\system\Boot.php(325): CodeIgniter\CodeIgniter->run()
+#9 C:\xampp\htdocs\tyche-info-solutions\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#10 C:\xampp\htdocs\tyche-info-solutions\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#11 {main}
+ERROR - 2026-06-21 19:29:12 --> Email: Unable to send email using PHP mail(). Your server might not be configured to send mail using this method.
+ERROR - 2026-06-21 19:29:12 --> 
+ERROR - 2026-06-21 19:29:14 --> Email: sendWithMail throwed ErrorException: mail(): Failed to connect to mailserver at &quot;localhost&quot; port 25, verify your &quot;SMTP&quot; and &quot;smtp_port&quot; setting in php.ini or use ini_set() in C:\xampp\htdocs\tyche-info-solutions\system\Email\Email.php:1762
+Stack trace:
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'mail(): Failed ...', 'C:\\xampp\\htdocs...', 1762)
+#1 C:\xampp\htdocs\tyche-info-solutions\system\Email\Email.php(1762): mail('abinp.michael@g...', '=?UTF-8?Q?Tyche...', 'Dear Abin Micha...', 'Date: Sun, 21 J...', '-f no-reply@tyc...')
+#2 C:\xampp\htdocs\tyche-info-solutions\system\Email\Email.php(1694): CodeIgniter\Email\Email->sendWithMail()
+#3 C:\xampp\htdocs\tyche-info-solutions\system\Email\Email.php(1589): CodeIgniter\Email\Email->spoolEmail()
+#4 C:\xampp\htdocs\tyche-info-solutions\app\Controllers\Pages.php(376): CodeIgniter\Email\Email->send()
+#5 C:\xampp\htdocs\tyche-info-solutions\system\CodeIgniter.php(933): App\Controllers\Pages->submitEnquiry()
+#6 C:\xampp\htdocs\tyche-info-solutions\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pages))
+#7 C:\xampp\htdocs\tyche-info-solutions\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\tyche-info-solutions\system\Boot.php(325): CodeIgniter\CodeIgniter->run()
+#9 C:\xampp\htdocs\tyche-info-solutions\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#10 C:\xampp\htdocs\tyche-info-solutions\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#11 {main}
+ERROR - 2026-06-21 19:29:14 --> Email: Unable to send email using PHP mail(). Your server might not be configured to send mail using this method.
+ERROR - 2026-06-21 19:29:14 --> 
+ERROR - 2026-06-21 19:32:25 --> Email: sendWithMail throwed ErrorException: mail(): Failed to connect to mailserver at &quot;localhost&quot; port 25, verify your &quot;SMTP&quot; and &quot;smtp_port&quot; setting in php.ini or use ini_set() in C:\xampp\htdocs\tyche-info-solutions\system\Email\Email.php:1762
+Stack trace:
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'mail(): Failed ...', 'C:\\xampp\\htdocs...', 1762)
+#1 C:\xampp\htdocs\tyche-info-solutions\system\Email\Email.php(1762): mail('abinp.michael@g...', '=?UTF-8?Q?New=2...', 'You have receiv...', 'Date: Sun, 21 J...', '-f no-reply@tyc...')
+#2 C:\xampp\htdocs\tyche-info-solutions\system\Email\Email.php(1694): CodeIgniter\Email\Email->sendWithMail()
+#3 C:\xampp\htdocs\tyche-info-solutions\system\Email\Email.php(1589): CodeIgniter\Email\Email->spoolEmail()
+#4 C:\xampp\htdocs\tyche-info-solutions\app\Controllers\Pages.php(349): CodeIgniter\Email\Email->send()
+#5 C:\xampp\htdocs\tyche-info-solutions\system\CodeIgniter.php(933): App\Controllers\Pages->submitEnquiry()
+#6 C:\xampp\htdocs\tyche-info-solutions\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pages))
+#7 C:\xampp\htdocs\tyche-info-solutions\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\tyche-info-solutions\system\Boot.php(325): CodeIgniter\CodeIgniter->run()
+#9 C:\xampp\htdocs\tyche-info-solutions\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#10 C:\xampp\htdocs\tyche-info-solutions\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#11 {main}
+ERROR - 2026-06-21 19:32:25 --> Email: Unable to send email using PHP mail(). Your server might not be configured to send mail using this method.
+ERROR - 2026-06-21 19:32:25 --> 
+ERROR - 2026-06-21 19:32:27 --> Email: sendWithMail throwed ErrorException: mail(): Failed to connect to mailserver at &quot;localhost&quot; port 25, verify your &quot;SMTP&quot; and &quot;smtp_port&quot; setting in php.ini or use ini_set() in C:\xampp\htdocs\tyche-info-solutions\system\Email\Email.php:1762
+Stack trace:
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'mail(): Failed ...', 'C:\\xampp\\htdocs...', 1762)
+#1 C:\xampp\htdocs\tyche-info-solutions\system\Email\Email.php(1762): mail('abinp.michael@g...', '=?UTF-8?Q?Tyche...', 'Dear Abin Micha...', 'Date: Sun, 21 J...', '-f no-reply@tyc...')
+#2 C:\xampp\htdocs\tyche-info-solutions\system\Email\Email.php(1694): CodeIgniter\Email\Email->sendWithMail()
+#3 C:\xampp\htdocs\tyche-info-solutions\system\Email\Email.php(1589): CodeIgniter\Email\Email->spoolEmail()
+#4 C:\xampp\htdocs\tyche-info-solutions\app\Controllers\Pages.php(376): CodeIgniter\Email\Email->send()
+#5 C:\xampp\htdocs\tyche-info-solutions\system\CodeIgniter.php(933): App\Controllers\Pages->submitEnquiry()
+#6 C:\xampp\htdocs\tyche-info-solutions\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pages))
+#7 C:\xampp\htdocs\tyche-info-solutions\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\tyche-info-solutions\system\Boot.php(325): CodeIgniter\CodeIgniter->run()
+#9 C:\xampp\htdocs\tyche-info-solutions\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#10 C:\xampp\htdocs\tyche-info-solutions\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#11 {main}
+ERROR - 2026-06-21 19:32:27 --> Email: Unable to send email using PHP mail(). Your server might not be configured to send mail using this method.
+ERROR - 2026-06-21 19:32:27 --> 

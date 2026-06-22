@@ -39,5 +39,6 @@ class HomeModel extends Model
         'brands_title_tag',
         'brands_subtitle',
         'brands_subtitle_tag',
+        'show_enquiry_summary',
     ];
 }

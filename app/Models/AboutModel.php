@@ -7,5 +7,18 @@ class AboutModel extends Model
 {
     protected $table = 'about';
     protected $primaryKey = 'id';
-    protected $allowedFields = ['about', 'img', 'our_mission', 'our_vision', 'our_values'];
+    protected $allowedFields = [
+        'about', 
+        'img', 
+        'our_mission', 
+        'our_vision', 
+        'our_values',
+        'about_title',
+        'about_title_tag',
+        'about_subtitle',
+        'about_subtitle_tag',
+        'mission_title',
+        'vision_title',
+        'values_title'
+    ];
 }

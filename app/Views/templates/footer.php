@@ -166,6 +166,12 @@
         $footerCode = !empty($seo['footer_code']) ? $seo['footer_code'] : ($globalScripts['footer_code'] ?? '');
         
         echo $footerCode;
+
+        // Render Home Footer Custom Scripts
+        $homeRecordForScript = $db->table('home')->where('id', 1)->get()->getRowArray();
+        if (!empty($homeRecordForScript['footer_script'])) {
+            echo $homeRecordForScript['footer_script'];
+        }
         ?>
 </body>
 </html>

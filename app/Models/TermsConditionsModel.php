@@ -18,6 +18,16 @@ class TermsConditionsModel extends Model
         'privacy_terms', 
         'contact_email', 
         'contact_phone1', 
-        'contact_phone2'
+        'contact_phone2',
+        'terms_title',
+        'terms_title_tag',
+        'terms_subtitle',
+        'terms_subtitle_tag',
+        'rental_title',
+        'refurbished_title',
+        'payments_title',
+        'delivery_title',
+        'liability_title',
+        'privacy_title_sec'
     ];
 }

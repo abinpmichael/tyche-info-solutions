@@ -98,6 +98,12 @@ $canonicalUrl = base_url(uri_string());
         <!-- Inject Schema Markups & Head Scripts -->
         <?= $schemaCode ?>
         <?= $headerCode ?>
+        <?php
+        $homeRecordForScript = $db->table('home')->where('id', 1)->get()->getRowArray();
+        if (!empty($homeRecordForScript['header_script'])) {
+            echo $homeRecordForScript['header_script'];
+        }
+        ?>
 
         <!-- Favicon -->
         <link rel="shortcut icon" href="<?= base_url('assets/img/favicon.png') ?>">

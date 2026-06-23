@@ -256,10 +256,24 @@ class Pages extends BaseController
         $homeModel = new HomeModel();
         $homeSettings = $homeModel->find(1);
         $cart = session()->get('cart') ?? [];
+
+        $modelModel = new ModelModel();
+        $laptops = $modelModel->where('type', '1')->where('status', 1)->orderBy('name', 'ASC')->findAll();
+        $desktops = $modelModel->where('type', '2')->where('status', 1)->orderBy('name', 'ASC')->findAll();
+
+        $selectedProductId = $this->request->getVar('product');
+        $selectedProduct = null;
+        if ($selectedProductId) {
+            $selectedProduct = $modelModel->find($selectedProductId);
+        }
+
         echo view('templates/header', ['title' => 'Enquire Now']);
         echo view('pages/enquire-now', [
             'cart' => $cart,
-            'homeSettings' => $homeSettings
+            'homeSettings' => $homeSettings,
+            'laptops' => $laptops,
+            'desktops' => $desktops,
+            'selectedProduct' => $selectedProduct
         ]);
         echo view('templates/footer');
     }
@@ -267,33 +281,84 @@ class Pages extends BaseController
     public function submitEnquiry()
     {
         $validation = \Config\Services::validation();
-        $validation->setRules([
-            'firstName' => 'required',
-            'lastName' => 'required',
-            'emailAddress' => 'required|valid_email',
-            'phone' => 'required'
-        ]);
+        $source = $this->request->getPost('source') ?? 'enquiry';
+
+        if ($source === 'contact') {
+            $validation->setRules([
+                'firstName' => 'required',
+                'lastName' => 'required',
+                'emailAddress' => 'required|valid_email',
+                'phone' => 'required'
+            ]);
+        } else {
+            $validation->setRules([
+                'name' => 'required',
+                'emailAddress' => 'required|valid_email',
+                'phone' => 'required',
+                'location' => 'required',
+                'productModel' => 'required',
+                'buyRent' => 'required'
+            ]);
+        }
 
         if (!$this->validate($validation->getRules())) {
             return redirect()->back()->withInput()->with('error', 'Please fill all required fields correctly.');
         }
 
-        $source = $this->request->getPost('source') ?? 'enquiry';
-        $cart = session()->get('cart') ?? [];
-        if ($source === 'enquiry' && empty($cart)) {
-            return redirect()->to(base_url())->with('error', 'Your cart is empty. Cannot submit enquiry.');
-        }
-
         $enquiryModel = new EnquiryModel();
-        $data = [
-            'first_name' => $this->request->getPost('firstName'),
-            'last_name' => $this->request->getPost('lastName'),
-            'email' => $this->request->getPost('emailAddress'),
-            'phone' => $this->request->getPost('phone'),
-            'subject' => $this->request->getPost('Subject') ?? ($source === 'enquiry' ? 'Product Enquiry' : 'Contact Us Message'),
-            'message' => $this->request->getPost('text'),
-            'items' => json_encode(array_values($cart))
-        ];
+
+        if ($source === 'contact') {
+            $data = [
+                'first_name' => $this->request->getPost('firstName'),
+                'last_name' => $this->request->getPost('lastName'),
+                'email' => $this->request->getPost('emailAddress'),
+                'phone' => $this->request->getPost('phone'),
+                'subject' => $this->request->getPost('Subject') ?? 'Contact Us Message',
+                'message' => $this->request->getPost('text'),
+                'items' => json_encode([])
+            ];
+            $senderName = $data['first_name'] . ' ' . $data['last_name'];
+            $itemsText = "";
+        } else {
+            $productModelId = $this->request->getPost('productModel');
+            $modelModel = new ModelModel();
+            $prod = $modelModel->find($productModelId);
+
+            $cartItems = [];
+            if ($prod) {
+                $cartItems[] = [
+                    'id' => $prod['id'],
+                    'name' => $prod['name'],
+                    'thumbnail' => $prod['thumbnail'] ?? '',
+                    'type' => $this->request->getPost('buyRent'),
+                    'qty' => 1
+                ];
+                $productName = $prod['name'];
+            } else {
+                $cartItems[] = [
+                    'id' => 0,
+                    'name' => $productModelId,
+                    'thumbnail' => '',
+                    'type' => $this->request->getPost('buyRent'),
+                    'qty' => 1
+                ];
+                $productName = $productModelId;
+            }
+
+            $data = [
+                'first_name' => $this->request->getPost('name'),
+                'last_name' => '',
+                'email' => $this->request->getPost('emailAddress'),
+                'phone' => $this->request->getPost('phone'),
+                'location' => $this->request->getPost('location'),
+                'buy_rent' => $this->request->getPost('buyRent'),
+                'subject' => 'Product Enquiry',
+                'message' => $this->request->getPost('text'),
+                'items' => json_encode($cartItems)
+            ];
+            $senderName = $data['first_name'];
+            $itemsText = " - " . $productName . " (Type: " . $data['buy_rent'] . ", Location: " . $data['location'] . ")\n";
+        }
 
         $enquiryModel->save($data);
 
@@ -302,7 +367,6 @@ class Pages extends BaseController
             $email = \Config\Services::email();
             
             $senderEmail = $data['email'];
-            $senderName = $data['first_name'] . ' ' . $data['last_name'];
             
             // Fetch configuration setting from database
             $db = db_connect();
@@ -321,13 +385,6 @@ class Pages extends BaseController
             $email->setTo($adminEmail);
             $email->setFrom('no-reply@tycheinfosolutions.com', $senderName);
             $email->setReplyTo($senderEmail, $senderName);
-            
-            $itemsText = "";
-            if ($source === 'enquiry') {
-                foreach ($cart as $item) {
-                    $itemsText .= " - " . $item['name'] . " (Qty: " . $item['qty'] . ", Type: " . $item['type'] . ")\n";
-                }
-            }
             
             if ($source === 'contact') {
                 $email->setSubject('New Contact Us Message: ' . $data['subject']);

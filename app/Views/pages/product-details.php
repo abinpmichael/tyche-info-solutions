@@ -58,23 +58,10 @@
                             <div class="text-gray-9 font-size-17">Availability: <span class="text-green font-weight-bold">In Stock</span></div>
                         </div>
 
-                        <!-- Booking Form -->
-                        <form action="<?= base_url('cart/add/' . $product['id']) ?>" method="get" class="mb-4">
-                            <div class="d-md-flex align-items-end mb-3">
-                                <div class="max-width-150 mb-4 mb-md-0">
-                                    <h6 class="font-size-14 mb-2">Quantity</h6>
-                                    <div class="quantity-picker d-flex border rounded bg-white" style="width: 120px;">
-                                        <button type="button" class="btn btn-sm btn-light border-0" onclick="decrementQty()">-</button>
-                                        <input type="number" name="qty" id="productQty" class="form-control border-0 text-center font-weight-bold" value="1" min="1" style="width: 50px; height: 32px; background: transparent;" readonly>
-                                        <button type="button" class="btn btn-sm btn-light border-0" onclick="incrementQty()">+</button>
-                                    </div>
-                                </div>
-                                <div class="ml-md-3">
-                                    <button type="submit" name="type" value="buy" class="btn btn-primary-dark transition-3d-hover px-5 mr-2">Buy</button>
-                                    <button type="submit" name="type" value="rent" class="btn btn-primary-dark transition-3d-hover px-5">Rent</button>
-                                </div>
-                            </div>
-                        </form>
+                        <!-- Booking Button -->
+                        <div class="mb-4">
+                            <a href="<?= base_url('enquire-now?product=' . $product['id']) ?>" class="btn btn-primary-dark transition-3d-hover px-5 text-white" style="font-weight: 600;">Enquire to Buy / Rent</a>
+                        </div>
 
                         <!-- Specifications Blocks -->
                         <div class="product__description rte quick-add-hidden">

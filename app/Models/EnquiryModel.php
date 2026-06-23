@@ -8,6 +8,6 @@ class EnquiryModel extends Model
 {
     protected $table = 'enquiries';
     protected $primaryKey = 'id';
-    protected $allowedFields = ['first_name', 'last_name', 'email', 'phone', 'subject', 'message', 'items', 'created_at'];
+    protected $allowedFields = ['first_name', 'last_name', 'email', 'phone', 'subject', 'message', 'items', 'location', 'buy_rent', 'created_at'];
     protected $useTimestamps = false;
 }

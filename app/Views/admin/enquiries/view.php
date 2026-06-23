@@ -31,6 +31,22 @@
                         </h5>
                     </div>
 
+                    <?php if (!empty($enquiry['location'])): ?>
+                        <div class="mb-3 border-bottom pb-2">
+                            <label class="text-muted font-size-12">Location</label>
+                            <h5 class="fw-bold text-dark mb-0"><?= esc($enquiry['location']) ?></h5>
+                        </div>
+                    <?php endif; ?>
+
+                    <?php if (!empty($enquiry['buy_rent'])): ?>
+                        <div class="mb-3 border-bottom pb-2">
+                            <label class="text-muted font-size-12">Enquiry Type (Buy / Rent)</label>
+                            <h5 class="fw-bold mb-0">
+                                <span class="badge bg-primary px-3 py-2 text-uppercase"><?= esc($enquiry['buy_rent']) ?></span>
+                            </h5>
+                        </div>
+                    <?php endif; ?>
+
                     <div class="mb-3 border-bottom pb-2">
                         <label class="text-muted font-size-12">Submission Date</label>
                         <h5 class="fw-bold text-dark mb-0"><?= date('d F Y, h:i A', strtotime($enquiry['created_at'])) ?></h5>
@@ -61,24 +77,28 @@
                             <table class="table table-hover table-bordered mb-0">
                                 <thead class="table-light">
                                     <tr>
-                                        <!-- <th style="width: 80px;">Thumbnail</th>
+                                        <th style="width: 80px;">Thumbnail</th>
                                         <th>Product Name</th>
-                                        <th class="text-center">Qty</th> -->
+                                        <th class="text-center">Qty</th>
                                         <th class="text-center">Type</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <?php foreach ($enquiry['items'] as $item): ?>
                                         <tr class="align-middle">
-                                            <!-- <td>
-                                                <img class="img-fluid rounded border p-1" src="<?= base_url('writable/uploads/thumbnails/' . $item['thumbnail']) ?>" alt="Thumbnail" style="max-height: 50px; object-fit: contain;">
+                                            <td>
+                                                <?php if (!empty($item['thumbnail'])): ?>
+                                                    <img class="img-fluid rounded border p-1" src="<?= base_url('writable/uploads/thumbnails/' . $item['thumbnail']) ?>" alt="Thumbnail" style="max-height: 50px; object-fit: contain;">
+                                                <?php else: ?>
+                                                    <span class="text-muted">No Image</span>
+                                                <?php endif; ?>
                                             </td>
                                             <td>
                                                 <strong><?= esc($item['name']) ?></strong>
                                             </td>
                                             <td class="text-center font-weight-bold">
                                                 <?= intval($item['qty']) ?>
-                                            </td> -->
+                                            </td>
                                             <td class="text-center">
                                                 <?php if ($item['type'] === 'rent'): ?>
                                                     <span class="badge bg-primary px-3 py-2 text-uppercase">Rent</span>
